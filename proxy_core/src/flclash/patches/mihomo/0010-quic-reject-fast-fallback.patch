@@ -1,0 +1,206 @@
+diff --git a/adapter/outbound/reject.go b/adapter/outbound/reject.go
+--- a/adapter/outbound/reject.go
++++ b/adapter/outbound/reject.go
+@@ -2,9 +2,11 @@ package outbound
+ 
+ import (
+ 	"context"
++	"encoding/binary"
+ 	"io"
+ 	"net"
+ 	"net/netip"
++	"sync"
+ 	"time"
+ 
+ 	"github.com/metacubex/mihomo/common/buf"
+@@ -34,7 +36,10 @@ func (r *Reject) ListenPacketContext(ctx context.Context, metadata *C.Metadata)
+ 	if err := r.ResolveUDP(ctx, metadata); err != nil {
+ 		return nil, err
+ 	}
+-	return NewPacketConn(&nopPacketConn{}, r), nil
++	if r.drop {
++		return NewPacketConn(&nopPacketConn{}, r), nil
++	}
++	return NewPacketConn(newRejectPacketConn(metadata.DstPort == 443), r), nil
+ }
+ 
+ func (r *Reject) ResolveUDP(ctx context.Context, metadata *C.Metadata) error {
+@@ -134,5 +140,113 @@ func (npc nopPacketConn) SetReadDeadline(time.Time) error  { return nil }
+ func (npc nopPacketConn) SetWriteDeadline(time.Time) error { return nil }
+ 
++type rejectPacketResponse struct {
++	data []byte
++	addr net.Addr
++}
++
++// rejectPacketConn preserves the normal silent REJECT behavior for arbitrary
++// UDP. For a QUIC Initial sent to UDP/443 it returns a standards-compliant
++// Version Negotiation packet containing only a reserved version. Chromium then
++// marks that QUIC route unsupported and immediately retries the request over
++// TCP instead of waiting for the UDP black-hole timeout. The response is built
++// only after validating the long header and connection-ID bounds, so unrelated
++// UDP/443 payloads remain silently rejected.
++type rejectPacketConn struct {
++	quicFastFallback bool
++	responses        chan rejectPacketResponse
++	closed           chan struct{}
++	closeOnce        sync.Once
++}
++
++func newRejectPacketConn(quicFastFallback bool) *rejectPacketConn {
++	return &rejectPacketConn{
++		quicFastFallback: quicFastFallback,
++		responses:        make(chan rejectPacketResponse, 4),
++		closed:           make(chan struct{}),
++	}
++}
++
++func buildQUICVersionNegotiation(request []byte) ([]byte, bool) {
++	// Long-header byte, version, destination-CID length and source-CID length.
++	if len(request) < 7 || request[0]&0x80 == 0 {
++		return nil, false
++	}
++	offeredVersion := binary.BigEndian.Uint32(request[1:5])
++	if offeredVersion == 0 {
++		return nil, false
++	}
++	destinationLength := int(request[5])
++	if destinationLength > 20 || len(request) < 7+destinationLength {
++		return nil, false
++	}
++	destinationStart := 6
++	sourceLengthIndex := destinationStart + destinationLength
++	sourceLength := int(request[sourceLengthIndex])
++	if sourceLength > 20 || len(request) < sourceLengthIndex+1+sourceLength {
++		return nil, false
++	}
++	sourceStart := sourceLengthIndex + 1
++	destinationCID := request[destinationStart:sourceLengthIndex]
++	sourceCID := request[sourceStart : sourceStart+sourceLength]
++
++	// A Version Negotiation response swaps the client's source and destination
++	// connection IDs. A reserved version deliberately supplies no mutually
++	// supported QUIC version, which is the signal needed for TCP fallback.
++	reservedVersion := uint32(0x0a0a0a0a)
++	if offeredVersion == reservedVersion {
++		reservedVersion = 0x1a2a3a4a
++	}
++	response := make([]byte, 0, 11+destinationLength+sourceLength)
++	response = append(response, 0x80, 0, 0, 0, 0)
++	response = append(response, byte(sourceLength))
++	response = append(response, sourceCID...)
++	response = append(response, byte(destinationLength))
++	response = append(response, destinationCID...)
++	var versionBytes [4]byte
++	binary.BigEndian.PutUint32(versionBytes[:], reservedVersion)
++	response = append(response, versionBytes[:]...)
++	return response, true
++}
++
++func (pc *rejectPacketConn) WriteTo(data []byte, addr net.Addr) (int, error) {
++	if pc.quicFastFallback {
++		if response, ok := buildQUICVersionNegotiation(data); ok {
++			select {
++			case pc.responses <- rejectPacketResponse{data: response, addr: addr}:
++			default:
++			}
++		}
++	}
++	return len(data), nil
++}
++
++func (pc *rejectPacketConn) ReadFrom(data []byte) (int, net.Addr, error) {
++	response, _, addr, err := pc.WaitReadFrom()
++	if err != nil {
++		return 0, nil, err
++	}
++	return copy(data, response), addr, nil
++}
++
++func (pc *rejectPacketConn) WaitReadFrom() ([]byte, func(), net.Addr, error) {
++	select {
++	case response := <-pc.responses:
++		return response.data, nil, response.addr, nil
++	case <-pc.closed:
++		return nil, nil, nil, net.ErrClosed
++	}
++}
++
++func (pc *rejectPacketConn) Close() error {
++	pc.closeOnce.Do(func() { close(pc.closed) })
++	return nil
++}
++
++func (pc *rejectPacketConn) LocalAddr() net.Addr              { return udpAddrIPv4Unspecified }
++func (pc *rejectPacketConn) SetDeadline(time.Time) error      { return nil }
++func (pc *rejectPacketConn) SetReadDeadline(time.Time) error  { return nil }
++func (pc *rejectPacketConn) SetWriteDeadline(time.Time) error { return nil }
++
+ type dropConn struct{}
+ 
+ func (rw dropConn) Read(b []byte) (int, error) { return 0, io.EOF }
+diff --git a/adapter/outbound/reject_test.go b/adapter/outbound/reject_test.go
+new file mode 100644
+--- /dev/null
++++ b/adapter/outbound/reject_test.go
+@@ -0,0 +1,60 @@
++package outbound
++
++import (
++	"bytes"
++	"encoding/binary"
++	"net"
++	"testing"
++)
++
++func TestBuildQUICVersionNegotiation(t *testing.T) {
++	destinationCID := []byte{1, 2, 3, 4, 5, 6, 7, 8}
++	sourceCID := []byte{9, 10, 11, 12}
++	request := []byte{0xc0, 0, 0, 0, 1, byte(len(destinationCID))}
++	request = append(request, destinationCID...)
++	request = append(request, byte(len(sourceCID)))
++	request = append(request, sourceCID...)
++	request = append(request, 0, 0, 0)
++
++	response, ok := buildQUICVersionNegotiation(request)
++	if !ok {
++		t.Fatal("valid QUIC Initial was not recognized")
++	}
++	if response[0]&0x80 == 0 || binary.BigEndian.Uint32(response[1:5]) != 0 {
++		t.Fatalf("invalid Version Negotiation header: %x", response[:5])
++	}
++	if got := int(response[5]); got != len(sourceCID) {
++		t.Fatalf("destination CID length = %d, want %d", got, len(sourceCID))
++	}
++	if got := response[6 : 6+len(sourceCID)]; !bytes.Equal(got, sourceCID) {
++		t.Fatalf("destination CID = %x, want %x", got, sourceCID)
++	}
++	sourceLengthIndex := 6 + len(sourceCID)
++	if got := int(response[sourceLengthIndex]); got != len(destinationCID) {
++		t.Fatalf("source CID length = %d, want %d", got, len(destinationCID))
++	}
++	if got := response[sourceLengthIndex+1 : sourceLengthIndex+1+len(destinationCID)]; !bytes.Equal(got, destinationCID) {
++		t.Fatalf("source CID = %x, want %x", got, destinationCID)
++	}
++	versionOffset := sourceLengthIndex + 1 + len(destinationCID)
++	if version := binary.BigEndian.Uint32(response[versionOffset:]); version == 0 || version == 1 {
++		t.Fatalf("response advertised invalid fallback version %#x", version)
++	}
++}
++
++func TestRejectPacketConnOnlyAnswersQUIC(t *testing.T) {
++	pc := newRejectPacketConn(true)
++	t.Cleanup(func() { _ = pc.Close() })
++	request := []byte{0xc0, 0, 0, 0, 1, 1, 7, 1, 8, 0}
++	target := &net.UDPAddr{IP: net.IPv4(203, 0, 113, 1), Port: 443}
++	if _, err := pc.WriteTo(request, target); err != nil {
++		t.Fatal(err)
++	}
++	response, _, addr, err := pc.WaitReadFrom()
++	if err != nil || len(response) == 0 || addr.String() != target.String() {
++		t.Fatalf("response=(%x, %v, %v), want Version Negotiation from target", response, addr, err)
++	}
++	if response, ok := buildQUICVersionNegotiation([]byte("not quic")); ok || response != nil {
++		t.Fatalf("non-QUIC payload produced response %x", response)
++	}
++}

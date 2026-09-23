@@ -1,0 +1,112 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "settings_container_background",
+      "value": "#E6E8E9"
+    },
+    {
+      "name": "background",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "float_tab_background_blur",
+      "value": "#B3F1F3F5"
+    },
+    {
+      "name": "container_background",
+      "value": "#FFFFFFFF"
+    },
+    {
+      "name": "settings_icon",
+      "value": "#99000000"
+    },
+    {
+      "name": "speed_up_icon",
+      "value": "#FFFFBF52"
+    },
+    {
+      "name": "speed_down_icon",
+      "value": "#ff759bf5"
+    },
+    {
+      "name": "list_item_background_color",
+      "value": "#FFFFFFFF"
+    },
+    {
+      "name": "divider",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "FavoriteProxyDivider",
+      "value": "#0D000000"
+    },
+    {
+      "name": "symbol_logo_name_color",
+      "value": "#E6000000"
+    },
+    {
+      "name": "button_container_background",
+      "value": "#0D000000"
+    },
+    {
+      "name": "back",
+      "value": "#E6E8E9"
+    },
+    {
+      "name": "theme_color_main_cat_blue",
+      "value": "#E61E4377"
+    },
+    {
+      "name": "theme_color_main_yellow",
+      "value": "#ff9926"
+    },
+    {
+      "name": "theme_color_main_red",
+      "value": "#E6D41C26"
+    },
+    {
+      "name": "theme_color_main_purple",
+      "value": "#E6722ED1"
+    },
+    {
+      "name": "theme_color_main_pink",
+      "value": "#E6FB7299"
+    },
+    {
+      "name": "theme_color_main_green",
+      "value": "#E682D41C"
+    },
+    {
+      "name": "shadow",
+      "value": "#1A000000"
+    },
+    {
+      "name": "shadow_button",
+      "value": "#33000000"
+    },
+    {
+      "name": "border",
+      "value": "#33FFFFFF"
+    },
+    {
+      "name": "home_card_background",
+      "value": "#0D000000"
+    },
+    {
+      "name": "px_sec_screen_tabs",
+      "value": "#e5e5e5"
+    },
+    {
+      "name": "px_sec_screen_dot",
+      "value": "#FFE5E5EA"
+    },
+    {
+      "name": "item_title_font",
+      "value": "#E6000000"
+    }
+  ]
+}

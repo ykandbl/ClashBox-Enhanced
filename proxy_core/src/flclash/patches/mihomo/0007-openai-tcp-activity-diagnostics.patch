@@ -1,0 +1,107 @@
+diff --git a/tunnel/connection.go b/tunnel/connection.go
+index 3a66a76e..51ec596d 100644
+--- a/tunnel/connection.go
++++ b/tunnel/connection.go
+@@ -5,6 +5,7 @@ import (
+ 	"errors"
+ 	"net"
+ 	"net/netip"
++	"strings"
+ 	"sync"
+ 	"time"
+ 
+@@ -217,6 +218,60 @@ func closeAllLocalCoon(lAddr string) {
+ 	})
+ }
+ 
+-func handleSocket(inbound, outbound net.Conn) {
++type tcpActivityConn struct {
++	net.Conn
++	direction string
++	target    string
++	startedAt time.Time
++	mu        sync.Mutex
++	lastRead  time.Time
++	readCount uint64
++	totalRead uint64
++}
++
++func (c *tcpActivityConn) Read(buffer []byte) (int, error) {
++	readStartedAt := time.Now()
++	n, err := c.Conn.Read(buffer)
++	readFinishedAt := time.Now()
++	c.mu.Lock()
++	previousReadAt := c.lastRead
++	c.lastRead = readFinishedAt
++	c.readCount++
++	readCount := c.readCount
++	if n > 0 {
++		c.totalRead += uint64(n)
++	}
++	totalRead := c.totalRead
++	c.mu.Unlock()
++	gap := readStartedAt.Sub(c.startedAt)
++	if !previousReadAt.IsZero() {
++		gap = readStartedAt.Sub(previousReadAt)
++	}
++	// This is Debug-only and limited to OpenAI traffic. It records byte counts
++	// and timing only, never payload contents. Logging every read is deliberate:
++	// it lets a real-device trace distinguish an application that never writes
++	// its request from an outbound stream that never returns the response.
++	errText := ""
++	if err != nil {
++		errText = err.Error()
++	}
++	log.Debugln("[TCP-ACTIVITY] target=%s direction=%s seq=%d bytes=%d total=%d wait=%s idle=%s age=%s err=%q",
++		c.target, c.direction, readCount, n, totalRead, readFinishedAt.Sub(readStartedAt), gap,
++		readFinishedAt.Sub(c.startedAt), errText)
++	return n, err
++}
++
++func handleSocket(inbound, outbound net.Conn, metadata *C.Metadata) {
++	target := metadata.RemoteAddress()
++	normalizedTarget := strings.ToLower(target)
++	if strings.Contains(normalizedTarget, "openai.com") || strings.Contains(normalizedTarget, "chatgpt.com") {
++		startedAt := time.Now()
++		inbound = &tcpActivityConn{
++			Conn: inbound, direction: "app-to-core", target: target, startedAt: startedAt,
++		}
++		outbound = &tcpActivityConn{
++			Conn: outbound, direction: "remote-to-core", target: target, startedAt: startedAt,
++		}
++	}
+ 	N.Relay(inbound, outbound)
+ }
+diff --git a/tunnel/tunnel.go b/tunnel/tunnel.go
+index f7192b5f..fb0e5de3 100644
+--- a/tunnel/tunnel.go
++++ b/tunnel/tunnel.go
+@@ -606,7 +606,19 @@ func handleTCPConn(connCtx C.ConnContext) {
+ 			peekMutex.Lock()
+ 			defer peekMutex.Unlock()
+ 			peekBytes, _ = conn.Peek(conn.Buffered())
++			isTLSClientHello := len(peekBytes) >= 3 && peekBytes[0] == 0x16 && peekBytes[1] == 0x03
++			handshakeStartedAt := time.Now()
+ 			_, err = remoteConn.Write(peekBytes)
++			normalizedTarget := strings.ToLower(metadata.RemoteAddress())
++			if strings.Contains(normalizedTarget, "openai.com") || strings.Contains(normalizedTarget, "chatgpt.com") {
++				errText := ""
++				if err != nil {
++					errText = err.Error()
++				}
++				log.Debugln("[TCP-HANDSHAKE] target=%s peek=%d tls=%t write=%s err=%q",
++					metadata.RemoteAddress(), len(peekBytes), isTLSClientHello,
++					time.Since(handshakeStartedAt), errText)
++			}
+ 			if err != nil {
+ 				return
+ 			}
+@@ -632,7 +644,7 @@ func handleTCPConn(connCtx C.ConnContext) {
+ 	peekMutex.Lock()
+ 	defer peekMutex.Unlock()
+ 	_ = conn.SetReadDeadline(time.Time{}) // reset
+-	handleSocket(conn, remoteConn)
++	handleSocket(conn, remoteConn, metadata)
+ }
+ 
+ func logMetadataErr(metadata *C.Metadata, rule C.Rule, proxy C.ProxyAdapter, err error) {

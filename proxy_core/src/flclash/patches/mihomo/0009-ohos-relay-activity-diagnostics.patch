@@ -1,0 +1,152 @@
+diff --git a/tunnel/statistic/tracker.go b/tunnel/statistic/tracker.go
+--- a/tunnel/statistic/tracker.go
++++ b/tunnel/statistic/tracker.go
+@@ -3,6 +3,8 @@ package statistic
+ import (
+ 	"io"
+ 	"net"
++	"strings"
++	"sync"
+ 	"time"
+ 
+ 	"github.com/metacubex/mihomo/common/atomic"
+@@ -10,6 +12,7 @@ import (
+ 	N "github.com/metacubex/mihomo/common/net"
+ 	"github.com/metacubex/mihomo/common/utils"
+ 	C "github.com/metacubex/mihomo/constant"
++	"github.com/metacubex/mihomo/log"
+ 
+ 	"github.com/gofrs/uuid/v5"
+ )
+@@ -42,8 +45,57 @@ type tcpTracker struct {
+ 	manager *Manager
+ 
+ 	pushToManager bool `json:"-"`
++
++	activityEnabled       bool `json:"-"`
++	activityMu            sync.Mutex
++	activityUploadSeq     uint64
++	activityDownloadSeq   uint64
++	activityUploadTotal   int64
++	activityDownloadTotal int64
++	activityLastUpload    time.Time
++	activityLastDownload  time.Time
++	activityCloseLogged   bool
+ }
+ 
++func (tt *tcpTracker) recordActivity(direction string, byteCount int64) {
++	if !tt.activityEnabled || byteCount <= 0 {
++		return
++	}
++	now := time.Now()
++	tt.activityMu.Lock()
++	var seq uint64
++	var total int64
++	var previous time.Time
++	if direction == "app-to-remote" {
++		tt.activityUploadSeq++
++		tt.activityUploadTotal += byteCount
++		seq = tt.activityUploadSeq
++		total = tt.activityUploadTotal
++		previous = tt.activityLastUpload
++		tt.activityLastUpload = now
++	} else {
++		tt.activityDownloadSeq++
++		tt.activityDownloadTotal += byteCount
++		seq = tt.activityDownloadSeq
++		total = tt.activityDownloadTotal
++		previous = tt.activityLastDownload
++		tt.activityLastDownload = now
++	}
++	tt.activityMu.Unlock()
++
++	idle := now.Sub(tt.Start)
++	if !previous.IsZero() {
++		idle = now.Sub(previous)
++	}
++	// The first successful transfer in each direction is always logged. Later
++	// transfers are logged only after an observable idle gap, keeping this
++	// diagnostic useful without flooding the device log or recording payloads.
++	if seq == 1 || idle >= time.Second {
++		log.Debugln("[TCP-FLOW] target=%s direction=%s seq=%d bytes=%d total=%d idle=%s age=%s",
++			tt.Metadata.RemoteAddress(), direction, seq, byteCount, total, idle, now.Sub(tt.Start))
++	}
++}
++
+ func (tt *tcpTracker) ID() string {
+ 	return tt.UUID.String()
+ }
+@@ -59,6 +111,7 @@ func (tt *tcpTracker) Read(b []byte) (int, error) {
+ 		tt.manager.PushDownloaded(download)
+ 	}
+ 	tt.DownloadTotal.Add(download)
++	tt.recordActivity("remote-to-app", download)
+ 	return n, err
+ }
+ 
+@@ -69,6 +122,7 @@ func (tt *tcpTracker) ReadBuffer(buffer *buf.Buffer) (err error) {
+ 		tt.manager.PushDownloaded(download)
+ 	}
+ 	tt.DownloadTotal.Add(download)
++	tt.recordActivity("remote-to-app", download)
+ 	return
+ }
+ 
+@@ -78,6 +132,7 @@ func (tt *tcpTracker) UnwrapReader() (io.Reader, []N.CountFunc) {
+ 			tt.manager.PushDownloaded(download)
+ 		}
+ 		tt.DownloadTotal.Add(download)
++		tt.recordActivity("remote-to-app", download)
+ 	}}
+ }
+ 
+@@ -88,6 +143,7 @@ func (tt *tcpTracker) Write(b []byte) (int, error) {
+ 		tt.manager.PushUploaded(upload)
+ 	}
+ 	tt.UploadTotal.Add(upload)
++	tt.recordActivity("app-to-remote", upload)
+ 	return n, err
+ }
+ 
+@@ -98,6 +154,7 @@ func (tt *tcpTracker) WriteBuffer(buffer *buf.Buffer) (err error) {
+ 		tt.manager.PushUploaded(upload)
+ 	}
+ 	tt.UploadTotal.Add(upload)
++	tt.recordActivity("app-to-remote", upload)
+ 	return
+ }
+ 
+@@ -107,10 +164,20 @@ func (tt *tcpTracker) UnwrapWriter() (io.Writer, []N.CountFunc) {
+ 			tt.manager.PushUploaded(upload)
+ 		}
+ 		tt.UploadTotal.Add(upload)
++		tt.recordActivity("app-to-remote", upload)
+ 	}}
+ }
+ 
+ func (tt *tcpTracker) Close() error {
++	if tt.activityEnabled {
++		tt.activityMu.Lock()
++		if !tt.activityCloseLogged {
++			tt.activityCloseLogged = true
++			log.Debugln("[TCP-FLOW] target=%s event=closed upload=%d download=%d age=%s",
++				tt.Metadata.RemoteAddress(), tt.activityUploadTotal, tt.activityDownloadTotal, time.Since(tt.Start))
++		}
++		tt.activityMu.Unlock()
++	}
+ 	tt.manager.Leave(tt)
+ 	return tt.Conn.Close()
+ }
+@@ -138,6 +205,12 @@ func NewTCPTracker(conn C.Conn, manager *Manager, metadata *C.Metadata, rule C.R
+ 		pushToManager: pushToManager,
+ 	}
+ 
++	normalizedTarget := strings.ToLower(metadata.RemoteAddress())
++	t.activityEnabled = strings.Contains(normalizedTarget, "openai.com") || strings.Contains(normalizedTarget, "chatgpt.com")
++	if t.activityEnabled {
++		log.Debugln("[TCP-FLOW] target=%s event=opened", metadata.RemoteAddress())
++	}
++
+ 	if pushToManager {
+ 		if uploadTotal > 0 {
+ 			manager.PushUploaded(uploadTotal)

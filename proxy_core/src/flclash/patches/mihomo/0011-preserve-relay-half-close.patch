@@ -1,0 +1,23 @@
+diff --git a/tunnel/statistic/tracker.go b/tunnel/statistic/tracker.go
+--- a/tunnel/statistic/tracker.go
++++ b/tunnel/statistic/tracker.go
+@@ -171,0 +172,18 @@
++// Preserve the optional half-close capability of the wrapped transport.
++// Relay uses CloseWrite after one direction reaches EOF; falling back to
++// Close here would tear down the still-live response direction.
++func (tt *tcpTracker) CloseWrite() error {
++	if closer, ok := tt.Conn.(interface{ CloseWrite() error }); ok {
++		return closer.CloseWrite()
++	}
++	return tt.Conn.Close()
++}
++
++// Keep read-side half-close available to callers that use the tracker as a
++// transparent net.Conn wrapper.
++func (tt *tcpTracker) CloseRead() error {
++	if closer, ok := tt.Conn.(interface{ CloseRead() error }); ok {
++		return closer.CloseRead()
++	}
++	return tt.Conn.Close()
++}
++

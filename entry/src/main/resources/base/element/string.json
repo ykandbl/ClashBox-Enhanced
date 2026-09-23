@@ -1,0 +1,2712 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "ClashBox"
+    },
+    {
+      "name": "Home",
+      "value": "主页"
+    },
+    {
+      "name": "Proxy",
+      "value": "代理"
+    },
+    {
+      "name": "Configuration",
+      "value": "配置"
+    },
+    {
+      "name": "configuration_shared",
+      "value": "配置分享"
+    },
+    {
+      "name": "More",
+      "value": "更多"
+    },
+    {
+      "name": "Settings",
+      "value": "设置"
+    },
+    {
+      "name": "Speed",
+      "value": "网络速率"
+    },
+    {
+      "name": "Mode",
+      "value": "分流模式"
+    },
+    {
+      "name": "Rule",
+      "value": "规则"
+    },
+    {
+      "name": "Overall",
+      "value": "全局"
+    },
+    {
+      "name": "Direct",
+      "value": "直连"
+    },
+    {
+      "name": "CellularData",
+      "value": "流量统计"
+    },
+    {
+      "name": "CurrentNode",
+      "value": "当前节点"
+    },
+    {
+      "name": "CurrentConfiguration",
+      "value": "当前配置"
+    },
+    {
+      "name": "PublicNetwork",
+      "value": "IP地址"
+    },
+    {
+      "name": "Switch",
+      "value": "切换"
+    },
+    {
+      "name": "CellularData_Statistics_explanation",
+      "value": "设置每月流量以启用"
+    },
+    {
+      "name": "FavoriteProxy",
+      "value": "收藏节点"
+    },
+    {
+      "name": "FavoriteConfiguration",
+      "value": "收藏配置"
+    },
+    {
+      "name": "Log",
+      "value": "日志"
+    },
+    {
+      "name": "Resources",
+      "value": "资源"
+    },
+    {
+      "name": "Request",
+      "value": "请求"
+    },
+    {
+      "name": "Connect",
+      "value": "连接"
+    },
+    {
+      "name": "Overwrite",
+      "value": "覆写"
+    },
+    {
+      "name": "AccessControl",
+      "value": "访问控制"
+    },
+    {
+      "name": "EnableLoggerPrompt",
+      "value": "请在右上角点击”启用日志记录“"
+    },
+    {
+      "name": "EnableLogger",
+      "value": "启用日志记录"
+    },
+    {
+      "name": "ClearLogs",
+      "value": "清空日志"
+    },
+    {
+      "name": "ExportLog",
+      "value": "导出日志"
+    },
+    {
+      "name": "none",
+      "value": "暂无"
+    },
+    {
+      "name": "AddConfig",
+      "value": "添加配置"
+    },
+    {
+      "name": "Basic",
+      "value": "基础"
+    },
+    {
+      "name": "Network",
+      "value": "网络"
+    },
+    {
+      "name": "DNS",
+      "value": "DNS"
+    },
+    {
+      "name": "Language",
+      "value": "语言"
+    },
+    {
+      "name": "Appearance",
+      "value": "外观"
+    },
+    {
+      "name": "Backup_Recovery",
+      "value": "备份与恢复"
+    },
+    {
+      "name": "Notice",
+      "value": "通知与反馈"
+    },
+    {
+      "name": "Backgrounder",
+      "value": "后台运行"
+    },
+    {
+      "name": "WipeData",
+      "value": "清空数据"
+    },
+    {
+      "name": "agreement_privacy",
+      "value": "用户协议与隐私政策"
+    },
+    {
+      "name": "About",
+      "value": "关于"
+    },
+    {
+      "name": "Language_Subtitle",
+      "value": "简体中文(默认)"
+    },
+    {
+      "name": "AppearanceSubtitle",
+      "value": "深色模式、主题色、动画"
+    },
+    {
+      "name": "BackupSubtitle",
+      "value": "导出备份、导入备份、自动同步"
+    },
+    {
+      "name": "ApplicationicationLockSubtitle",
+      "value": "设置应用锁、指纹/人脸解锁"
+    },
+    {
+      "name": "subtitle",
+      "value": "实时网速、声音与震动反馈"
+    },
+    {
+      "name": "BackgrounderSubtitle",
+      "value": "模拟长时任务运行"
+    },
+    {
+      "name": "WipeDataSubtitle",
+      "value": "删除应用的所有数据"
+    },
+    {
+      "name": "already_open",
+      "value": "已开启"
+    },
+    {
+      "name": "already_close",
+      "value": "已关闭"
+    },
+    {
+      "name": "Edit",
+      "value": "编辑"
+    },
+    {
+      "name": "Tabs",
+      "value": "标签页(默认)"
+    },
+    {
+      "name": "List",
+      "value": "列表"
+    },
+    {
+      "name": "Default",
+      "value": "默认"
+    },
+    {
+      "name": "Delay",
+      "value": "延迟"
+    },
+    {
+      "name": "Name",
+      "value": "名称"
+    },
+    {
+      "name": "Daily_Experience",
+      "value": "日常体验推荐"
+    },
+    {
+      "name": "Wide",
+      "value": "宽(单列)"
+    },
+    {
+      "name": "Thin",
+      "value": "窄(多列)"
+    },
+    {
+      "name": "Mini",
+      "value": "迷你(默认多列)"
+    },
+    {
+      "name": "Packet_mode",
+      "value": "分组方式"
+    },
+    {
+      "name": "Arrangement",
+      "value": "排列方式"
+    },
+    {
+      "name": "Card_Size",
+      "value": "卡片尺寸"
+    },
+    {
+      "name": "Collect",
+      "value": "收藏"
+    },
+    {
+      "name": "Test_Delay",
+      "value": "测速延迟"
+    },
+    {
+      "name": "Test_Speed",
+      "value": "测试速度"
+    },
+    {
+      "name": "Delay_Speed",
+      "value": "速度和延迟的区别"
+    },
+    {
+      "name": "Reset_overwrite_settings",
+      "value": "重置覆写设置"
+    },
+    {
+      "name": "Reset_overwrite_settings_subtitle",
+      "value": "将覆写重置设为默认值"
+    },
+    {
+      "name": "LogLevel",
+      "value": "日志等级"
+    },
+    {
+      "name": "UA",
+      "value": "UA"
+    },
+    {
+      "name": "TCP_Active",
+      "value": "TCP保持活动间隔"
+    },
+    {
+      "name": "Test_Latency_Link",
+      "value": "测试延迟链接"
+    },
+    {
+      "name": "Proxy_Port",
+      "value": "代理端口"
+    },
+    {
+      "name": "lan",
+      "value": "局域网"
+    },
+    {
+      "name": "lan_subtitle",
+      "value": "允许局域网"
+    },
+    {
+      "name": "only_proxy",
+      "value": "仅统计代理流量"
+    },
+    {
+      "name": "only_proxy_subtitle",
+      "value": "主页卡片仅统计代理流量"
+    },
+    {
+      "name": "UnifiedLatency",
+      "value": "统一延迟"
+    },
+    {
+      "name": "TCP_Concurrency",
+      "value": "TCP并发"
+    },
+    {
+      "name": "External_Control",
+      "value": "外部控制"
+    },
+    {
+      "name": "Info",
+      "value": "Info"
+    },
+    {
+      "name": "Default_UA",
+      "value": "默认(clash.meta/1.19.5)"
+    },
+    {
+      "name": "TCP_interval",
+      "value": "30秒"
+    },
+    {
+      "name": "Default_test_latency_link",
+      "value": "默认(gstatic.com)"
+    },
+    {
+      "name": "Unified_Latency_Subtitle",
+      "value": "去除握手等额外延迟"
+    },
+    {
+      "name": "External_Control_Subtitle",
+      "value": "通过9090端口控制Clash内核"
+    },
+    {
+      "name": "OverwriteDNS",
+      "value": "覆写DNS"
+    },
+    {
+      "name": "option",
+      "value": "选项"
+    },
+    {
+      "name": "State",
+      "value": "状态"
+    },
+    {
+      "name": "State_subtitle",
+      "value": "关闭后将使用系统DNS"
+    },
+    {
+      "name": "UseHosts",
+      "value": "使用Hosts"
+    },
+    {
+      "name": "Use_System_Hosts",
+      "value": "使用系统Hosts"
+    },
+    {
+      "name": "Follow_The_Rules",
+      "value": "遵守规则(配置文件Rules)"
+    },
+    {
+      "name": "Follow_The_Rules_Subtitle",
+      "value": "需配置proxy-server-nameserver"
+    },
+    {
+      "name": "Priority_Use_H3",
+      "value": "优先使用H3"
+    },
+    {
+      "name": "Priority_Use_H3_Subtitle",
+      "value": "优先使用DOH的http/3"
+    },
+    {
+      "name": "DNS_Mode",
+      "value": "DNS模式"
+    },
+    {
+      "name": "DNS_Mode_Subtitle",
+      "value": "fakeIP"
+    },
+    {
+      "name": "FakeIP_Range",
+      "value": "FakeIP范围"
+    },
+    {
+      "name": "FakeIP_Range_Subtitle_1",
+      "value": "198.18.0.1/16"
+    },
+    {
+      "name": "FakeIP_Filtering",
+      "value": "FakeIP过滤"
+    },
+    {
+      "name": "Default_Domain_Name_Server",
+      "value": "默认域名服务器"
+    },
+    {
+      "name": "Default_Domain_Name_Server_Subtitle",
+      "value": "用于解析DNS服务器"
+    },
+    {
+      "name": "Domain_Name_Server_Strategy",
+      "value": "域名服务器策略"
+    },
+    {
+      "name": "Domain_Name_Server_Strategy_Subtitle",
+      "value": "指定对应域名服务器策略"
+    },
+    {
+      "name": "Domain_Name_Server",
+      "value": "域名服务器"
+    },
+    {
+      "name": "Domain_Name_Server_Subtitle",
+      "value": "用于解析域名"
+    },
+    {
+      "name": "FallBack",
+      "value": "FallBack"
+    },
+    {
+      "name": "FallBack_Subtitle",
+      "value": "一般情况下使用境外DNS"
+    },
+    {
+      "name": "Proxy_Domain_Name_Server",
+      "value": "代理域名服务器"
+    },
+    {
+      "name": "Proxy_Domain_Name_Server_Subtitle",
+      "value": "用于解析代理节点的域名"
+    },
+    {
+      "name": "FallBack_Filtering",
+      "value": "FallBack过滤"
+    },
+    {
+      "name": "GeoIP",
+      "value": "GeoIP"
+    },
+    {
+      "name": "GeoIP_Code",
+      "value": "GeoIP代码"
+    },
+    {
+      "name": "GeoIP_Code_Subtitle_1",
+      "value": "CN"
+    },
+    {
+      "name": "GeoSite",
+      "value": "GeoSite"
+    },
+    {
+      "name": "IP_Mask",
+      "value": "IP/掩码"
+    },
+    {
+      "name": "Domain_Name",
+      "value": "域名"
+    },
+    {
+      "name": "Edit_FakeIP_Range",
+      "value": "编辑FakeIP范围"
+    },
+    {
+      "name": "Save",
+      "value": "保存"
+    },
+    {
+      "name": "Cancel",
+      "value": "取消"
+    },
+    {
+      "name": "stack_mode",
+      "value": "栈模式"
+    },
+    {
+      "name": "route_mode",
+      "value": "路由模式"
+    },
+    {
+      "name": "using_configuration",
+      "value": "使用配置"
+    },
+    {
+      "name": "tun_ip",
+      "value": "虚拟IP地址"
+    },
+    {
+      "name": "Routing_Address",
+      "value": "路由地址"
+    },
+    {
+      "name": "Routing_Address_Subtitle",
+      "value": "配置监听路由地址"
+    },
+    {
+      "name": "query_ip_region",
+      "value": "查询IP地区"
+    },
+    {
+      "name": "query_ip_region_Subtitle",
+      "value": "使用第三方API查询IP所在地区"
+    },
+    {
+      "name": "Diversion_Strategy",
+      "value": "分流策略"
+    },
+    {
+      "name": "Add",
+      "value": "添加"
+    },
+    {
+      "name": "Add_Router_Address",
+      "value": "添加路由地址"
+    },
+    {
+      "name": "Add_FakeIPfilter",
+      "value": "添加FakeIP过滤"
+    },
+    {
+      "name": "SystemLanguage",
+      "value": "系统语言"
+    },
+    {
+      "name": "SimplifiedChinese",
+      "value": "简体中文"
+    },
+    {
+      "name": "SimplifiedChinese_Subtitle",
+      "value": "简体中文"
+    },
+    {
+      "name": "TraditionalChinese_HK",
+      "value": "繁体中文(中国香港)"
+    },
+    {
+      "name": "TraditionalChinese_HK_Subtitle",
+      "value": "繁體中文(中國香港)"
+    },
+    {
+      "name": "TraditionalChinese_TW",
+      "value": "繁体中文(中国台湾)"
+    },
+    {
+      "name": "TraditionalChinese_TW_Subtitle",
+      "value": "繁體中文(中國台灣)"
+    },
+    {
+      "name": "English",
+      "value": "英语(通用)"
+    },
+    {
+      "name": "English_Subtitle",
+      "value": "English(General)"
+    },
+    {
+      "name": "GoodMorning",
+      "value": "早上好"
+    },
+    {
+      "name": "Good_Morning",
+      "value": "上午好"
+    },
+    {
+      "name": "Good_Afternoon",
+      "value": "中午好"
+    },
+    {
+      "name": "Good_afternoon",
+      "value": "下午好"
+    },
+    {
+      "name": "GoodNiight",
+      "value": "晚上好"
+    },
+    {
+      "name": "Sleep",
+      "value": "该睡啦"
+    },
+    {
+      "name": "Valentine",
+      "value": "巧克力真甜！"
+    },
+    {
+      "name": "Women",
+      "value": "妇女节快乐!"
+    },
+    {
+      "name": "Tree",
+      "value": "绿色森林！"
+    },
+    {
+      "name": "Youth",
+      "value": "新青年！"
+    },
+    {
+      "name": "Children",
+      "value": "儿童节快乐！"
+    },
+    {
+      "name": "Teacher",
+      "value": "教师节快乐！"
+    },
+    {
+      "name": "National",
+      "value": "国庆节快乐！"
+    },
+    {
+      "name": "Work",
+      "value": "劳动节快乐！"
+    },
+    {
+      "name": "None_Proxy",
+      "value": "代理\n请检查配置"
+    },
+    {
+      "name": "Application_Version",
+      "value": "应用版本"
+    },
+    {
+      "name": "Kernel_Version",
+      "value": "内核版本"
+    },
+    {
+      "name": "experimental_function",
+      "value": "实验功能"
+    },
+    {
+      "name": "experimental_function_Subtitle",
+      "value": "开启实验功能可能会导致应用不稳定"
+    },
+    {
+      "name": "collaborators",
+      "value": "协作者名单"
+    },
+    {
+      "name": "current_maintainer",
+      "value": "当前维护作者"
+    },
+    {
+      "name": "version_history",
+      "value": "历史版本"
+    },
+    {
+      "name": "self_maintained_history",
+      "value": "ClashBox 自维护版本（2.0.0 起）"
+    },
+    {
+      "name": "upstream_history",
+      "value": "原作者仓库版本（1.7.4 及更早）"
+    },
+    {
+      "name": "UseGuidance",
+      "value": "使用引导"
+    },
+    {
+      "name": "Check_Updates",
+      "value": "检查更新"
+    },
+    {
+      "name": "UpdateChannels",
+      "value": "更新渠道"
+    },
+    {
+      "name": "UpdateChannels_Subtitle1",
+      "value": "Github(默认)"
+    },
+    {
+      "name": "Auto_Check_Updates",
+      "value": "自动检查更新"
+    },
+    {
+      "name": "Official_Telegram_Channel",
+      "value": "官方Telegram频道"
+    },
+    {
+      "name": "Official_Discord_Community",
+      "value": "官方Discord社区"
+    },
+    {
+      "name": "Development_Team_Email",
+      "value": "开发团队电子邮件"
+    },
+    {
+      "name": "ProjectRepositories",
+      "value": "项目仓库"
+    },
+    {
+      "name": "FAQ",
+      "value": "常见问题"
+    },
+    {
+      "name": "XiaoBai_Subtitle",
+      "value": "内核移植及核心功能开发"
+    },
+    {
+      "name": "FrondEnd_Development",
+      "value": "前端开发"
+    },
+    {
+      "name": "KL_Subtitle",
+      "value": "UI设计、Logo设计、功能规划"
+    },
+    {
+      "name": "Email",
+      "value": "电子邮件"
+    },
+    {
+      "name": "ChuanZhang_Subtitle",
+      "value": "统筹、后端测试"
+    },
+    {
+      "name": "LLZL_Subtitle",
+      "value": "为Logo设计提供灵感"
+    },
+    {
+      "name": "Dear_Group_Members",
+      "value": "各位群友们"
+    },
+    {
+      "name": "Dear_Group_Members_Subtitle",
+      "value": "感谢你们的建议qwq"
+    },
+    {
+      "name": "Confirm",
+      "value": "我知道了"
+    },
+    {
+      "name": "Disclaimer_Content",
+      "value": "本软件仅供学习交流、科研等非商业性质的用途，禁止将本软件用于商业目的。如有任何商业行为，均与本软件无关"
+    },
+    {
+      "name": "Speed_Delay",
+      "value": "速度和延迟的区别"
+    },
+    {
+      "name": "Speed_Delay_Content",
+      "value": "速度：通常指网络带宽，决定你下载文件及看视频、图片加载的速度\n延迟：通常指网络ping的时间，决定你打游戏的体验和访问网页的速度\n通常情况下，速度快不代表延迟低，延迟低也不能代表速度快，他们之间没有直接关系"
+    },
+    {
+      "name": "Sure",
+      "value": "确定"
+    },
+    {
+      "name": "Test_Speed_Explain",
+      "value": "测速功能由CloundFlare提供"
+    },
+    {
+      "name": "home_save_layout",
+      "value": "是否保存当前布局"
+    },
+    {
+      "name": "Give_Up",
+      "value": "放弃"
+    },
+    {
+      "name": "Collect_Tip",
+      "value": "已收藏⭐"
+    },
+    {
+      "name": "uncollected_tip",
+      "value": "已取消收藏💔"
+    },
+    {
+      "name": "Test_Delay_Tip",
+      "value": "延迟测速中，请稍后..."
+    },
+    {
+      "name": "dark_mode",
+      "value": "深色模式"
+    },
+    {
+      "name": "theme_color",
+      "value": "主题色"
+    },
+    {
+      "name": "homepage_greetings",
+      "value": "主页问候"
+    },
+    {
+      "name": "suspension_button_position",
+      "value": "悬浮按钮位置"
+    },
+    {
+      "name": "blurred_background",
+      "value": "背景模糊"
+    },
+    {
+      "name": "animation_speed",
+      "value": "动画速度"
+    },
+    {
+      "name": "homepage_greetings_subtitle",
+      "value": "主页标题的问候语"
+    },
+    {
+      "name": "blurred_background_subtitle",
+      "value": "关闭以缓解APP内的卡顿问题"
+    },
+    {
+      "name": "animation_speed_subtitle",
+      "value": "调整动画速度或关闭动画"
+    },
+    {
+      "name": "star_river_blue",
+      "value": "星河蓝"
+    },
+    {
+      "name": "cat_blue",
+      "value": "猫咪蓝"
+    },
+    {
+      "name": "yellow",
+      "value": "橘黄黄"
+    },
+    {
+      "name": "red",
+      "value": "华为红"
+    },
+    {
+      "name": "purple",
+      "value": "优雅紫"
+    },
+    {
+      "name": "pink",
+      "value": "哔哩粉"
+    },
+    {
+      "name": "green",
+      "value": "小草绿"
+    },
+    {
+      "name": "follow_system",
+      "value": "跟随系统"
+    },
+    {
+      "name": "always_light",
+      "value": "始终浅色"
+    },
+    {
+      "name": "always_dark",
+      "value": "始终深色"
+    },
+    {
+      "name": "right",
+      "value": "右侧(默认)"
+    },
+    {
+      "name": "middle",
+      "value": "中间"
+    },
+    {
+      "name": "left",
+      "value": "左侧"
+    },
+    {
+      "name": "color_preview",
+      "value": "颜色预览!"
+    },
+    {
+      "name": "configuration_1",
+      "value": "配置1"
+    },
+    {
+      "name": "proxy_1",
+      "value": "代理1"
+    },
+    {
+      "name": "home_edit",
+      "value": "编辑主页"
+    },
+    {
+      "name": "cloud_backup",
+      "value": "云备份"
+    },
+    {
+      "name": "backup",
+      "value": "备份"
+    },
+    {
+      "name": "restore",
+      "value": "恢复"
+    },
+    {
+      "name": "cloud_backup_subtitle",
+      "value": "通过WebDav协议连接服务器"
+    },
+    {
+      "name": "backup_subtitle",
+      "value": "将应用数据备份到本地"
+    },
+    {
+      "name": "restore_subtitle",
+      "value": "通过备份文件恢复数据"
+    },
+    {
+      "name": "enabled",
+      "value": "已启用"
+    },
+    {
+      "name": "not_enabled",
+      "value": "未启用"
+    },
+    {
+      "name": "webdav_config",
+      "value": "WebDav配置"
+    },
+    {
+      "name": "server_address",
+      "value": "服务器地址"
+    },
+    {
+      "name": "account_name",
+      "value": "账号名"
+    },
+    {
+      "name": "password",
+      "value": "密码"
+    },
+    {
+      "name": "log_on",
+      "value": "登录"
+    },
+    {
+      "name": "connect_test",
+      "value": "连接测试"
+    },
+    {
+      "name": "current_version",
+      "value": "当前版本"
+    },
+    {
+      "name": "latest_version",
+      "value": "最新版本"
+    },
+    {
+      "name": "go_download_update",
+      "value": "前往下载更新"
+    },
+    {
+      "name": "ignore_update",
+      "value": "忽略本次更新"
+    },
+    {
+      "name": "go_download_update_subtitle",
+      "value": "建议先开启代理"
+    },
+    {
+      "name": "check_update_tips",
+      "value": "目前仅支持从Github下载更新，您也可以选择加入我们的"
+    },
+    {
+      "name": "check_update_tips_1",
+      "value": "获取更新。"
+    },
+    {
+      "name": "check_update_tips_2",
+      "value": "频道"
+    },
+    {
+      "name": "simulate_locate",
+      "value": "模拟定位"
+    },
+    {
+      "name": "keep_task",
+      "value": "任务保持"
+    },
+    {
+      "name": "simulate_locate_subtitle",
+      "value": "通过模拟定位以保留程序后台"
+    },
+    {
+      "name": "simulate_pip",
+      "value": "模拟画中画"
+    },
+    {
+      "name": "simulate_pip_subtitle",
+      "value": "通过启用空白画中画以保留程序后台"
+    },
+    {
+      "name": "simulate_down",
+      "value": "模拟下载"
+    },
+    {
+      "name": "simulate_down_subtitle",
+      "value": "通过模拟下载以保留程序后台"
+    },
+    {
+      "name": "backgrounder_tips_2",
+      "value": " ⑥平板及电脑建议使用任务保持"
+    },
+    {
+      "name": "backgrounder_tips",
+      "value": "提示：\n ①开启后会导致应用耗电量增加，并且开关模拟定位后请重启软件；\n ②目前已知从自由多窗模式无法主动发起画中画窗口且画中画开启后系统会锁90帧；\n ③模拟下载通知不能删除，否则模拟下载会失效；\n ④模拟下载通知可能会被系统杀死通知而导致模拟下载功能失效，非必要建议使用模拟定位或者画中画功能；\n "
+    },
+    {
+      "name": "backgrounder_tips_3",
+      "value": "⑤如果使用模拟定位，请授权允许位置权限并同时保持位置开关处于启用状态\n"
+    },
+    {
+      "name": "notice_main_switch",
+      "value": "通知总开关"
+    },
+    {
+      "name": "background_notice",
+      "value": "常驻通知"
+    },
+    {
+      "name": "background_notice_subtitle",
+      "value": "不建议关闭"
+    },
+    {
+      "name": "cellular_data_reminder",
+      "value": "流量提醒"
+    },
+    {
+      "name": "cellular_data_reminder_subtitle",
+      "value": "流量使用到一定额度后提醒"
+    },
+    {
+      "name": "time_reminder",
+      "value": "时间提醒"
+    },
+    {
+      "name": "time_reminder_subtitle",
+      "value": "长时间未关闭VPN时提醒"
+    },
+    {
+      "name": "simulate_locate_closed_tips",
+      "value": "是否关闭？"
+    },
+    {
+      "name": "simulate_locate_closed_content_text",
+      "value": "关闭此选项可能会导致ClashBox无法在后台长时间运行"
+    },
+    {
+      "name": "simulate_down_open_tips",
+      "value": "是否开启？"
+    },
+    {
+      "name": "simulate_down_open_content_text",
+      "value": "建议使用“模拟定位”来保持应用的后台长时运行，本选项可能会导致电量消耗更快"
+    },
+    {
+      "name": "open",
+      "value": "开启"
+    },
+    {
+      "name": "close",
+      "value": "关闭"
+    },
+    {
+      "name": "edit_router_address",
+      "value": "编辑路由地址"
+    },
+    {
+      "name": "edit_fakeIP_filter",
+      "value": "编辑FakeIP过滤"
+    },
+    {
+      "name": "min",
+      "value": "分钟"
+    },
+    {
+      "name": "day",
+      "value": "天"
+    },
+    {
+      "name": "hour",
+      "value": "小时"
+    },
+    {
+      "name": "text_input_placeholder",
+      "value": "请输入"
+    },
+    {
+      "name": "reminder_time",
+      "value": "提醒时间"
+    },
+    {
+      "name": "per_hour_notice",
+      "value": "每小时通知"
+    },
+    {
+      "name": "per_day_notice",
+      "value": "每天通知"
+    },
+    {
+      "name": "per_week_notice",
+      "value": "每周通知"
+    },
+    {
+      "name": "per_month_notice",
+      "value": "每月通知"
+    },
+    {
+      "name": "per_hour_notice_subtitle",
+      "value": "一小时内使用的流量达到阈值后提醒"
+    },
+    {
+      "name": "per_day_notice_subtitle",
+      "value": "一天内使用的流量达到阈值后提醒"
+    },
+    {
+      "name": "per_week_notice_subtitle",
+      "value": "一周内使用的流量达到阈值后提醒"
+    },
+    {
+      "name": "per_month_notice_subtitle",
+      "value": "一个月内使用的流量达到阈值后提醒"
+    },
+    {
+      "name": "total_data_notice",
+      "value": "总量通知"
+    },
+    {
+      "name": "total_data_notice_subtitle",
+      "value": "使用的流量达到阈值后提醒"
+    },
+    {
+      "name": "threshold_data",
+      "value": "阈值流量"
+    },
+    {
+      "name": "restart_app_tips",
+      "value": "重启应用生效"
+    },
+    {
+      "name": "restart_vpn_tips",
+      "value": "重启代理服务生效"
+    },
+    {
+      "name": "click_prompt",
+      "value": "点击右边开关哦"
+    },
+    {
+      "name": "vibrate_feedback",
+      "value": "震动反馈"
+    },
+    {
+      "name": "sound_feedback",
+      "value": "声音反馈"
+    },
+    {
+      "name": "background_notice_tips",
+      "value": "您已开启“后台运行“选项，常驻通知无法关闭，若要关闭常驻通知，请先关闭后台运行"
+    },
+    {
+      "name": "kernel",
+      "value": "内核"
+    },
+    {
+      "name": "kernel_subtitle",
+      "value": "切换Clash内核"
+    },
+    {
+      "name": "query_ip_region_placeholder",
+      "value": "支持IPv4和IPv6地址，回车键查询"
+    },
+    {
+      "name": "ip_address_query_tips",
+      "value": "IP地址查询中"
+    },
+    {
+      "name": "ip_address_query_success_tips",
+      "value": "IP地址查询成功"
+    },
+    {
+      "name": "favorite_configuration_tips",
+      "value": "您在配置页面收藏的配置将会显示在此处"
+    },
+    {
+      "name": "favorite_proxy_tips",
+      "value": "您在代理页面收藏的节点将会显示在此处"
+    },
+    {
+      "name": "refresh_IP",
+      "value": "刷新"
+    },
+    {
+      "name": "add_home_card",
+      "value": "添加组件小卡片"
+    },
+    {
+      "name": "proxy_info",
+      "value": "节点信息"
+    },
+    {
+      "name": "refresh_IP2",
+      "value": "刷新IP"
+    },
+    {
+      "name": "proxy_name",
+      "value": "节点名"
+    },
+    {
+      "name": "beta_kernel",
+      "value": "测试版内核"
+    },
+    {
+      "name": "beta_kernel_subtitle",
+      "value": "开启后将显示正在测试中的内核"
+    },
+    {
+      "name": "filter",
+      "value": "筛选"
+    },
+    {
+      "name": "not_filter",
+      "value": "不筛选"
+    },
+    {
+      "name": "information_only",
+      "value": "仅信息"
+    },
+    {
+      "name": "warning_only",
+      "value": "仅警告"
+    },
+    {
+      "name": "error_only",
+      "value": "仅报错"
+    },
+    {
+      "name": "reset",
+      "value": "重置"
+    },
+    {
+      "name": "override_reset_prompt",
+      "value": "是否重置覆写设置？"
+    },
+    {
+      "name": "write_url",
+      "value": "输入网址"
+    },
+    {
+      "name": "title",
+      "value": "标题"
+    },
+    {
+      "name": "shortcuts_card",
+      "value": "快捷方式小卡片"
+    },
+    {
+      "name": "shortcuts",
+      "value": "快捷方式"
+    },
+    {
+      "name": "long_press_modify",
+      "value": "长按或右键修改"
+    },
+    {
+      "name": "option1",
+      "value": "选项1"
+    },
+    {
+      "name": "option2",
+      "value": "选项2"
+    },
+    {
+      "name": "option3",
+      "value": "选项3"
+    },
+    {
+      "name": "null_title_tips",
+      "value": "请输入网址，并确保你的网址含有‘http(s)://’前缀!!!"
+    },
+    {
+      "name": "add_policy",
+      "value": "添加策略"
+    },
+    {
+      "name": "edit_policy",
+      "value": "编辑策略"
+    },
+    {
+      "name": "policy_name",
+      "value": "策略名"
+    },
+    {
+      "name": "resource_path",
+      "value": "资源路径"
+    },
+    {
+      "name": "insert_resource",
+      "value": "插入资源"
+    },
+    {
+      "name": "insert_resource_subtitle",
+      "value": "该资源内容在本地资源加载之前加载"
+    },
+    {
+      "name": "auto_update",
+      "value": "自动更新"
+    },
+    {
+      "name": "disable_update",
+      "value": "禁用更新"
+    },
+    {
+      "name": "auto_update_interval",
+      "value": "自动更新间隔"
+    },
+    {
+      "name": "auto_update_subscription",
+      "value": "自动更新订阅"
+    },
+    {
+      "name": "disable_subscription_update",
+      "value": "禁用订阅更新"
+    },
+    {
+      "name": "subscription_update_interval",
+      "value": "订阅更新间隔"
+    },
+    {
+      "name": "update_subscription",
+      "value": "更新订阅"
+    },
+    {
+      "name": "updating_subscription",
+      "value": "正在更新订阅…"
+    },
+    {
+      "name": "subscription_update_success",
+      "value": "订阅更新成功"
+    },
+    {
+      "name": "subscription_update_failed",
+      "value": "订阅更新失败，请重新激活或检查订阅链接"
+    },
+    {
+      "name": "delete_resource",
+      "value": "删除资源"
+    },
+    {
+      "name": "policy_name_placeholder",
+      "value": "输入策略名..."
+    },
+    {
+      "name": "resource_path_placeholder",
+      "value": "输入链接..."
+    },
+    {
+      "name": "saved",
+      "value": "已保存"
+    },
+    {
+      "name": "update",
+      "value": "更新"
+    },
+    {
+      "name": "delete",
+      "value": "删除"
+    },
+    {
+      "name": "edit_resource",
+      "value": "编辑资源"
+    },
+    {
+      "name": "now",
+      "value": "刚刚"
+    },
+    {
+      "name": "minutes_ago",
+      "value": "分钟前"
+    },
+    {
+      "name": "hours_ago",
+      "value": "小时前"
+    },
+    {
+      "name": "days_ago",
+      "value": "天前"
+    },
+    {
+      "name": "months_ago",
+      "value": "个月前"
+    },
+    {
+      "name": "weeks_ago",
+      "value": "周前"
+    },
+    {
+      "name": "years_ago",
+      "value": "年前"
+    },
+    {
+      "name": "layout_saved",
+      "value": "布局已保存"
+    },
+    {
+      "name": "refresh_tips",
+      "value": "刷新中，请稍后..."
+    },
+    {
+      "name": "layout_restored",
+      "value": "布局已还原"
+    },
+    {
+      "name": "Import_from_url",
+      "value": "从URL(链接)导入"
+    },
+    {
+      "name": "update_success",
+      "value": "更新成功"
+    },
+    {
+      "name": "update_failed",
+      "value": "更新失败："
+    },
+    {
+      "name": "import_from_QR_code",
+      "value": "从二维码导入"
+    },
+    {
+      "name": "import_from_file",
+      "value": "从文件导入"
+    },
+    {
+      "name": "new_blank_configuration",
+      "value": "新建空白配置"
+    },
+    {
+      "name": "add_config",
+      "value": "添加配置"
+    },
+    {
+      "name": "config_name",
+      "value": "配置名"
+    },
+    {
+      "name": "enter_configuration_name",
+      "value": "输入配置名"
+    },
+    {
+      "name": "save_current_configuration",
+      "value": "是否保存当前配置？"
+    },
+    {
+      "name": "downloading_configuration_file",
+      "value": "正在下载配置文件"
+    },
+    {
+      "name": "cancel_download",
+      "value": "取消下载"
+    },
+    {
+      "name": "configuration_download_canceled",
+      "value": "已取消下载配置"
+    },
+    {
+      "name": "updating_configuration_file",
+      "value": "正在更新配置文件"
+    },
+    {
+      "name": "download_failed",
+      "value": "下载失败:"
+    },
+    {
+      "name": "switch_clashcore_tips",
+      "value": "需要重启VPN服务哦"
+    },
+    {
+      "name": "share",
+      "value": "分享"
+    },
+    {
+      "name": "generate_QR_code",
+      "value": "生成二维码"
+    },
+    {
+      "name": "create_copy",
+      "value": "创建副本"
+    },
+    {
+      "name": "delete_current_configuration",
+      "value": "是否删除当前配置？"
+    },
+    {
+      "name": "click_error_prompt",
+      "value": "就知道是你点错喽~"
+    },
+    {
+      "name": "config_share_prompt",
+      "value": "此配置仅支持分享配置文件"
+    },
+    {
+      "name": "configuration_deleted",
+      "value": "已删除配置"
+    },
+    {
+      "name": "fast",
+      "value": "快速"
+    },
+    {
+      "name": "normal",
+      "value": "正常"
+    },
+    {
+      "name": "low",
+      "value": "慢速"
+    },
+    {
+      "name": "sort",
+      "value": "排序"
+    },
+    {
+      "name": "sort_name",
+      "value": "按名称"
+    },
+    {
+      "name": "sort_time",
+      "value": "按时间"
+    },
+    {
+      "name": "old_kernel",
+      "value": "老版本内核"
+    },
+    {
+      "name": "new_kernel",
+      "value": "新内核"
+    },
+    {
+      "name": "open_core_prompt",
+      "value": "如需查看更多内核选项，请前往设置-关于，开启“实验功能”选项"
+    },
+    {
+      "name": "switch_core_prompt",
+      "value": "注：切换内核后需要重启VPN服务，启用前台模式后自行去后台运行选项里面选择一个模拟后台功能启动"
+    },
+    {
+      "name": "switch_core_foreground_prompt",
+      "value": "注意要开启后台运行功能，否则代理功能失效"
+    },
+    {
+      "name": "loading",
+      "value": "获取IP中"
+    },
+    {
+      "name": "developing",
+      "value": "开发中"
+    },
+    {
+      "name": "edit_config",
+      "value": "编辑配置"
+    },
+    {
+      "name": "browse_local_files",
+      "value": "浏览本地文件"
+    },
+    {
+      "name": "provider",
+      "value": "提供者"
+    },
+    {
+      "name": "proxy_provider",
+      "value": "代理提供者"
+    },
+    {
+      "name": "update_by",
+      "value": "更新于"
+    },
+    {
+      "name": "usd_cellular_data",
+      "value": "已使用流量/"
+    },
+    {
+      "name": "total_cellular_data",
+      "value": "总流量"
+    },
+    {
+      "name": "upload",
+      "value": "上传"
+    },
+    {
+      "name": "updating",
+      "value": "更新中···"
+    },
+    {
+      "name": "rule_provider",
+      "value": "规则提供者"
+    },
+    {
+      "name": "list_item_number",
+      "value": "个条目数"
+    },
+    {
+      "name": "to",
+      "value": "跳转"
+    },
+    {
+      "name": "notice_request_to_settings",
+      "value": "授权跳转弹窗"
+    },
+    {
+      "name": "notice_request_to_settings_text",
+      "value": "您已取消通知权限授予，是否跳转至设置页进行通知权限授予以使用提醒等相关功能。"
+    },
+    {
+      "name": "runing_download_background",
+      "value": "正在运行模拟下载"
+    },
+    {
+      "name": "key",
+      "value": "键"
+    },
+    {
+      "name": "the_value",
+      "value": "值"
+    },
+    {
+      "name": "cellular_data_tips",
+      "value": "(点击输入总流量)"
+    },
+    {
+      "name": "input_cellular_data",
+      "value": "输入总流量数值"
+    },
+    {
+      "name": "import_config_file_tips",
+      "value": "Tips：选择文件后会自动填入名称并显示保存按钮"
+    },
+    {
+      "name": "start_prompt",
+      "value": "请检查配置文件是否导入，代理节点是否加载..."
+    },
+    {
+      "name": "permission_reason_MICROPHONE",
+      "value": "长时任务模拟定位"
+    },
+    {
+      "name": "bypass_private_route_address",
+      "value": "绕过私有路由地址"
+    },
+    {
+      "name": "example",
+      "value": "例如"
+    },
+    {
+      "name": "s",
+      "value": "秒"
+    },
+    {
+      "name": "flclash_subtitle",
+      "value": "用于借鉴参考的优秀开源项目"
+    },
+    {
+      "name": "mihomo_subtitle",
+      "value": "一款优秀的开源内核"
+    },
+    {
+      "name": "agree",
+      "value": "同意"
+    },
+    {
+      "name": "refuse",
+      "value": "不同意并退出"
+    },
+    {
+      "name": "download_success",
+      "value": "下载成功"
+    },
+    {
+      "name": "load_success",
+      "value": "加载成功"
+    },
+    {
+      "name": "favorite_proxy_no",
+      "value": "当前配置最多只能收藏6个节点"
+    },
+    {
+      "name": "favorite_config_no",
+      "value": "配置最多只能收藏6个哦"
+    },
+    {
+      "name": "uncollected_all_tip",
+      "value": "已取消所有收藏\uD83D\uDC94"
+    },
+    {
+      "name": "backup_restore_subtitle",
+      "value": "导入、导出备份"
+    },
+    {
+      "name": "settings_reset_prompt",
+      "value": "是否重置应用？"
+    },
+    {
+      "name": "settings_reset_tips",
+      "value": "数据已清空"
+    },
+    {
+      "name": "welcome",
+      "value": "欢迎使用"
+    },
+    {
+      "name": "welcome_tips",
+      "value": "点击“进入引导”将开启新手操作提示"
+    },
+    {
+      "name": "reject_exit",
+      "value": "拒绝并退出"
+    },
+    {
+      "name": "agree_continue",
+      "value": "同意并继续"
+    },
+    {
+      "name": "crash_subtitle",
+      "value": "请将日志交给开发者，以便于排查~"
+    },
+    {
+      "name": "crash_title",
+      "value": "啊哦，刚刚好像崩溃了"
+    },
+    {
+      "name": "show_full_log",
+      "value": "展示完整日志信息"
+    },
+    {
+      "name": "statement",
+      "value": "ClashBox是一个基础功能免费的软件并且我们不为其提供任何额外服务，部分联网服务使用的是第三方免费API接口，因此具有访问上限，若出现访问异常属于正常现象，更多第三方服务请前往"
+    },
+    {
+      "name": "statement_1",
+      "value": "中查看"
+    },
+    {
+      "name": "third_party_services",
+      "value": "三方库与服务"
+    },
+    {
+      "name": "game_q",
+      "value": "为什么Clash运行中玩游戏延迟高或者掉线"
+    },
+    {
+      "name": "game_a",
+      "value": "因Clash规则不完善和后台问题导致，建议准备玩游戏前关闭Clash的VPN功能"
+    },
+    {
+      "name": "function_q",
+      "value": "为什么测速完成后节点会闪一下"
+    },
+    {
+      "name": "function_a",
+      "value": "这是正常现象，这么做的目的是为了刷新列表中的数据，尽量减少测速后可能存在内存泄漏"
+    },
+    {
+      "name": "link_q",
+      "value": "为什么应用在后台运行的过程中容易中断连接"
+    },
+    {
+      "name": "link_a",
+      "value": "当前系统的后台管理非常严格，建议使用过程中开启软件的通知及模拟后台功能"
+    },
+    {
+      "name": "node_q",
+      "value": "为什么有的人导入配置后代理节点变少"
+    },
+    {
+      "name": "node_a",
+      "value": "因部分服务商目前对ClashBox的UA支持几乎很少，所以建议自行在订阅后面加上&flag=meta"
+    },
+    {
+      "name": "node_q2",
+      "value": "部分用户代理节点测速全部报TIMEOUT"
+    },
+    {
+      "name": "node_a2",
+      "value": "因部分服务商内置的DNS地址解析出现问题，可以在复写-覆写DNS功能打开并重启ClashBox即可正常"
+    },
+    {
+      "name": "proxy_q",
+      "value": "为什么没有分应用代理功能"
+    },
+    {
+      "name": "proxy_a",
+      "value": "因官方没有提供对应功能的API，目前无法做这样的功能，等待官方更新API后再支持"
+    },
+    {
+      "name": "config_q",
+      "value": "为什么有的配置无法导入或导入后代理为空"
+    },
+    {
+      "name": "config_a",
+      "value": "因部分配置下发网络问题导致下发比较慢，建议多次尝试或使用订阅转换工具转换后再尝试导入，下面有订阅转换的地址，可以点击后直接跳转"
+    },
+    {
+      "name": "attach",
+      "value": "附："
+    },
+    {
+      "name": "link",
+      "value": "链接"
+    },
+    {
+      "name": "project",
+      "value": "项目"
+    },
+    {
+      "name": "know",
+      "value": "我知道啦"
+    },
+    {
+      "name": "tips",
+      "value": "小提示"
+    },
+    {
+      "name": "start_pop",
+      "value": "导入配置并成功加载后才可以启动哦~"
+    },
+    {
+      "name": "config_pop",
+      "value": "可以长按配置进行更多操作哦~"
+    },
+    {
+      "name": "proxy_pop",
+      "value": "可以长按代理节点进行收藏等更多操作哦~"
+    },
+    {
+      "name": "proxy_delay_pop",
+      "value": "这个按钮可以一键测试所有代理的延迟哦~"
+    },
+    {
+      "name": "home_start_button",
+      "value": "主页启动按钮"
+    },
+    {
+      "name": "config_list_items",
+      "value": "配置列表项"
+    },
+    {
+      "name": "proxy_node_list_item",
+      "value": "代理节点列表项"
+    },
+    {
+      "name": "delay_test_button",
+      "value": "延迟测试按钮"
+    },
+    {
+      "name": "download_url",
+      "value": "下载地址"
+    },
+    {
+      "name": "query_success",
+      "value": "查询成功"
+    },
+    {
+      "name": "new_version",
+      "value": "发现新版本"
+    },
+    {
+      "name": "new_version_content",
+      "value": "发现新版本，是否前往更新"
+    },
+    {
+      "name": "to_update",
+      "value": "前往更新"
+    },
+    {
+      "name": "no_link",
+      "value": "暂无下载地址"
+    },
+    {
+      "name": "string_display_preferences",
+      "value": "字符显示偏好"
+    },
+    {
+      "name": "information",
+      "value": "信息"
+    },
+    {
+      "name": "appearance",
+      "value": "外观"
+    },
+    {
+      "name": "string_display_preferences_subtitle",
+      "value": "设置字符显示的权重"
+    },
+    {
+      "name": "edit_layout",
+      "value": "编辑布局"
+    },
+    {
+      "name": "email_feedback",
+      "value": "邮件反馈"
+    },
+    {
+      "name": "export_share",
+      "value": "导出分享"
+    },
+    {
+      "name": "compatibility_mode",
+      "value": "兼容模式"
+    },
+    {
+      "name": "compatibility_mode_subtitle",
+      "value": "强制开启Sniffer"
+    },
+    {
+      "name": "strategy",
+      "value": "策略"
+    },
+    {
+      "name": "not_modify",
+      "value": "不修改"
+    },
+    {
+      "name": "disabled",
+      "value": "已禁用"
+    },
+    {
+      "name": "overwrite_restart_tips",
+      "value": "更改覆写设置后请重启应用"
+    },
+    {
+      "name": "updating_config",
+      "value": "配置更新中..."
+    },
+    {
+      "name": "updated_success_config",
+      "value": "配置更新成功"
+    },
+    {
+      "name": "failed_load_config",
+      "value": "加载配置失败"
+    },
+    {
+      "name": "resource_updating",
+      "value": "资源更新中"
+    },
+    {
+      "name": "settings_count_vpn",
+      "value": "VPN进程已被系统终结"
+    },
+    {
+      "name": "times",
+      "value": "次"
+    },
+    {
+      "name": "restart_tips",
+      "value": "应用即将退出，请重新打开"
+    },
+    {
+      "name": "view_detail",
+      "value": "查看详情"
+    },
+    {
+      "name": "offline",
+      "value": "VPN进程回收统计"
+    },
+    {
+      "name": "id",
+      "value": "序号"
+    },
+    {
+      "name": "time",
+      "value": "时间"
+    },
+    {
+      "name": "px_sec_screen_tips",
+      "value": "请您展开屏幕以使用更多功能"
+    },
+    {
+      "name": "px_sec_screen_start",
+      "value": "开关"
+    },
+    {
+      "name": "px_sec_screen_use_time",
+      "value": "已运行"
+    },
+    {
+      "name": "uncollected",
+      "value": "取消收藏"
+    },
+    {
+      "name": "not_open",
+      "value": "项目仓库暂未开放"
+    },
+    {
+      "name": "ip_address_query_fail_tips",
+      "value": "查询IP地址失败，请检查地址是否可以正常访问"
+    },
+    {
+      "name": "enter_search",
+      "value": "回车键搜索哦"
+    },
+    {
+      "name": "saved_download",
+      "value": "已保存至下载目录哦"
+    },
+    {
+      "name": "export_failed",
+      "value": "导出失败"
+    },
+    {
+      "name": "welcome_quickly_go",
+      "value": "我是老手啦"
+    },
+    {
+      "name": "welcome_go",
+      "value": "进入引导"
+    },
+    {
+      "name": "complete",
+      "value": "完成"
+    },
+    {
+      "name": "return",
+      "value": "返回"
+    },
+    {
+      "name": "resources_tips",
+      "value": "因部分地区IP访问Github受限，要使用默认地址更新资源时请先开启代理服务"
+    },
+    {
+      "name": "qq_copy",
+      "value": "已复制QQ群号"
+    },
+    {
+      "name": "copy_qq_group",
+      "value": "复制群号"
+    },
+    {
+      "name": "user_agreement",
+      "value": "用户协议"
+    },
+    {
+      "name": "privacy_policy",
+      "value": "关于ClashBox与隐私的声明"
+    },
+    {
+      "name": "qa_tips",
+      "value": "特别提示：如果发生经常性VPN掉线问题，推荐使用前台模式+模拟后台来实现代理的较稳定运行，另外画中画小窗可以缩小至边框哦"
+    },
+    {
+      "name": "overwrite_dns_subtitle",
+      "value": "开启后将覆盖配置中的DNS选项"
+    },
+    {
+      "name": "xb_studio",
+      "value": "小白工坊"
+    },
+    {
+      "name": "access_control",
+      "value": "访问控制"
+    },
+    {
+      "name": "access_control_subtitle",
+      "value": "配置应用访问代理"
+    },
+    {
+      "name": "app_access_control",
+      "value": "应用访问控制"
+    },
+    {
+      "name": "white_list",
+      "value": "白名单模式"
+    },
+    {
+      "name": "blacklist",
+      "value": "黑名单模式"
+    },
+    {
+      "name": "white_list_tips",
+      "value": "选中的应用将会被禁用VPN"
+    },
+    {
+      "name": "blacklist_tips",
+      "value": "只允许选中的应用使用VPN"
+    },
+    {
+      "name": "selected",
+      "value": "已选择"
+    },
+    {
+      "name": "add_app",
+      "value": "添加应用"
+    },
+    {
+      "name": "edit_app",
+      "value": "编辑应用"
+    },
+    {
+      "name": "the_app_name",
+      "value": "应用名"
+    },
+    {
+      "name": "package_name",
+      "value": "包名"
+    },
+    {
+      "name": "mode",
+      "value": "模式"
+    },
+    {
+      "name": "access_control_tips",
+      "value": "VPN运行时，状态变更会自动重建并生效；仅支持非容器应用"
+    },
+    {
+      "name": "exit",
+      "value": "退出"
+    },
+    {
+      "name": "app_already_exist",
+      "value": "应用已存在"
+    },
+    {
+      "name": "status_icon_notice",
+      "value": "常驻状态栏"
+    },
+    {
+      "name": "status_icon_tips",
+      "value": "请设置里关闭应用响铃、振动后再开启"
+    },
+    {
+      "name": "status_bar_to",
+      "value": "您已开启常驻状态栏，需要在设置内关闭应用的响铃与振动，是否立即前往设置"
+    },
+    {
+      "name": "exit_window",
+      "value": "关闭窗口"
+    },
+    {
+      "name": "minimize_tray",
+      "value": "最小化到托盘"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "卡片生命周期描述"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "卡片生命周期名"
+    },
+    {
+      "name": "SwitchProxyWidget1x2_display_name",
+      "value": "开关卡片"
+    },
+    {
+      "name": "SwitchProxyWidget1x2_desc",
+      "value": "卡片大小: 1×2"
+    },
+    {
+      "name": "SwitchProxyWidget2x2_display_name",
+      "value": "开关卡片"
+    },
+    {
+      "name": "SwitchProxyWidget2x2_desc",
+      "value": "卡片大小: 2×2"
+    },
+    {
+      "name": "CurrentNodeWidget2x2_desc",
+      "value": "当前节点卡片"
+    },
+    {
+      "name": "CurrentNodeWidget2x2_display_name",
+      "value": "当前节点卡片"
+    },
+    {
+      "name": "IPAddressWidget2x2_desc",
+      "value": "卡片大小: 2×2"
+    },
+    {
+      "name": "IPAddressWidget2x2_display_name",
+      "value": "IP地址卡片"
+    },
+    {
+      "name": "click",
+      "value": "点击"
+    },
+    {
+      "name": "switch_proxy_title",
+      "value": "VPN开关"
+    },
+    {
+      "name": "enable_notice_failed",
+      "value": "通知权限授权失败，通知及其关联功能已关闭"
+    },
+    {
+      "name": "notice_not_close_tips",
+      "value": "通知无法关闭了哦"
+    },
+    {
+      "name": "incorrect_format",
+      "value": "格式不正确"
+    },
+    {
+      "name": "coexist_notice",
+      "value": "通知共存"
+    },
+    {
+      "name": "coexist_notice_tips",
+      "value": "允许普通与后台通知共存"
+    },
+    {
+      "name": "proxy_open_button",
+      "value": "代理页开始按钮"
+    },
+    {
+      "name": "card_tips",
+      "value": "首次后台需启动两次"
+    },
+    {
+      "name": "update_log",
+      "value": "更新日志"
+    },
+    {
+      "name": "operation",
+      "value": "操作"
+    },
+    {
+      "name": "export_success",
+      "value": "导出成功"
+    },
+    {
+      "name": "import_success",
+      "value": "导入成功"
+    },
+    {
+      "name": "import_access",
+      "value": "导入访问配置"
+    },
+    {
+      "name": "export_access",
+      "value": "导出访问配置"
+    },
+    {
+      "name": "import_failed",
+      "value": "导入失败"
+    },
+    {
+      "name": "file_config_restore_tips",
+      "value": "请注意，\n ①本地备份文件夹为 下载 > ClashBox；\n ②如果待恢复的文件里包含本地配置，将会有文件选择弹窗逐一弹出，请选择对应的配置文件；\n ③恢复完成后请前往配置页选中要使用的配置，完成配置加载。"
+    },
+    {
+      "name": "file_config_restore_toast_1",
+      "value": "请选择"
+    },
+    {
+      "name": "login_failed",
+      "value": "登录失败"
+    },
+    {
+      "name": "login_success",
+      "value": "登录成功"
+    },
+    {
+      "name": "not_login",
+      "value": "未登录"
+    },
+    {
+      "name": "logined_backup_subtitle",
+      "value": "本地和WebDav一起备份"
+    },
+    {
+      "name": "logined_restore_subtitle",
+      "value": "优先从WebDav恢复，长按从本地恢复"
+    },
+    {
+      "name": "cloud_files_title",
+      "value": "选择想要恢复的备份文件"
+    },
+    {
+      "name": "export_config_file",
+      "value": "导出配置文件"
+    },
+    {
+      "name": "restore_tips",
+      "value": "\n ④数据恢复成功后会自动重启应用"
+    },
+    {
+      "name": "restore_tips_2",
+      "value": "\n ⑤配置列表顺序、收藏的内容不会恢复"
+    },
+    {
+      "name": "export_config_file_success",
+      "value": "配置文件成功导出至"
+    },
+    {
+      "name": "appName_isEmpty",
+      "value": "应用名称不能为空"
+    },
+    {
+      "name": "appPackageName_isEmpty",
+      "value": "应用包名不能为空"
+    },
+    {
+      "name": "check_configured_URL",
+      "value": "请检查配置的URL"
+    },
+    {
+      "name": "tab_style",
+      "value": "导航栏样式"
+    },
+    {
+      "name": "custom",
+      "value": "普通"
+    },
+    {
+      "name": "float",
+      "value": "悬浮"
+    },
+    {
+      "name": "qrcode_share",
+      "value": "二维码分享"
+    },
+    {
+      "name": "qrcode_share_subtitle",
+      "value": "支持系统扫一扫跳转分享哦~"
+    },
+    {
+      "name": "qrcode_saved_to_gallery",
+      "value": "已保存到图库！🖼"
+    },
+    {
+      "name": "qrcode_save_failed",
+      "value": "保存二维码失败！"
+    },
+    {
+      "name": "qrcode_universal_link_subtitle",
+      "value": "仅支持本应用扫码和其它App识别~"
+    },
+    {
+      "name": "holding_hand_gesture",
+      "value": "适人握持(动作感知)"
+    },
+    {
+      "name": "holding_hand_gesture_subtitle",
+      "value": "开启将禁用悬浮按钮位置"
+    },
+    {
+      "name": "delete_old_data",
+      "value": "清除残留旧数据"
+    },
+    {
+      "name": "online_search",
+      "value": "在线搜索"
+    },
+    {
+      "name": "delete_app_confirm",
+      "value": "确定要从列表中移除此应用吗？"
+    },
+    {
+      "name": "add_success",
+      "value": "添加成功"
+    },
+    {
+      "name": "delete_success",
+      "value": "删除成功"
+    },
+    {
+      "name": "delete_failed",
+      "value": "删除失败"
+    },
+    {
+      "name": "old_data_cleared_success",
+      "value": "残留旧数据清除成功"
+    },
+    {
+      "name": "input_complete_info",
+      "value": "请输入完整信息"
+    },
+    {
+      "name": "cannot_add_self",
+      "value": "不能添加自身"
+    },
+    {
+      "name": "modify_success",
+      "value": "修改成功"
+    },
+    {
+      "name": "save_failed",
+      "value": "保存失败"
+    },
+    {
+      "name": "copy_to_whitelist",
+      "value": "已将 %s 复制到白名单"
+    },
+    {
+      "name": "copy_to_blacklist",
+      "value": "已将 %s 复制到黑名单"
+    },
+    {
+      "name": "move_to_whitelist",
+      "value": "已将 %s 移动到白名单"
+    },
+    {
+      "name": "move_to_blacklist",
+      "value": "已将 %s 移动到黑名单"
+    },
+    {
+      "name": "import_v2_success",
+      "value": "V2.0 导入成功 %d 条"
+    },
+    {
+      "name": "import_legacy_success",
+      "value": "旧版配置导入成功"
+    },
+    {
+      "name": "file_format_invalid",
+      "value": "文件格式不符合"
+    },
+    {
+      "name": "no_results_found",
+      "value": "没有 %s 哦"
+    },
+    {
+      "name": "no_apps_found",
+      "value": "未找到相关应用"
+    },
+    {
+      "name": "submit_app_help_text",
+      "value": "您可以提交应用信息，帮助我们完善数据"
+    },
+    {
+      "name": "submit_app",
+      "value": "提交应用"
+    },
+    {
+      "name": "submit_app_info",
+      "value": "提交应用信息"
+    },
+    {
+      "name": "submitting",
+      "value": "提交中..."
+    },
+    {
+      "name": "submit",
+      "value": "提交"
+    },
+    {
+      "name": "app_id_tab",
+      "value": "AppID"
+    },
+    {
+      "name": "link_tab",
+      "value": "链接"
+    },
+    {
+      "name": "hint_input_app_id",
+      "value": "请输入华为应用市场的 AppID"
+    },
+    {
+      "name": "hint_input_package_name",
+      "value": "请输入应用的包名"
+    },
+    {
+      "name": "hint_input_app_link",
+      "value": "请输入华为应用市场链接"
+    },
+    {
+      "name": "hint_fill_app_info",
+      "value": "请填写应用信息"
+    },
+    {
+      "name": "placeholder_app_id",
+      "value": "例如: C123456789"
+    },
+    {
+      "name": "placeholder_package_name",
+      "value": "例如: com.example.app"
+    },
+    {
+      "name": "placeholder_app_link",
+      "value": "例如: https://appgallery.huawei.com/app/C123456789"
+    },
+    {
+      "name": "submit_success_thanks",
+      "value": "提交成功，感谢您的贡献！"
+    },
+    {
+      "name": "submit_failed_retry",
+      "value": "提交失败，请稍后重试"
+    },
+    {
+      "name": "submit_failed_network",
+      "value": "提交失败，请检查网络连接"
+    },
+    {
+      "name": "package_name_exists",
+      "value": "应用包名已经存在"
+    },
+    {
+      "name": "online_search_tips_1",
+      "value": "1. 在线搜索只能查询到市场正式版应用，没有正式上架的应用暂不支持检索; \n"
+    },
+    {
+      "name": "confirm",
+      "value": "确认"
+    },
+    {
+      "name": "delete_apps_confirm",
+      "value": "确认删除选中的 %s 个应用"
+    },
+    {
+      "name": "access_control_limit_msg",
+      "value": "名额不足，仅添加了 %d 个，跳过了 %s 个"
+    },
+    {
+      "name": "access_control_limit_msg_white",
+      "value": "白名单已满，最多支持 62 个应用"
+    },
+    {
+      "name": "access_control_limit_msg_black",
+      "value": "黑名单已满，最多支持 64 个应用"
+    },
+    {
+      "name": "runtime_diagnostics",
+      "value": "运行与诊断"
+    },
+    {
+      "name": "runtime_diagnostics_subtitle",
+      "value": "VPN、后台任务、核心状态"
+    },
+    {
+      "name": "runtime_status_title",
+      "value": "实时运行状态"
+    },
+    {
+      "name": "runtime_vpn_tunnel",
+      "value": "VPN 隧道"
+    },
+    {
+      "name": "runtime_background_task",
+      "value": "系统长时任务"
+    },
+    {
+      "name": "runtime_core_rpc",
+      "value": "核心通信"
+    },
+    {
+      "name": "runtime_running",
+      "value": "运行中"
+    },
+    {
+      "name": "runtime_stopped",
+      "value": "已停止"
+    },
+    {
+      "name": "runtime_normal",
+      "value": "正常"
+    },
+    {
+      "name": "runtime_abnormal",
+      "value": "异常，正在自动恢复"
+    },
+    {
+      "name": "runtime_follow_vpn",
+      "value": "随 VPN 启动"
+    },
+    {
+      "name": "runtime_not_ready",
+      "value": "尚未就绪"
+    },
+    {
+      "name": "runtime_architecture",
+      "value": "核心运行位置"
+    },
+    {
+      "name": "runtime_architecture_foreground",
+      "value": "应用进程（稳定模式）"
+    },
+    {
+      "name": "runtime_disconnect_record",
+      "value": "VPN 通信中断记录"
+    },
+    {
+      "name": "runtime_background_explanation",
+      "value": "系统长时任务由 VPN 启停自动管理；无需再启用模拟定位、模拟下载或空白画中画保活。"
+    },
+    {
+      "name": "data_management",
+      "value": "数据管理"
+    },
+    {
+      "name": "data_management_subtitle",
+      "value": "重置界面、删除订阅或完整清理"
+    },
+    {
+      "name": "data_reset_ui",
+      "value": "重置界面设置"
+    },
+    {
+      "name": "data_reset_ui_subtitle",
+      "value": "还原外观、通知等偏好，保留订阅和平台账号"
+    },
+    {
+      "name": "data_reset_ui_confirm",
+      "value": "将停止 VPN 并还原界面与通知偏好。订阅和平台账号保持不变。"
+    },
+    {
+      "name": "data_clear_profiles",
+      "value": "删除订阅与平台账号"
+    },
+    {
+      "name": "data_clear_profiles_subtitle",
+      "value": "删除全部配置、节点缓存及 BitzNet/萤火虫登录凭据"
+    },
+    {
+      "name": "data_clear_profiles_confirm",
+      "value": "将永久删除全部订阅、节点缓存和平台登录凭据。"
+    },
+    {
+      "name": "data_full_reset",
+      "value": "完整重置应用"
+    },
+    {
+      "name": "data_full_reset_subtitle",
+      "value": "清理订阅、账号、覆写和全部应用偏好"
+    },
+    {
+      "name": "data_full_reset_confirm",
+      "value": "将应用恢复到首次安装状态并删除全部本地数据。"
+    },
+    {
+      "name": "data_confirm_reset",
+      "value": "确认重置"
+    },
+    {
+      "name": "data_confirm_delete",
+      "value": "确认删除"
+    },
+    {
+      "name": "data_management_tip",
+      "value": "删除操作会先停止 VPN。平台账号密码保存在独立加密存储中，选择对应清理项时会一并删除。"
+    },
+    {
+      "name": "data_reset_complete",
+      "value": "界面设置已重置"
+    },
+    {
+      "name": "data_profiles_cleared",
+      "value": "订阅与平台账号已删除"
+    },
+    {
+      "name": "data_full_reset_complete",
+      "value": "应用数据已完整重置"
+    },
+    {
+      "name": "data_operation_failed",
+      "value": "数据操作失败，请重试"
+    },
+    {
+      "name": "vpn_floating_window",
+      "value": "VPN 悬浮小窗"
+    },
+    {
+      "name": "vpn_floating_window_subtitle",
+      "value": "仅显示运行状态，不参与后台保活"
+    },
+    {
+      "name": "notice_main_switch_subtitle",
+      "value": "控制应用的普通通知"
+    },
+    {
+      "name": "speed_notification",
+      "value": "VPN 通知显示网速"
+    },
+    {
+      "name": "speed_notification_subtitle",
+      "value": "把当前节点和上下行速度合并到系统 VPN 隧道通知"
+    },
+    {
+      "name": "vpn_system_notification_explanation",
+      "value": "VPN 运行时只显示一条系统长时任务通知。开启上面的选项后，节点和实时网速会直接显示在这条通知中。"
+    },
+    {
+      "name": "backup_credentials_excluded",
+      "value": "安全提示：备份文件包含配置与订阅信息，但不包含 BitzNet、萤火虫账号密码；恢复后需要重新登录。"
+    },
+    {
+      "name": "RuleTemplates",
+      "value": "自定义规则模板"
+    }
+  ]
+}

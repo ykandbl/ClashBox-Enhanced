@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; padding: 24px; background: transparent; color: CanvasText; }
+    h2 { margin: 0 0 12px; }
+    #status { opacity: .75; margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .card { border-radius: 18px; padding: 18px; background: color-mix(in srgb, Canvas 92%, #3887ff 8%); }
+    .label { opacity: .7; font-size: 14px; }
+    .value { margin-top: 8px; font-size: clamp(20px, 6vw, 28px); font-weight: 700; white-space: nowrap; }
+    .unit { opacity: .65; font-size: 13px; margin-top: 4px; }
+    #details { white-space: pre-line; font-size: 13px; line-height: 1.7; margin-top: 18px; }
+    .note { margin-top: 20px; opacity: .65; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h2>网页链路 · Cloudflare</h2>
+  <div id="status">等待开始</div>
+  <div class="grid">
+    <div class="card"><div class="label">下载</div><div id="down" class="value">—</div><div class="unit">Mbps</div></div>
+    <div class="card"><div class="label">上传</div><div id="up" class="value">—</div><div class="unit">Mbps</div></div>
+    <div class="card"><div class="label">空闲延迟</div><div id="latency" class="value">—</div><div class="unit">ms</div></div>
+    <div class="card"><div class="label">空闲抖动</div><div id="jitter" class="value">—</div><div class="unit">ms</div></div>
+  </div>
+  <div id="details"></div>
+  <div class="note">经所选节点到 Cloudflare 的 HTTP 链路速度，采用官方 P90，不代表对所有网站的最高带宽。未进行 UDP 丢包测试。仅手动启动；不上传结果，关闭即停止，结束后恢复原节点。</div>
+  <script src="./cloudflare-speedtest-1.13.1.js"></script>
+  <script>
+    const state = { status: 'ready', phase: '等待开始' };
+    let engine;
+    // Read the upstream default via its public config API. Retain every HTTP
+    // measurement, including interleaved idle latency; WebRTC would not reliably
+    // honor an HTTP proxy override, so it must not be reported as node loss.
+    const measurements = new window.CloudflareSpeedTest({ autoStart: false }).config.measurements
+      .filter(item => ['latency', 'download', 'upload'].includes(item.type));
+
+    const number = value => Number.isFinite(value) ? value : 0;
+    const mbps = value => value ? (value / 1e6).toFixed(2) : '—';
+    const ms = value => value ? value.toFixed(0) : '—';
+    function sampleSummary(label, items) {
+      if (!items.length) return `${label}：暂无完整样本`;
+      const largest = Math.max(...items.map(item => item.bytes));
+      const last = items.filter(item => item.bytes === largest && item.bps > 0);
+      const speeds = last.map(item => item.bps / 1e6);
+      return `${label}：${items.length}个完整样本，末级 ${(largest / 1e6).toFixed(1)} MB × ${last.length}\n` +
+        `末级范围 ${Math.min(...speeds).toFixed(2)}–${Math.max(...speeds).toFixed(2)} Mbps`;
+    }
+    function capture(results) {
+      const summary = results.getSummary();
+      state.downloadBps = number(summary.download);
+      state.uploadBps = number(summary.upload);
+      state.latencyMs = number(summary.latency);
+      state.jitterMs = number(summary.jitter);
+      state.downLoadedLatencyMs = number(summary.downLoadedLatency);
+      state.upLoadedLatencyMs = number(summary.upLoadedLatency);
+      state.totalDurationMs = number(summary.totalDurationMs) || performance.now() - state.startedAt;
+      state.downPoints = points(results.getDownloadBandwidthPoints());
+      state.upPoints = points(results.getUploadBandwidthPoints());
+      state.transferredBytes = state.downPoints.reduce((sum, item) => sum + item.bytes, 0) +
+        state.upPoints.reduce((sum, item) => sum + item.bytes, 0);
+    }
+    function render() {
+      document.querySelector('#status').textContent = state.phase;
+      document.querySelector('#down').textContent = mbps(state.downloadBps);
+      document.querySelector('#up').textContent = mbps(state.uploadBps);
+      document.querySelector('#latency').textContent = ms(state.latencyMs);
+      document.querySelector('#jitter').textContent = ms(state.jitterMs);
+      document.querySelector('#details').textContent = state.downPoints ?
+        `${sampleSummary('下载', state.downPoints)}\n${sampleSummary('上传', state.upPoints)}\n` +
+        `已完成样本 ${(state.transferredBytes / 1e6).toFixed(1)} MB（重试和协议开销另计）\n` +
+        `负载延迟：下载 ${ms(state.downLoadedLatencyMs)} / 上传 ${ms(state.upLoadedLatencyMs)} ms\n` +
+        `耗时 ${Math.round(state.totalDurationMs / 1000)} 秒` + (state.error ? `\n${state.error}` : '') : '';
+    }
+    function points(items) {
+      return items.map(item => ({
+        bytes: number(item.bytes), bps: number(item.bps), duration: number(item.duration),
+        ping: number(item.ping), transferSize: number(item.transferSize)
+      }));
+    }
+    window.fireflyReadSpeedTest = () => JSON.stringify(state);
+    window.fireflyStopSpeedTest = () => {
+      if (engine) engine.pause();
+      if (state.status === 'running') {
+        state.status = 'stopped';
+        state.phase = '测速已停止';
+        render();
+      }
+      return 'stopped';
+    };
+    window.fireflyFailSpeedTest = message => {
+      window.fireflyStopSpeedTest();
+      state.status = 'failed';
+      state.phase = '测速失败';
+      state.error = String(message).slice(0, 180);
+      render();
+    };
+    window.addEventListener('pagehide', window.fireflyStopSpeedTest);
+    window.fireflyStartSpeedTest = () => {
+      if (state.status === 'running') return 'running';
+      state.status = 'running';
+      state.startedAt = performance.now();
+      state.phase = '正在预热并逐级放大样本…';
+      render();
+      engine = new window.CloudflareSpeedTest({
+        autoStart: false,
+        logAimApiUrl: null,
+        logMeasurementApiUrl: null,
+        measurements,
+        measureDownloadLoadedLatency: true,
+        measureUploadLoadedLatency: true,
+        bandwidthFinishRequestDuration: 1000,
+        bandwidthAbortRequestDuration: 90000,
+        bandwidthPercentile: 0.9
+      });
+      engine.onResultsChange = event => {
+        if (state.status !== 'running') return;
+        capture(engine.results);
+        state.phase = event && event.type ? `正在测试：${event.type}` : '正在测试…';
+        render();
+      };
+      engine.onError = error => {
+        state.status = 'failed';
+        state.phase = '测速失败';
+        state.error = String(error || 'Cloudflare 测速引擎异常').slice(0, 180);
+        render();
+        // Upstream advances the current phase after notifying onError. Stop
+        // once that callback unwinds so a failed run cannot continue traffic.
+        queueMicrotask(() => engine.pause());
+      };
+      engine.onFinish = results => {
+        if (state.status !== 'running') return;
+        capture(results);
+        state.status = 'done';
+        state.phase = '测速完成';
+        render();
+      };
+      engine.play();
+      return 'started';
+    };
+    render();
+  </script>
+</body>
+</html>

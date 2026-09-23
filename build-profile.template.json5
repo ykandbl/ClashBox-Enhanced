@@ -1,0 +1,91 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "DEVECO_CERT_PATH",
+          "keyAlias": "DEVECO_KEY_ALIAS",
+          "keyPassword": "DEVECO_KEY_PASSWORD",
+          "profile": "DEVECO_PROFILE_PATH",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "DEVECO_KEYSTORE_PATH",
+          "storePassword": "DEVECO_STORE_PASSWORD"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": "26.0.0",
+        "compatibleSdkVersion": "5.0.5(17)",
+        "targetSdkVersion": "6.0.0(20)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          },
+          "externalNativeOptions": {
+            "abiFilters": [
+              "arm64-v8a",
+              "x86_64"
+            ]
+          }
+        }
+      },
+      {
+        "name": "release",
+        "signingConfig": "default",
+        "compileSdkVersion": "26.0.0",
+        "compatibleSdkVersion": "5.0.5(17)",
+        "targetSdkVersion": "6.0.0(20)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          },
+          "externalNativeOptions": {
+            "abiFilters": [
+              "arm64-v8a"
+            ]
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default",
+            "release"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "proxy_core",
+      "srcPath": "./proxy_core"
+    },
+    {
+      "name": "xb_components",
+      "srcPath": "./xb_components"
+    }
+  ]
+}

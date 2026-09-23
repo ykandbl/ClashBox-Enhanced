@@ -1,0 +1,59 @@
+--- a/component/iface/iface.go
++++ b/component/iface/iface.go
+@@ -4,6 +4,7 @@ import (
+ 	"errors"
+ 	"net"
+ 	"net/netip"
++	"sync"
+ 	"time"
+ 
+ 	"github.com/metacubex/mihomo/common/singledo"
+@@ -24,8 +25,19 @@ type Interface struct {
+ var (
+ 	ErrIfaceNotFound = errors.New("interface not found")
+ 	ErrAddrNotFound  = errors.New("addr not found")
++	customIfacesMu   sync.RWMutex
++	customIfaces     map[string]*Interface
+ )
+ 
++// SetInterfaces supplies platform-discovered interfaces on systems where the
++// Go runtime is not permitted to enumerate them directly (HarmonyOS NEXT).
++func SetInterfaces(ifaces map[string]*Interface) {
++	customIfacesMu.Lock()
++	customIfaces = ifaces
++	customIfacesMu.Unlock()
++	caches.Reset()
++}
++
+ type ifaceCache struct {
+ 	ifMapByName map[string]*Interface
+ 	ifMapByAddr map[netip.Addr]*Interface
+@@ -36,6 +48,28 @@ var caches = singledo.NewSingle[*ifaceCache](time.Second * 20)
+ 
+ func getCache() (*ifaceCache, error) {
+ 	value, err, _ := caches.Do(func() (*ifaceCache, error) {
++		customIfacesMu.RLock()
++		if len(customIfaces) > 0 {
++			cache := &ifaceCache{
++				ifMapByName: make(map[string]*Interface, len(customIfaces)),
++				ifMapByAddr: make(map[netip.Addr]*Interface),
++			}
++			for name, custom := range customIfaces {
++				copyOfCustom := *custom
++				cache.ifMapByName[name] = &copyOfCustom
++				if copyOfCustom.Flags&net.FlagUp == 0 {
++					continue
++				}
++				for _, prefix := range copyOfCustom.Addresses {
++					cache.ifMapByAddr[prefix.Addr()] = &copyOfCustom
++					cache.ifTable.Insert(prefix, &copyOfCustom)
++				}
++			}
++			customIfacesMu.RUnlock()
++			return cache, nil
++		}
++		customIfacesMu.RUnlock()
++
+ 		ifaces, err := anet.Interfaces()
+ 		if err != nil {
+ 			return nil, err

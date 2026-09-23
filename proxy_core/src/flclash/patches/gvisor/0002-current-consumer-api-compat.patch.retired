@@ -1,0 +1,73 @@
+Retired for Mihomo v1.19.31 / gVisor 79317d808312e241b8da115b7e07a912c2e4631f.
+The upstream gVisor tree now provides Stack.SetAllowPromiscuousSource and the
+UDP ForwarderHandler bool return contract directly, so keeping this file in the
+active *.patch series would duplicate those APIs.
+
+--- a/pkg/tcpip/stack/stack.go
++++ b/pkg/tcpip/stack/stack.go
+@@ -1703,6 +1703,22 @@ func (s *Stack) SetSpoofing(nicID tcpip.NICID, enable bool) tcpip.Error {
+ 	nic.setSpoofing(enable)
+ 
+ 	return nil
+ }
+ 
++// SetAllowPromiscuousSource is retained for compatibility with current
++// sing-wireguard consumers. The stable gVisor baseline predates temporary
++// promiscuous-source endpoints; its existing promiscuous and spoofing modes
++// already provide the behavior expected by that generation of the stack.
++func (s *Stack) SetAllowPromiscuousSource(nicID tcpip.NICID, enable bool) tcpip.Error {
++	s.mu.RLock()
++	defer s.mu.RUnlock()
++
++	if _, ok := s.nics[nicID]; !ok {
++		return &tcpip.ErrUnknownNICID{}
++	}
++
++	_ = enable
++	return nil
++}
++
+ // LinkResolutionResult is the result of a link address resolution attempt.
+--- a/pkg/tcpip/transport/udp/forwarder.go
++++ b/pkg/tcpip/transport/udp/forwarder.go
+@@ -20,19 +20,23 @@ import (
+ 	"github.com/metacubex/gvisor/pkg/waiter"
+ )
+ 
++// ForwarderHandler handles incoming requests. Returning false lets the stack
++// report an unhandled UDP destination to the peer.
++type ForwarderHandler func(*ForwarderRequest) (handled bool)
++
+ // Forwarder is a session request forwarder, which allows clients to decide
+ // what to do with a session request, for example: ignore it, or process it.
+ //
+ // The canonical way of using it is to pass the Forwarder.HandlePacket function
+ // to stack.SetTransportProtocolHandler.
+ type Forwarder struct {
+-	handler func(*ForwarderRequest)
++	handler ForwarderHandler
+ 
+ 	stack *stack.Stack
+ }
+ 
+ // NewForwarder allocates and initializes a new forwarder.
+-func NewForwarder(s *stack.Stack, handler func(*ForwarderRequest)) *Forwarder {
++func NewForwarder(s *stack.Stack, handler ForwarderHandler) *Forwarder {
+ 	return &Forwarder{
+ 		stack:   s,
+ 		handler: handler,
+@@ -44,13 +49,11 @@ func NewForwarder(s *stack.Stack, handler func(*ForwarderRequest)) *Forwarder {
+ // This function is expected to be passed as an argument to the
+ // stack.SetTransportProtocolHandler function.
+ func (f *Forwarder) HandlePacket(id stack.TransportEndpointID, pkt *stack.PacketBuffer) bool {
+-	f.handler(&ForwarderRequest{
++	return f.handler(&ForwarderRequest{
+ 		stack: f.stack,
+ 		id:    id,
+ 		pkt:   pkt.Clone(),
+ 	})
+-
+-	return true
+ }
+ 
+ // ForwarderRequest represents a session request received by the forwarder and

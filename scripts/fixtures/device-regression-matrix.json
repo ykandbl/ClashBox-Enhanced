@@ -1,0 +1,20 @@
+{
+  "description": "Synthetic local matrix. No real account, token, URL, or subscription body is used.",
+  "cases": [
+    "覆盖安装保留数据",
+    "账号过期→续费",
+    "首次下载失败后重试",
+    "核心加载失败后重试",
+    "VPN 开/关",
+    "当前/非当前配置",
+    "多订阅快速切换",
+    "规则/全局模式",
+    "快速 stop/start",
+    "进程恢复",
+    "配置页节点数与代理页/核心一致"
+  ],
+  "fixtureProfiles": [
+    { "id": "fixture-current", "nodes": 34, "current": true },
+    { "id": "fixture-secondary", "nodes": 2, "current": false }
+  ]
+}

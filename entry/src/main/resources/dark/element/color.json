@@ -1,0 +1,109 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FF000000"
+    },
+    {
+      "name": "settings_container_background",
+      "value": "#1A1A1A"
+    },
+    {
+      "name": "background",
+      "value": "#FF000000"
+    },
+    {
+      "name": "float_tab_background_blur",
+      "value": "#B3000000"
+    },
+    {
+      "name": "container_background",
+      "value": "#1A1A1A"
+    },
+    {
+      "name": "settings_icon",
+      "value": "#fff1f3f5"
+    },
+    {
+      "name": "speed_up_icon",
+      "value": "#FFF7980A"
+    },
+    {
+      "name": "speed_down_icon",
+      "value": "#ff759bf5"
+    },
+    {
+      "name": "list_item_background_color",
+      "value": "#1AFFFFFF"
+    },
+    {
+      "name": "divider",
+      "value": "#1AFFFFFF"
+    },
+    {
+      "name": "FavoriteProxyDivider",
+      "value": "#1AFFFFFF"
+    },
+    {
+      "name": "symbol_logo_name_color",
+      "value": "#E6FDFDFD"
+    },
+    {
+      "name": "button_container_background",
+      "value": "#0DFFFFFF"
+    },
+    {
+      "name": "back",
+      "value": "#FF191919"
+    },
+    {
+      "name": "theme_color_main_cat_blue",
+      "value": "#FF4B6992"
+    },
+    {
+      "name": "theme_color_main_yellow",
+      "value": "#ff9926"
+    },
+    {
+      "name": "theme_color_main_red",
+      "value": "#E6D41C26"
+    },
+    {
+      "name": "theme_color_main_purple",
+      "value": "#FFAC49F5"
+    },
+    {
+      "name": "theme_color_main_pink",
+      "value": "#E6FB7299"
+    },
+    {
+      "name": "theme_color_main_green",
+      "value": "#E682D41C"
+    },
+    {
+      "name": "shadow",
+      "value": "#1AFFFFFF"
+    },
+    {
+      "name": "shadow_button",
+      "value": "#33FFFFFF"
+    },
+    {
+      "name": "border",
+      "value": "#33FFFFFF"
+    },
+    {
+      "name": "home_card_background",
+      "value": "#26FFFFFF"
+    },
+    {
+      "name": "px_sec_screen_tabs",
+      "value": "#333333"
+    },
+    {
+      "name": "px_sec_screen_dot",
+      "value": "#FF272728"
+    }
+  ]
+}
+

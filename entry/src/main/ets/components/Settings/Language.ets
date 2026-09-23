@@ -1,0 +1,175 @@
+import TopBuilder from "./TopBuilder"
+import { LanguageData, LanguageListItem } from "../../common/entity/Constants"
+import { PromptAction } from "@kit.ArkUI"
+import { hilog } from "@kit.PerformanceAnalysisKit"
+import { ChangeLanguage } from "../../common/utils/ChangeLanguageUtil"
+import { UIConfig } from "../../entryability/AppState"
+import { customAnimationUtil } from "../../common/utils/Animation"
+import { PageMargin } from "../../common/breakpoint/BreakPoint"
+
+@Component
+struct Language {
+  // 主题色
+  @Consume('icon_emphasize') icon_emphasize: ResourceColor
+  @Consume currentLanguage: ResourceStr
+  @Consume SystemLanguageSubtitle: ResourceStr
+  @State private currentRadioCheck: number = -1
+  @State SettingsLanguageList: LanguageData[] = LanguageListItem()
+  @Consume('NavSettingsPathStack') SettingsPageInfos: NavPathStack
+  //一级图标色，黑色
+  @State icon_primary: ResourceColor = $r('sys.color.icon_primary')
+  @StorageLink ('isLandscapePhone') private isLandscapePhone: boolean = false
+  private promptAction: PromptAction = this.getUIContext().getPromptAction()
+  // 高度断点
+  @StorageLink ('currentHeightBreakpoint') heightBp: HeightBreakpoint = 0
+  // 宽度断点
+  @StorageLink ('currentWidthBreakpoint') widthBp: WidthBreakpoint = 1
+  @StorageLink('uiConfig') uiConfig: UIConfig = new UIConfig()
+
+  aboutToAppear(): void {
+    // 初始化选择的Radio
+    for (let i = 0; i < this.SettingsLanguageList.length; i++) {
+      if (this.SettingsLanguageList[i].areaID === this.uiConfig.userLanguage) {
+        this.currentRadioCheck = i
+        break
+      }
+    }
+  }
+
+  FollowSystemHotChanage() {
+    switch (this.uiConfig.systemLanguage) {
+      case 'zh-Hans-CN':
+      case 'zh-Hans':
+        this.currentLanguage = $r('app.string.Language_Subtitle')
+        break
+      case 'en-Latn-US':
+      case 'en-Latn':
+        this.currentLanguage = $r('app.string.English_Subtitle')
+        break
+      case 'zh-Hant-HK':
+      case 'zh-Hant':
+      case 'zh-HK':
+        this.currentLanguage = $r('app.string.TraditionalChinese_HK_Subtitle')
+        break
+      case 'zh-Hant-TW':
+      case 'zh-TW':
+        this.currentLanguage = $r('app.string.TraditionalChinese_TW_Subtitle')
+        break
+      default:
+        this.promptAction.showToast({message: `切换错误，当前系统语言：${this.uiConfig.systemLanguage}`, duration: 2000 })
+        this.currentLanguage =  $r('app.string.Language_Subtitle')
+    }
+    ChangeLanguage(this.uiConfig.systemLanguage)
+  }
+
+  build() {
+    NavDestination() {
+      TopBuilder({
+        title: $r('app.string.Language'),
+        pathStack: this.SettingsPageInfos
+      })
+      List() {
+        // 跟随系统语言
+        ListItem() {
+          Row() {
+            Column() {
+              Text($r('app.string.SystemLanguage'))
+                .fontWeight(FontWeight.Medium)
+                .fontSize(16)
+              Text(this.SystemLanguageSubtitle)
+                .fontWeight(FontWeight.Normal)
+                .textOverflow({ overflow: TextOverflow.Ellipsis })
+                .maxLines(1)
+                .margin({ top: 2 })
+                .fontSize(14)
+            }
+            .margin({ left: 12 })
+            .alignItems(HorizontalAlign.Start)
+            Blank()
+            Radio({ value: 'language-1' , group: 'languageGroup' })
+              .checked(this.currentRadioCheck === -1)
+              .margin({right: 12 })
+              .radioStyle({
+                checkedBackgroundColor: this.icon_emphasize,
+              })
+              .hitTestBehavior(HitTestMode.None)
+          }
+          .width('94%')
+          .height(53)
+          .borderRadius(20)
+          .backgroundColor($r('app.color.container_background'))
+        }
+        .margin({bottom: 10})
+           .clickEffect(customAnimationUtil.isClickEffect(this.uiConfig))
+        .onClick(() => {
+          // 点击整行对应单选框选中
+           this.currentRadioCheck = -1
+          // 恢复默认
+          this.uiConfig.userLanguage = "default"
+          // ChangeLanguage("default")
+          // promptAction.showToast({message: $r('app.string.restart_app_tips'), duration: 2000 })
+          this.FollowSystemHotChanage()
+        })
+        ForEach(this.SettingsLanguageList, (item: LanguageData, index: number) => {
+          // 语言列表
+          ListItem() {
+            Row() {
+              Column() {
+                Text(item.title)
+                  .fontWeight(FontWeight.Medium)
+                  .fontSize(16)
+                Text(item.subtitle)
+                  .fontWeight(FontWeight.Normal)
+                  .textOverflow({ overflow: TextOverflow.Ellipsis })
+                  .maxLines(1)
+                  .margin({ top: 2 })
+                  .fontSize(14)
+              }
+              .margin({ left: 12 })
+              .alignItems(HorizontalAlign.Start)
+              Blank()
+              Radio({ value: 'language' + index, group: 'languageGroup' })
+                .checked(index === this.currentRadioCheck)
+                .margin({right: 12 })
+                .radioStyle({
+                  checkedBackgroundColor: this.icon_emphasize,
+                })
+                .hitTestBehavior(HitTestMode.None)
+            }
+            .width('94%')
+            .height(53)
+            .borderRadius(20)
+            .backgroundColor($r('app.color.container_background'))
+          }
+          .margin({bottom: 10})
+             .clickEffect(customAnimationUtil.isClickEffect(this.uiConfig))
+          .onClick(() => {
+            // 点击整行对应单选框选中
+            this.currentRadioCheck = index
+            hilog.info(0xFF00, "SettingsLanguagetestTag", "当前选中：%{public}d", this.currentRadioCheck)
+            // 改变语言
+            ChangeLanguage(item.areaID)
+            this.uiConfig.userLanguage = item.areaID
+            if(index === 0) {
+              this.currentLanguage = $r('app.string.Language_Subtitle')
+            } else {
+              this.currentLanguage = item.title
+            }
+          })
+        })
+      }
+      .width('100%')
+      .alignListItem(ListItemAlign.Center)
+      .height(this.isLandscapePhone ? 275 : 800)
+      .margin({ left: PageMargin(this.widthBp, this.heightBp), right: PageMargin(this.widthBp, this.heightBp) })
+
+    }
+    .hideTitleBar(true)
+    .backgroundColor($r('app.color.background'))
+    .onBackPressed(() => {
+      this.SettingsPageInfos.clear();
+      return true;
+    })
+  }
+}
+export default Language

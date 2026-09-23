@@ -1,0 +1,33 @@
+--- a/dns/system_common.go
++++ b/dns/system_common.go
+@@ -12,7 +12,30 @@ import (
+ 	"golang.org/x/exp/slices"
+ )
+ 
++var systemResolverOverride []dnsClient
++
++func FlushCacheWithDefaultResolver() {
++	resolver.ClearCache()
++	resolver.ResetConnection()
++}
++
++func UpdateSystemDNS(addr []string) {
++	if len(addr) == 0 {
++		systemResolverOverride = nil
++		return
++	}
++
++	ns := make([]NameServer, 0, len(addr))
++	for _, d := range addr {
++		ns = append(ns, NameServer{Addr: d})
++	}
++	systemResolverOverride = transform(ns, nil)
++}
++
+ func (c *systemClient) getDnsClients() ([]dnsClient, error) {
++	if len(systemResolverOverride) > 0 {
++		return systemResolverOverride, nil
++	}
+ 	c.mu.Lock()
+ 	defer c.mu.Unlock()
+ 	var err error

@@ -1,0 +1,20 @@
+--- a/hub/executor/executor.go
++++ b/hub/executor/executor.go
+@@ -44,6 +44,10 @@ import (
+ 
+ var mux sync.Mutex
+ 
++// DefaultProviderLoadedHook lets embedded clients refresh provider state as
++// soon as initialization finishes.
++var DefaultProviderLoadedHook = func(string) {}
++
+ func readConfig(path string) ([]byte, error) {
+ 	if _, err := os.Stat(path); os.IsNotExist(err) {
+ 		return nil, err
+@@ -318,5 +322,6 @@ func loadProvider[T P.Provider](providers map[string]T) {
+ 	load := func(pv T) {
+ 		name := pv.Name()
++		defer DefaultProviderLoadedHook(name)
+ 		if pv.VehicleType() == P.Compatible {
+ 			log.Infoln("Start initial compatible provider %s", name)
+ 		} else {

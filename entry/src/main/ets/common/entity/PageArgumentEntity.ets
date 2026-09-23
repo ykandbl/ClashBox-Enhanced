@@ -1,0 +1,125 @@
+/* 存放组件之间传输的实体类、需要持久化的数据对象 */
+import { ProfileType, SubscriptionInfo } from "proxy_core"
+
+// 之后根据这些数据整理成用户首选项
+export interface UserPreferences{
+  // 用户id
+  userId: string
+  // 首选语言
+  language: string
+  // 首选颜色模式 [0: LIGHT, 1: DARK]
+  colorMode: ColorMode
+  // ...
+}
+
+
+/* Index */
+// Tab栏构建
+export interface TabBuild {
+  name: ResourceStr
+  icon: Resource
+}
+// 窗口控制器
+export interface FunctionInfo {
+  icon: Resource
+  image: boolean
+  name?: ResourceStr
+  subtitle?: ResourceStr
+  onClick?: () => void
+}
+/* Index */
+
+/* 主页 */
+export interface Shortcuts {
+  readonly text: string
+  latency: number
+  type: string
+  id: string
+  g?: string
+  isShowFavoriteProxy?: boolean
+}
+
+
+export interface HomeCardInfo {
+  span_sm?: number,
+  span_md?: number,
+  span_lg?: number,
+  key: string,
+  name: ResourceStr,
+  order: number,
+  isShow: boolean,
+  spanMultiple: number,
+  aspectRatio: number
+}
+/* 主页 */
+
+/* 代理 */
+
+
+/* 配置 */
+
+// 配置 -> 新增配置时的传输数据
+export interface ConfigData {
+  // 配置id
+  readonly configId: string
+  // 是否为新配置（非已有配置进入编辑状态）
+  isNewConfig: boolean
+  // 配置名
+  configName: string
+  // 配置URL
+  configUrl: string
+  // 是否自动更新
+  isConfigAutoUpdate: boolean
+  // 是否允许更新
+  disableUpdate: boolean
+  // 自动更新间隔对应的值
+  configAutoUpdateTimeGapValue?: number
+  // 自动更新间隔对应的毫秒数
+  configAutoUpdateTimeGapMs?: number
+  // 自动更新间隔`TextPicker`对应的索引（默认数据参照`Constants.CONFIG_AUTO_UPDATE_TIME_GAT_STRING_ARR` & $r('app.strarray.config_auto_update_text_picker')）
+  configAutoUpdateTimeGapTextPickerIndex?: number
+  // 创建日期 yyyy-MM-dd hh:mm:ss
+  createdDate?: string
+  // 最后更新/编辑日期 时间戳格式
+  lastUpdateDateTime: number
+  // 套餐已用流量
+  trafficUsed?: string
+  // 套餐所有流量
+  trafficTotal?: string
+  // 配置是否收藏
+  isFavorite?: boolean
+  // 配置来源类型
+  sourceType?: ProfileType
+  // 如果是副本配置，对应源配置id
+  copySourceConfigId?: string
+  updateTime: number
+  subscriptionInfo?: SubscriptionInfo
+  /** 账号服务商：none / bitznet / yhc。账号密码只在编辑态临时存在。 */
+  accountProvider?: string
+  accountUsername?: string
+  accountPassword?: string
+  accountState?: string
+  accountError?: string
+  accountUpdatedAt?: number
+  subscriptionState?: string
+  subscriptionError?: string
+  subscriptionFormat?: string
+  subscriptionNodeCount?: number
+  subscriptionCheckedAt?: number
+  subscriptionPendingRepair?: boolean
+  subscriptionRetryAt?: number
+  lastGoodContentId?: string
+  coreLoadState?: string
+  coreLoadedContentId?: string
+  coreLoadedAt?: number
+  /** 旧版字段保留用于升级读取。 */
+  bitzQuotaEnabled?: boolean
+  bitzUsername?: string
+  bitzPassword?: string
+  bitzQuotaState?: string
+  bitzQuotaError?: string
+  bitzQuotaUpdatedAt?: number
+}
+
+
+/* 更多 */

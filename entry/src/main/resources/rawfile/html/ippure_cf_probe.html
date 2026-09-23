@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+<script>
+  (() => {
+    let frame = null;
+    let timer = 0;
+    let listener = null;
+
+    function finish(value) {
+      if (timer) clearTimeout(timer);
+      if (listener) window.removeEventListener('message', listener);
+      if (frame) frame.remove();
+      timer = 0;
+      listener = null;
+      frame = null;
+      window.ippureNative.report(String(value || 'ERROR:Cloudflare 探针返回为空'));
+    }
+
+    window.runProbe = () => {
+      if (frame) finish('ERROR:Cloudflare 探针被新的检测替换');
+      listener = (event) => {
+        if (event.origin !== 'https://cf.999831.xyz') return;
+        const data = event.data || {};
+        if (data.error) finish('ERROR:' + (data.payload || 'Cloudflare 页面检测失败'));
+        else finish(data.payload);
+      };
+      window.addEventListener('message', listener);
+      frame = document.createElement('iframe');
+      frame.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none';
+      frame.src = 'https://cf.999831.xyz/page/test-page?ts=' + Date.now();
+      document.body.appendChild(frame);
+      timer = setTimeout(() => finish('ERROR:Cloudflare 浏览器检测超时'), 12000);
+    };
+  })();
+</script>
+</body>
+</html>

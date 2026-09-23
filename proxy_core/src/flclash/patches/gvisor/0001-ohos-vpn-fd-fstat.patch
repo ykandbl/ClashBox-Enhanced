@@ -1,0 +1,14 @@
+--- a/pkg/tcpip/link/fdbased/endpoint.go
++++ b/pkg/tcpip/link/fdbased/endpoint.go
+@@ -473,7 +473,9 @@ func setPacketFanout(fd int, fID int32) error {
+ // IsSocketFD checks if the FD is a socket.
+ func IsSocketFD(fd int) (bool, error) {
+ 	var stat unix.Stat_t
++	// HarmonyOS NEXT may deny fstat on a VPN-owned descriptor. Treat it as a
++	// non-socket descriptor and continue with the TUN path.
+ 	if err := unix.Fstat(fd, &stat); err != nil {
+-		return false, fmt.Errorf("unix.Fstat(%v,...) failed: %v", fd, err)
++		return false, nil
+ 	}
+ 	return (stat.Mode & unix.S_IFSOCK) == unix.S_IFSOCK, nil
+ }

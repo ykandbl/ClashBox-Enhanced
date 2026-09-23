@@ -1,0 +1,27 @@
+--- a/adapter/adapter.go
++++ b/adapter/adapter.go
+@@ -20,6 +20,10 @@ import (
+ 	"github.com/metacubex/http"
+ )
+ 
++// UrlTestHook lets the HarmonyOS bridge mirror completed delay checks to UI
++// observers without coupling the core to ArkTS.
++var UrlTestHook = func(url string, name string, delay uint16) {}
++
+ var UnifiedDelay = atomic.NewBool(false)
+ 
+ const (
+@@ -195,7 +199,13 @@ func (p *Proxy) URLTest(ctx context.Context, url string, expectedStatus utils.Int
+ 		state.history.Put(record)
+ 		if state.history.Len() > defaultHistoriesNum {
+ 			state.history.Pop()
++		}
++
++		delay := t
++		if !alive || !satisfied {
++			delay = 0
+ 		}
++		UrlTestHook(url, p.Name(), delay)
+ 
+ 	}()
+ 

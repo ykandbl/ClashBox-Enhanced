@@ -1,0 +1,53 @@
+{
+  "app": {
+    "products": [
+      {
+        "name": "default",
+        "compileSdkVersion": "26.0.0",
+        "compatibleSdkVersion": "5.0.5(17)",
+        "targetSdkVersion": "6.0.0(20)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          },
+          "externalNativeOptions": {
+            "abiFilters": ["arm64-v8a", "x86_64"]
+          }
+        }
+      },
+      {
+        "name": "release",
+        "compileSdkVersion": "26.0.0",
+        "compatibleSdkVersion": "5.0.5(17)",
+        "targetSdkVersion": "6.0.0(20)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          },
+          "externalNativeOptions": {
+            "abiFilters": ["arm64-v8a"]
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      { "name": "debug" },
+      { "name": "release" }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        { "name": "default", "applyToProducts": ["default", "release"] }
+      ]
+    },
+    { "name": "proxy_core", "srcPath": "./proxy_core" },
+    { "name": "xb_components", "srcPath": "./xb_components" }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet",
+      "2in1"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:layered_image",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:foreground_box_cat_large",
+        "startWindowBackground": "$color:start_window_background",
+        "orientation": "auto_rotation_restricted",
+        "supportWindowMode": [
+          "floating",
+          "split",
+          "fullscreen"
+        ],
+        "recoverable": true,
+        "minWindowWidth": 332,
+        "minWindowHeight": 498,
+        "maxWindowHeight": 4800,
+        "exported": true,
+        "backgroundModes": [
+          // VPN 保活与合并后的实时网速通知只使用数据传输长时任务。
+          "dataTransfer"
+        ],
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home",
+              "entity.system.browsable"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          },
+          {
+            "actions": [
+              "ohos.want.action.viewData",
+              "ohos.want.action.sendData"
+            ],
+            "uris": [
+              {
+                "scheme": "clash",
+                "host": "install-config"
+              },
+              {
+                "scheme": "clashbox",
+                "host": "install-config"
+              },
+              {
+                "scheme": "file",
+                "utd": "general.text",
+                "maxFileSupported": 1
+              },
+              {
+                "scheme": "https",
+                "host": "xbstudio.top",
+                "pathStartWith": "clashbox"
+              }
+            ],
+            "domainVerify": true
+          }
+        ]
+      }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET",
+      },
+      {
+        "name": "ohos.permission.GET_NETWORK_INFO"
+      },
+      {
+        // 适人握持(动作感知)
+        "name": "ohos.permission.DETECT_GESTURE"
+      },
+      {
+        // 振动器
+        "name": "ohos.permission.VIBRATE"
+      },
+      {
+        // 长时后台
+        "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"
+      },
+      {
+        // PC窗口透明色
+        'name': "ohos.permission.SET_WINDOW_TRANSPARENT"
+      },
+    ],
+    "extensionAbilities": [
+      {
+        "name": "ClashVpnAbility",
+        "srcEntry": "./ets/entryability/ClashVpnAbility.ets",
+        "type": "vpn"
+      },
+      {
+        "name": "EntryBackupAbility",
+        "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ets",
+        "type": "backup",
+        "exported": false,
+        "metadata": [
+          {
+            "name": "ohos.extension.backup",
+            "resource": "$profile:backup_config"
+          }
+        ],
+      },
+      /*{ TODO 暂时下线卡片
+        "name": "EntryFormAbility",
+        "srcEntry": "./ets/entryformability/EntryFormAbility.ets",
+        "label": "$string:EntryFormAbility_label",
+        "description": "$string:EntryFormAbility_desc",
+        "type": "form",
+        "metadata": [
+          {
+            "name": "ohos.extension.form",
+            "resource": "$profile:form_config"
+          }
+        ]
+      }*/
+    ],
+    // 指定路由映射json文件
+    "routerMap": "$profile:route_map"
+  }
+}

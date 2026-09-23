@@ -1,0 +1,6 @@
+[submodule "proxy_core/src/flclash/core"]
+	path = proxy_core/src/flclash/core
+	url = https://github.com/MetaCubeX/mihomo.git
+[submodule "proxy_core/src/flclash/gvisor-ohos"]
+	path = proxy_core/src/flclash/gvisor-ohos
+	url = https://github.com/MetaCubeX/gvisor.git

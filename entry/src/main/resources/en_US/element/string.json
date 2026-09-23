@@ -1,0 +1,2712 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "ClashBox"
+    },
+    {
+      "name": "Speed",
+      "value": "Network Speed"
+    },
+    {
+      "name": "Settings",
+      "value": "Settings"
+    },
+    {
+      "name": "More",
+      "value": "More"
+    },
+    {
+      "name": "Configuration",
+      "value": "Configuration"
+    },
+    {
+      "name": "Proxy",
+      "value": "Proxy"
+    },
+    {
+      "name": "Home",
+      "value": "Home"
+    },
+    {
+      "name": "Mode",
+      "value": "Mode"
+    },
+    {
+      "name": "Rule",
+      "value": "Rule"
+    },
+    {
+      "name": "Overall",
+      "value": "Overall"
+    },
+    {
+      "name": "Direct",
+      "value": "Direct"
+    },
+    {
+      "name": "CurrentNode",
+      "value": "CurrentNode"
+    },
+    {
+      "name": "CurrentConfiguration",
+      "value": "Current Configuration"
+    },
+    {
+      "name": "PublicNetwork",
+      "value": "PublicNetwork"
+    },
+    {
+      "name": "Switch",
+      "value": "Switch"
+    },
+    {
+      "name": "CellularData",
+      "value": "CellularDataStatistics"
+    },
+    {
+      "name": "CellularData_Statistics_explanation",
+      "value": "Set monthly traffic to enable"
+    },
+    {
+      "name": "FavoriteProxy",
+      "value": "FavoriteProxy"
+    },
+    {
+      "name": "FavoriteConfiguration",
+      "value": "FavoriteConfiguration"
+    },
+    {
+      "name": "Log",
+      "value": "Log"
+    },
+    {
+      "name": "Resources",
+      "value": "Resources"
+    },
+    {
+      "name": "Request",
+      "value": "Request"
+    },
+    {
+      "name": "Connect",
+      "value": "Connect"
+    },
+    {
+      "name": "Overwrite",
+      "value": "Overwrite"
+    },
+    {
+      "name": "AccessControl",
+      "value": " AccessControl"
+    },
+    {
+      "name": "EnableLoggerPrompt",
+      "value": "Please click on 'Enable Logging' in the upper right corner"
+    },
+    {
+      "name": "EnableLogger",
+      "value": "EnableLogger"
+    },
+    {
+      "name": "ClearLogs",
+      "value": "ClearLogs"
+    },
+    {
+      "name": "ExportLog",
+      "value": "ExportLog"
+    },
+    {
+      "name": "none",
+      "value": "No"
+    },
+    {
+      "name": "AddConfig",
+      "value": "Add Configuration"
+    },
+    {
+      "name": "Basic",
+      "value": "Basic"
+    },
+    {
+      "name": "Network",
+      "value": "Network"
+    },
+    {
+      "name": "DNS",
+      "value": "DNS"
+    },
+    {
+      "name": "Language",
+      "value": "Language"
+    },
+    {
+      "name": "Appearance",
+      "value": "Appearance"
+    },
+    {
+      "name": "Backup_Recovery",
+      "value": "Backup and Recovery"
+    },
+    {
+      "name": "Notice",
+      "value": "Notice"
+    },
+    {
+      "name": "Backgrounder",
+      "value": "Backgrounder"
+    },
+    {
+      "name": "WipeData",
+      "value": "WipeData"
+    },
+    {
+      "name": "agreement_privacy",
+      "value": "User Agreement and Privacy Policy"
+    },
+    {
+      "name": "About",
+      "value": "About"
+    },
+    {
+      "name": "Language_Subtitle",
+      "value": "Simplified Chinese (default)"
+    },
+    {
+      "name": "AppearanceSubtitle",
+      "value": "Dark mode, Theme color, Animation"
+    },
+    {
+      "name": "BackupSubtitle",
+      "value": "Export backup, Import backup, Automatic synchronization"
+    },
+    {
+      "name": "ApplicationicationLockSubtitle",
+      "value": "Set application lock, Fingerprint/Face unlock"
+    },
+    {
+      "name": "subtitle",
+      "value": "Live speed, sound and vibration"
+    },
+    {
+      "name": "BackgrounderSubtitle",
+      "value": "Simulate long-term task execution"
+    },
+    {
+      "name": "WipeDataSubtitle",
+      "value": "Delete all data of the application"
+    },
+    {
+      "name": "already_open",
+      "value": "Opened"
+    },
+    {
+      "name": "already_close",
+      "value": "Closed"
+    },
+    {
+      "name": "Edit",
+      "value": "Edit"
+    },
+    {
+      "name": "Tabs",
+      "value": "Tabs(Default)"
+    },
+    {
+      "name": "List",
+      "value": "List"
+    },
+    {
+      "name": "Default",
+      "value": "Default"
+    },
+    {
+      "name": "Delay",
+      "value": "Delay"
+    },
+    {
+      "name": "Name",
+      "value": "Name"
+    },
+    {
+      "name": "Daily_Experience",
+      "value": "Daily experience"
+    },
+    {
+      "name": "Wide",
+      "value": "Wide(Single)"
+    },
+    {
+      "name": "Thin",
+      "value": "Thin(Multi column)"
+    },
+    {
+      "name": "Mini",
+      "value": "Mini(Multi column)"
+    },
+    {
+      "name": "Packet_mode",
+      "value": "Packet Mode"
+    },
+    {
+      "name": "Arrangement",
+      "value": "Arrangement"
+    },
+    {
+      "name": "Card_Size",
+      "value": "Card Size"
+    },
+    {
+      "name": "Collect",
+      "value": "Collect"
+    },
+    {
+      "name": "Test_Delay",
+      "value": "Delay Testing"
+    },
+    {
+      "name": "Test_Speed",
+      "value": "Test Speed"
+    },
+    {
+      "name": "Delay_Speed",
+      "value": "The difference between speed and delay"
+    },
+    {
+      "name": "Reset_overwrite_settings",
+      "value": "Reset overwrite settings"
+    },
+    {
+      "name": "Reset_overwrite_settings_subtitle",
+      "value": "Reset overwrite to default value"
+    },
+    {
+      "name": "LogLevel",
+      "value": "Log Level"
+    },
+    {
+      "name": "UA",
+      "value": "UA"
+    },
+    {
+      "name": "TCP_Active",
+      "value": "TCP Maintains Active Interval"
+    },
+    {
+      "name": "Test_Latency_Link",
+      "value": "Test Latency Link"
+    },
+    {
+      "name": "Proxy_Port",
+      "value": "Proxy Port"
+    },
+    {
+      "name": "lan",
+      "value": "LAN"
+    },
+    {
+      "name": "lan_subtitle",
+      "value": "Allow LAN"
+    },
+    {
+      "name": "only_proxy",
+      "value": "Only proxy traffic is counted"
+    },
+    {
+      "name": "only_proxy_subtitle",
+      "value": "The home page card only counts proxy traffic"
+    },
+    {
+      "name": "UnifiedLatency",
+      "value": "Unified Latency"
+    },
+    {
+      "name": "TCP_Concurrency",
+      "value": "TCP Concurrency"
+    },
+    {
+      "name": "External_Control",
+      "value": "External Control"
+    },
+    {
+      "name": "Info",
+      "value": "Info"
+    },
+    {
+      "name": "Default_UA",
+      "value": "Default(clash.meta/1.19.5)"
+    },
+    {
+      "name": "Default_test_latency_link",
+      "value": "Default(gstatic.com)"
+    },
+    {
+      "name": "Unified_Latency_Subtitle",
+      "value": "Remove additional latency such as handshakes"
+    },
+    {
+      "name": "External_Control_Subtitle",
+      "value": "Control Clash kernel through port 9090"
+    },
+    {
+      "name": "TCP_interval",
+      "value": "30s"
+    },
+    {
+      "name": "OverwriteDNS",
+      "value": "OverwriteDNS"
+    },
+    {
+      "name": "option",
+      "value": "Option"
+    },
+    {
+      "name": "State",
+      "value": "State"
+    },
+    {
+      "name": "State_subtitle",
+      "value": "After shutdown, the system DNS will be used"
+    },
+    {
+      "name": "UseHosts",
+      "value": "Use Hosts"
+    },
+    {
+      "name": "Use_System_Hosts",
+      "value": "Use System Hosts"
+    },
+    {
+      "name": "Follow_The_Rules",
+      "value": "Follow The Rules (configuration file rules)"
+    },
+    {
+      "name": "Follow_The_Rules_Subtitle",
+      "value": "proxy-server-nameserver needs to be configured"
+    },
+    {
+      "name": "Priority_Use_H3",
+      "value": "Priority Use of H3"
+    },
+    {
+      "name": "Priority_Use_H3_Subtitle",
+      "value": "Prioritize Using DOH's http/3"
+    },
+    {
+      "name": "DNS_Mode",
+      "value": "DNS Mode"
+    },
+    {
+      "name": "DNS_Mode_Subtitle",
+      "value": "fakeIP"
+    },
+    {
+      "name": "FakeIP_Range",
+      "value": "FakeIP Range"
+    },
+    {
+      "name": "FakeIP_Range_Subtitle_1",
+      "value": "198.18.0.1/16"
+    },
+    {
+      "name": "FakeIP_Filtering",
+      "value": "FakeIP Filtering"
+    },
+    {
+      "name": "Default_Domain_Name_Server",
+      "value": "Default Domain Name Server"
+    },
+    {
+      "name": "Default_Domain_Name_Server_Subtitle",
+      "value": "Used for resolving DNS servers"
+    },
+    {
+      "name": "Domain_Name_Server_Strategy",
+      "value": "Domain Name Server Strategy"
+    },
+    {
+      "name": "Domain_Name_Server_Strategy_Subtitle",
+      "value": "Specify the corresponding domain name server policy"
+    },
+    {
+      "name": "Domain_Name_Server",
+      "value": "Domain Name Server"
+    },
+    {
+      "name": "Domain_Name_Server_Subtitle",
+      "value": "Used for resolving domain names"
+    },
+    {
+      "name": "FallBack",
+      "value": "FallBack"
+    },
+    {
+      "name": "FallBack_Subtitle",
+      "value": "Usually using overseas DNS"
+    },
+    {
+      "name": "Proxy_Domain_Name_Server",
+      "value": "Proxy Domain Name Server"
+    },
+    {
+      "name": "Proxy_Domain_Name_Server_Subtitle",
+      "value": "Domain name used to resolve proxy nodes"
+    },
+    {
+      "name": "FallBack_Filtering",
+      "value": "FallBack Filtering"
+    },
+    {
+      "name": "GeoIP",
+      "value": "GeoIP"
+    },
+    {
+      "name": "GeoIP_Code",
+      "value": "GeoIP Code"
+    },
+    {
+      "name": "IP_Mask",
+      "value": "IP/Mask"
+    },
+    {
+      "name": "Domain_Name",
+      "value": "Domain Name"
+    },
+    {
+      "name": "GeoIP_Code_Subtitle_1",
+      "value": "CN"
+    },
+    {
+      "name": "GeoSite",
+      "value": "GeoSite"
+    },
+    {
+      "name": "Edit_FakeIP_Range",
+      "value": "Edit FakeIP Range"
+    },
+    {
+      "name": "Save",
+      "value": "Save"
+    },
+    {
+      "name": "Cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "stack_mode",
+      "value": "Stack Mode"
+    },
+    {
+      "name": "route_mode",
+      "value": "Route Mode"
+    },
+    {
+      "name": "using_configuration",
+      "value": "Using Configuration"
+    },
+    {
+      "name": "Routing_Address",
+      "value": "Routing Address"
+    },
+    {
+      "name": "Routing_Address_Subtitle",
+      "value": "Configure listening routing address"
+    },
+    {
+      "name": "query_ip_region",
+      "value": "Query IP Region"
+    },
+    {
+      "name": "query_ip_region_Subtitle",
+      "value": "Use third-party APIs to query the location of IP addresses"
+    },
+    {
+      "name": "Diversion_Strategy",
+      "value": "Diversion Strategy"
+    },
+    {
+      "name": "Add",
+      "value": "Add"
+    },
+    {
+      "name": "Add_Router_Address",
+      "value": "Add Router Address"
+    },
+    {
+      "name": "Add_FakeIPfilter",
+      "value": "Add FakeIP Filter"
+    },
+    {
+      "name": "SystemLanguage",
+      "value": "System Language"
+    },
+    {
+      "name": "SimplifiedChinese",
+      "value": "Simplified Chinese"
+    },
+    {
+      "name": "SimplifiedChinese_Subtitle",
+      "value": "简体中文"
+    },
+    {
+      "name": "TraditionalChinese_HK",
+      "value": "Traditional Chinese (Hong Kong, China)"
+    },
+    {
+      "name": "TraditionalChinese_HK_Subtitle",
+      "value": "繁體中文(中國香港)"
+    },
+    {
+      "name": "TraditionalChinese_TW",
+      "value": "Traditional Chinese (Taiwan, China)"
+    },
+    {
+      "name": "TraditionalChinese_TW_Subtitle",
+      "value": "繁體中文(中國台灣)"
+    },
+    {
+      "name": "English",
+      "value": "English(General)"
+    },
+    {
+      "name": "English_Subtitle",
+      "value": "English(General)"
+    },
+    {
+      "name": "GoodMorning",
+      "value": "Good Morning"
+    },
+    {
+      "name": "Good_Morning",
+      "value": "Good Morning"
+    },
+    {
+      "name": "Good_Afternoon",
+      "value": "Good Afternoon"
+    },
+    {
+      "name": "Good_afternoon",
+      "value": "Good Afternoon"
+    },
+    {
+      "name": "GoodNiight",
+      "value": "Good Night"
+    },
+    {
+      "name": "Sleep",
+      "value": "It's Time to Sleep"
+    },
+    {
+      "name": "Valentine",
+      "value": "Valentine's Day!"
+    },
+    {
+      "name": "Women",
+      "value": "Happy Women's Day!"
+    },
+    {
+      "name": "Tree",
+      "value": "Happy Arbor Day!"
+    },
+    {
+      "name": "Youth",
+      "value": "New Youth！"
+    },
+    {
+      "name": "Children",
+      "value": "Happy Children's Day!"
+    },
+    {
+      "name": "Teacher",
+      "value": "Happy Teachers' Day!"
+    },
+    {
+      "name": "National",
+      "value": "Happy National Day!"
+    },
+    {
+      "name": "Work",
+      "value": "Happy International Workers ' Day!"
+    },
+    {
+      "name": "None_Proxy",
+      "value": "Proxy"
+    },
+    {
+      "name": "Application_Version",
+      "value": "Application Version"
+    },
+    {
+      "name": "Kernel_Version",
+      "value": "Kernel Version"
+    },
+    {
+      "name": "experimental_function",
+      "value": "Experimental Function"
+    },
+    {
+      "name": "experimental_function_Subtitle",
+      "value": "Enabling the experimental function may lead to application instability"
+    },
+    {
+      "name": "collaborators",
+      "value": "List of Collaborators"
+    },
+    {
+      "name": "current_maintainer",
+      "value": "Current maintainer"
+    },
+    {
+      "name": "version_history",
+      "value": "Version history"
+    },
+    {
+      "name": "self_maintained_history",
+      "value": "ClashBox self-maintained versions (2.0.0 onward)"
+    },
+    {
+      "name": "upstream_history",
+      "value": "Original repository versions (1.7.4 and earlier)"
+    },
+    {
+      "name": "UseGuidance",
+      "value": "Use Guidance"
+    },
+    {
+      "name": "Check_Updates",
+      "value": "Check for Updates"
+    },
+    {
+      "name": "UpdateChannels",
+      "value": "Update Channels"
+    },
+    {
+      "name": "UpdateChannels_Subtitle1",
+      "value": "Github(Default)"
+    },
+    {
+      "name": "Auto_Check_Updates",
+      "value": "Automatically Check for Updates"
+    },
+    {
+      "name": "Official_Telegram_Channel",
+      "value": "Official Telegram Channel"
+    },
+    {
+      "name": "Official_Discord_Community",
+      "value": "Official Discord Community"
+    },
+    {
+      "name": "Development_Team_Email",
+      "value": "Development Team Email"
+    },
+    {
+      "name": "ProjectRepositories",
+      "value": "Project Repositories"
+    },
+    {
+      "name": "FAQ",
+      "value": "Frequent Questions"
+    },
+    {
+      "name": "XiaoBai_Subtitle",
+      "value": "Kernel porting and core function development"
+    },
+    {
+      "name": "FrondEnd_Development",
+      "value": "Frond-End Development"
+    },
+    {
+      "name": "KL_Subtitle",
+      "value": "UI design, Logo design, Functional planning"
+    },
+    {
+      "name": "Email",
+      "value": "Email"
+    },
+    {
+      "name": "ChuanZhang_Subtitle",
+      "value": "Coordination and Backend testing"
+    },
+    {
+      "name": "LLZL_Subtitle",
+      "value": "Provide inspiration for Logo design"
+    },
+    {
+      "name": "Dear_Group_Members",
+      "value": "Dear Group Members"
+    },
+    {
+      "name": "Dear_Group_Members_Subtitle",
+      "value": "Thank you for your suggestions qwq"
+    },
+    {
+      "name": "Confirm",
+      "value": "I got it"
+    },
+    {
+      "name": "Disclaimer_Content",
+      "value": "This software is only for non-commercial purposes such as learning, communication and scientific research. It is prohibited to use this software for commercial purposes. If there is any commercial activity, it has nothing to do with the software.and may encounter unknown bugs."
+    },
+    {
+      "name": "Speed_Delay",
+      "value": "The difference between speed and delay"
+    },
+    {
+      "name": "Speed_Delay_Content",
+      "value": "Speed: usually refers to network bandwidth, which determines the speed at which you download files, watch videos, and load images\nDelay: usually refers to the time of network ping, which determines your gaming experience and the speed of accessing web pages\nUsually, fast speed does not necessarily mean low latency, and low latency does not necessarily mean fast speed. There is no direct relationship between them"
+    },
+    {
+      "name": "Sure",
+      "value": "Sure"
+    },
+    {
+      "name": "Test_Speed_Explain",
+      "value": "By CloundFlare"
+    },
+    {
+      "name": "home_save_layout",
+      "value": "Do you want to save the current layout？"
+    },
+    {
+      "name": "Give_Up",
+      "value": "Give Up"
+    },
+    {
+      "name": "Collect_Tip",
+      "value": "Collected⭐"
+    },
+    {
+      "name": "uncollected_tip",
+      "value": "Uncollected💔"
+    },
+    {
+      "name": "Test_Delay_Tip",
+      "value": "Delayed speed measurement, please wait..."
+    },
+    {
+      "name": "dark_mode",
+      "value": "Dark Mode"
+    },
+    {
+      "name": "theme_color",
+      "value": "Theme Color"
+    },
+    {
+      "name": "homepage_greetings",
+      "value": "Homepage Greetings"
+    },
+    {
+      "name": "suspension_button_position",
+      "value": "Suspension Button Position"
+    },
+    {
+      "name": "blurred_background",
+      "value": "Blurred Background"
+    },
+    {
+      "name": "animation_speed",
+      "value": "Animation Speed"
+    },
+    {
+      "name": "homepage_greetings_subtitle",
+      "value": "Greetings from the homepage title"
+    },
+    {
+      "name": "blurred_background_subtitle",
+      "value": "Close to alleviate lag issues within the app"
+    },
+    {
+      "name": "animation_speed_subtitle",
+      "value": "Adjust animation speed or turn off animation"
+    },
+    {
+      "name": "star_river_blue",
+      "value": "Star River Blue"
+    },
+    {
+      "name": "cat_blue",
+      "value": "Cat Blue"
+    },
+    {
+      "name": "yellow",
+      "value": "Yellow"
+    },
+    {
+      "name": "red",
+      "value": "Red"
+    },
+    {
+      "name": "purple",
+      "value": "Purple"
+    },
+    {
+      "name": "pink",
+      "value": "Pink"
+    },
+    {
+      "name": "green",
+      "value": "Green"
+    },
+    {
+      "name": "follow_system",
+      "value": "Follow the System"
+    },
+    {
+      "name": "always_light",
+      "value": "Always Light Color"
+    },
+    {
+      "name": "always_dark",
+      "value": "Always Dark Color"
+    },
+    {
+      "name": "right",
+      "value": "Right"
+    },
+    {
+      "name": "middle",
+      "value": "Middle"
+    },
+    {
+      "name": "left",
+      "value": "Left"
+    },
+    {
+      "name": "color_preview",
+      "value": "Color Preview !"
+    },
+    {
+      "name": "configuration_1",
+      "value": "Configuration 1"
+    },
+    {
+      "name": "proxy_1",
+      "value": "Proxy 1"
+    },
+    {
+      "name": "home_edit",
+      "value": "Home Edit"
+    },
+    {
+      "name": "cloud_backup",
+      "value": "Cloud Backup"
+    },
+    {
+      "name": "backup",
+      "value": "Backup"
+    },
+    {
+      "name": "restore",
+      "value": "Restore"
+    },
+    {
+      "name": "cloud_backup_subtitle",
+      "value": "Connect to the server through the WebDav protocol"
+    },
+    {
+      "name": "backup_subtitle",
+      "value": "Back up application data locally"
+    },
+    {
+      "name": "restore_subtitle",
+      "value": "Restore data by backing up files"
+    },
+    {
+      "name": "enabled",
+      "value": "Enabled"
+    },
+    {
+      "name": "not_enabled",
+      "value": "Not Enabled"
+    },
+    {
+      "name": "webdav_config",
+      "value": "WebDav Config"
+    },
+    {
+      "name": "server_address",
+      "value": "Server Address"
+    },
+    {
+      "name": "account_name",
+      "value": "Account Name"
+    },
+    {
+      "name": "password",
+      "value": "Password"
+    },
+    {
+      "name": "log_on",
+      "value": "Log on"
+    },
+    {
+      "name": "connect_test",
+      "value": "Test Connection"
+    },
+    {
+      "name": "current_version",
+      "value": "Current Version"
+    },
+    {
+      "name": "latest_version",
+      "value": "Latest Version"
+    },
+    {
+      "name": "go_download_update",
+      "value": "Go to download update"
+    },
+    {
+      "name": "ignore_update",
+      "value": "Ignore this update"
+    },
+    {
+      "name": "go_download_update_subtitle",
+      "value": "Suggest activating the proxy first"
+    },
+    {
+      "name": "check_update_tips",
+      "value": "At present, we only support downloading updates from Github. You can also choose to join our"
+    },
+    {
+      "name": "check_update_tips_1",
+      "value": " to get updates."
+    },
+    {
+      "name": "check_update_tips_2",
+      "value": " channel"
+    },
+    {
+      "name": "simulate_locate",
+      "value": "Simulated Positioning"
+    },
+    {
+      "name": "simulate_locate_subtitle",
+      "value": "Simulate positioning to preserve the program backend"
+    },
+    {
+      "name": "simulate_pip",
+      "value": "Simulated PiP"
+    },
+    {
+      "name": "simulate_down",
+      "value": "Simulated Download"
+    },
+    {
+      "name": "simulate_down_subtitle",
+      "value": "By simulate downloading to preserve the program backend"
+    },
+    {
+      "name": "simulate_pip_subtitle",
+      "value": "Enable picture in picture to preserve the program background"
+    },
+    {
+      "name": "backgrounder_tips_2",
+      "value": " ⑥ Tablet and computer recommended task maintenance"
+    },
+    {
+      "name": "backgrounder_tips",
+      "value": "Hint:\n① Enabling it will increase the power consumption of the application, and please restart the software after simulating the positioning of the switch;\n② At present, it is known that the free multi window mode cannot actively initiate a picture in picture window, and the system will lock 90 frames after picture in picture is enabled;\n③ The simulated download notification cannot be deleted, otherwise the simulated download will become invalid;\n④ Simulated download notifications may be killed by the system, causing the simulated download function to fail. It is recommended to use simulated positioning or picture in picture functions unless necessary;\n"
+    },
+    {
+      "name": "backgrounder_tips_3",
+      "value": "⑤ If using simulated positioning, please authorize and allow location permissions while keeping the location switch enabled\n"
+    },
+    {
+      "name": "notice_main_switch",
+      "value": "The Main Switch of the Notice"
+    },
+    {
+      "name": "background_notice",
+      "value": "Background Notice"
+    },
+    {
+      "name": "background_notice_subtitle",
+      "value": "Not recommended to close"
+    },
+    {
+      "name": "cellular_data_reminder",
+      "value": "CellularData Reminder"
+    },
+    {
+      "name": "cellular_data_reminder_subtitle",
+      "value": "Reminder after reaching a certain limit of data usage"
+    },
+    {
+      "name": "time_reminder",
+      "value": "Time Reminder"
+    },
+    {
+      "name": "time_reminder_subtitle",
+      "value": "Reminder when VPN is not turned off for a long time"
+    },
+    {
+      "name": "simulate_locate_closed_tips",
+      "value": "Is it closed?"
+    },
+    {
+      "name": "simulate_locate_closed_content_text",
+      "value": "Turning off this option will result in ClashBox being unable to run in the background for extended periods of time."
+    },
+    {
+      "name": "simulate_down_open_tips",
+      "value": "Is it enabled?"
+    },
+    {
+      "name": "simulate_down_open_content_text",
+      "value": "Suggest using 'simulated positioning' to keep the application running in the background for a long time, as this option may result in faster battery consumption."
+    },
+    {
+      "name": "open",
+      "value": "Open"
+    },
+    {
+      "name": "close",
+      "value": "Close"
+    },
+    {
+      "name": "edit_router_address",
+      "value": "Edit Router Address"
+    },
+    {
+      "name": "edit_fakeIP_filter",
+      "value": "Edit FakeIP Filter"
+    },
+    {
+      "name": "min",
+      "value": "min"
+    },
+    {
+      "name": "day",
+      "value": "d"
+    },
+    {
+      "name": "hour",
+      "value": "h"
+    },
+    {
+      "name": "text_input_placeholder",
+      "value": "Please input"
+    },
+    {
+      "name": "reminder_time",
+      "value": "Reminder Time"
+    },
+    {
+      "name": "per_hour_notice",
+      "value": "Notice at per hour"
+    },
+    {
+      "name": "per_day_notice",
+      "value": "Notice at per day"
+    },
+    {
+      "name": "per_week_notice",
+      "value": "Notice at per week"
+    },
+    {
+      "name": "per_month_notice",
+      "value": "Notice at per month"
+    },
+    {
+      "name": "per_hour_notice_subtitle",
+      "value": "Remind when the Data used within one hour reaches the threshold"
+    },
+    {
+      "name": "per_day_notice_subtitle",
+      "value": "Remind when the Data used within a day reaches the threshold"
+    },
+    {
+      "name": "per_week_notice_subtitle",
+      "value": "Remind when the Data used within a week reaches the threshold"
+    },
+    {
+      "name": "per_month_notice_subtitle",
+      "value": "Remind when the Data used within a month reaches the threshold"
+    },
+    {
+      "name": "total_data_notice",
+      "value": "Total Notice"
+    },
+    {
+      "name": "total_data_notice_subtitle",
+      "value": "Remind when the usage of Data reaches the threshold"
+    },
+    {
+      "name": "threshold_data",
+      "value": "Threshold Data"
+    },
+    {
+      "name": "restart_app_tips",
+      "value": "Restart application to take effect"
+    },
+    {
+      "name": "restart_vpn_tips",
+      "value": "Restart the proxy service to take effect"
+    },
+    {
+      "name": "click_prompt",
+      "value": "Click the right switch"
+    },
+    {
+      "name": "vibrate_feedback",
+      "value": "Vibration Feedback"
+    },
+    {
+      "name": "background_notice_tips",
+      "value": "You have enabled the \"background operation\" option, and the resident notification cannot be turned off. To turn off the resident notification, please turn off the background operation first"
+    },
+    {
+      "name": "kernel_subtitle",
+      "value": "Switch clash kernel"
+    },
+    {
+      "name": "kernel",
+      "value": "Kernel"
+    },
+    {
+      "name": "query_ip_region_placeholder",
+      "value": "Support IPv4 and IPv6 addresses, enter key query"
+    },
+    {
+      "name": "ip_address_query_tips",
+      "value": "IP address query in progress"
+    },
+    {
+      "name": "ip_address_query_success_tips",
+      "value": "IP address query succeeded"
+    },
+    {
+      "name": "favorite_configuration_tips",
+      "value": "The configurations you have collected on the configuration page will be displayed here"
+    },
+    {
+      "name": "favorite_proxy_tips",
+      "value": "The nodes you have collected on the proxy page will be displayed here"
+    },
+    {
+      "name": "refresh_IP",
+      "value": "Refresh"
+    },
+    {
+      "name": "add_home_card",
+      "value": "Add Home Card"
+    },
+    {
+      "name": "proxy_info",
+      "value": "Proxy INFO"
+    },
+    {
+      "name": "refresh_IP2",
+      "value": "Refresh IP"
+    },
+    {
+      "name": "proxy_name",
+      "value": "Proxy Name"
+    },
+    {
+      "name": "beta_kernel_subtitle",
+      "value": "When enabled, the kernel under test will be displayed"
+    },
+    {
+      "name": "beta_kernel",
+      "value": "Beta kernel"
+    },
+    {
+      "name": "filter",
+      "value": "Filter"
+    },
+    {
+      "name": "not_filter",
+      "value": "Not Filter"
+    },
+    {
+      "name": "information_only",
+      "value": "Information only"
+    },
+    {
+      "name": "warning_only",
+      "value": "Warning only"
+    },
+    {
+      "name": "error_only",
+      "value": "Error only"
+    },
+    {
+      "name": "reset",
+      "value": "Reset"
+    },
+    {
+      "name": "override_reset_prompt",
+      "value": "Reset override settings?"
+    },
+    {
+      "name": "write_url",
+      "value": "Write URL"
+    },
+    {
+      "name": "title",
+      "value": "Title"
+    },
+    {
+      "name": "shortcuts_card",
+      "value": "Shortcuts Card"
+    },
+    {
+      "name": "shortcuts",
+      "value": "Shortcuts"
+    },
+    {
+      "name": "long_press_modify",
+      "value": "Long press or right-click to modify"
+    },
+    {
+      "name": "null_title_tips",
+      "value": "Please enter the website address and ensure that it contains' http (s)://' prefix!!!"
+    },
+    {
+      "name": "sound_feedback",
+      "value": "Sound Feedback"
+    },
+    {
+      "name": "option1",
+      "value": "Option1"
+    },
+    {
+      "name": "option2",
+      "value": "Option2"
+    },
+    {
+      "name": "option3",
+      "value": "Option3"
+    },
+    {
+      "name": "add_policy",
+      "value": "Add Policy"
+    },
+    {
+      "name": "edit_policy",
+      "value": "Edit Policy"
+    },
+    {
+      "name": "policy_name",
+      "value": "Policy Name"
+    },
+    {
+      "name": "resource_path",
+      "value": "Resource Path"
+    },
+    {
+      "name": "insert_resource",
+      "value": "Insert Resource"
+    },
+    {
+      "name": "insert_resource_subtitle",
+      "value": "The resource content is loaded before the local resource is loaded"
+    },
+    {
+      "name": "auto_update",
+      "value": "Auto Update"
+    },
+    {
+      "name": "disable_update",
+      "value": "Disable Update"
+    },
+    {
+      "name": "auto_update_interval",
+      "value": "Automatic update interval"
+    },
+    {
+      "name": "auto_update_subscription",
+      "value": "Auto-update subscription"
+    },
+    {
+      "name": "disable_subscription_update",
+      "value": "Disable subscription updates"
+    },
+    {
+      "name": "subscription_update_interval",
+      "value": "Subscription update interval"
+    },
+    {
+      "name": "update_subscription",
+      "value": "Update subscription"
+    },
+    {
+      "name": "updating_subscription",
+      "value": "Updating subscription…"
+    },
+    {
+      "name": "subscription_update_success",
+      "value": "Subscription updated"
+    },
+    {
+      "name": "subscription_update_failed",
+      "value": "Subscription update failed. Reactivate it or check the subscription URL"
+    },
+    {
+      "name": "delete_resource",
+      "value": "Delete Resource"
+    },
+    {
+      "name": "policy_name_placeholder",
+      "value": "Enter policy name ..."
+    },
+    {
+      "name": "resource_path_placeholder",
+      "value": "Enter URL ..."
+    },
+    {
+      "name": "saved",
+      "value": "Saved"
+    },
+    {
+      "name": "update",
+      "value": "Update"
+    },
+    {
+      "name": "delete",
+      "value": "Delete"
+    },
+    {
+      "name": "edit_resource",
+      "value": "Edit Resource"
+    },
+    {
+      "name": "now",
+      "value": "Now"
+    },
+    {
+      "name": "minutes_ago",
+      "value": "Minutes ago"
+    },
+    {
+      "name": "hours_ago",
+      "value": "Hours ago"
+    },
+    {
+      "name": "days_ago",
+      "value": "Days ago"
+    },
+    {
+      "name": "months_ago",
+      "value": "Months ago"
+    },
+    {
+      "name": "weeks_ago",
+      "value": "Weeks ago"
+    },
+    {
+      "name": "years_ago",
+      "value": "Years ago"
+    },
+    {
+      "name": "layout_saved",
+      "value": "Layout saved"
+    },
+    {
+      "name": "refresh_tips",
+      "value": "Refreshing，Please wait a moment..."
+    },
+    {
+      "name": "layout_restored",
+      "value": "Layout restored"
+    },
+    {
+      "name": "Import_from_url",
+      "value": "Import from URL"
+    },
+    {
+      "name": "update_success",
+      "value": "Update success"
+    },
+    {
+      "name": "update_failed",
+      "value": "Update failed: "
+    },
+    {
+      "name": "import_from_QR_code",
+      "value": "Import from QR code"
+    },
+    {
+      "name": "import_from_file",
+      "value": "Import from file"
+    },
+    {
+      "name": "new_blank_configuration",
+      "value": "New blank configuration"
+    },
+    {
+      "name": "add_config",
+      "value": "Add Configuration"
+    },
+    {
+      "name": "config_name",
+      "value": "Configuration Name"
+    },
+    {
+      "name": "enter_configuration_name",
+      "value": "Enter configuration name"
+    },
+    {
+      "name": "save_current_configuration",
+      "value": "Save current configuration?"
+    },
+    {
+      "name": "downloading_configuration_file",
+      "value": "Downloading configuration file"
+    },
+    {
+      "name": "cancel_download",
+      "value": "Cancel Download"
+    },
+    {
+      "name": "configuration_download_canceled",
+      "value": "Configuration download canceled"
+    },
+    {
+      "name": "updating_configuration_file",
+      "value": "Updating configuration file"
+    },
+    {
+      "name": "download_failed",
+      "value": "Download failed:"
+    },
+    {
+      "name": "switch_clashcore_tips",
+      "value": "Need to restart VPN service"
+    },
+    {
+      "name": "share",
+      "value": "Share"
+    },
+    {
+      "name": "generate_QR_code",
+      "value": "Generate QR code"
+    },
+    {
+      "name": "create_copy",
+      "value": "Create a copy"
+    },
+    {
+      "name": "delete_current_configuration",
+      "value": "Delete current configuration?"
+    },
+    {
+      "name": "click_error_prompt",
+      "value": "I knew you were wrong~"
+    },
+    {
+      "name": "config_share_prompt",
+      "value": "This configuration only supports sharing profiles"
+    },
+    {
+      "name": "configuration_deleted",
+      "value": "Configuration deleted"
+    },
+    {
+      "name": "fast",
+      "value": "Fast Speed"
+    },
+    {
+      "name": "normal",
+      "value": " Normal Speed"
+    },
+    {
+      "name": "low",
+      "value": "Low Speed"
+    },
+    {
+      "name": "sort",
+      "value": "Sort"
+    },
+    {
+      "name": "sort_name",
+      "value": "By name"
+    },
+    {
+      "name": "sort_time",
+      "value": "By time"
+    },
+    {
+      "name": "old_kernel",
+      "value": "Old Kernel"
+    },
+    {
+      "name": "new_kernel",
+      "value": "New Kernel"
+    },
+    {
+      "name": "open_core_prompt",
+      "value": "For more kernel options, please go to settings - about opening the \"experiment function\" option"
+    },
+    {
+      "name": "switch_core_prompt",
+      "value": "Note: After switching the kernel, you need to restart the VPN service.After enabling the foreground mode, After enabling the foreground mode, go to the background operation option and select a simulated background function to start"
+    },
+    {
+      "name": "switch_core_foreground_prompt",
+      "value": "Make sure to enable the background running function, otherwise the proxy function will fail."
+    },
+    {
+      "name": "loading",
+      "value": "Loading"
+    },
+    {
+      "name": "developing",
+      "value": "Developing"
+    },
+    {
+      "name": "edit_config",
+      "value": "Edit Config"
+    },
+    {
+      "name": "browse_local_files",
+      "value": "Browse local files"
+    },
+    {
+      "name": "provider",
+      "value": "Provider"
+    },
+    {
+      "name": "proxy_provider",
+      "value": "Proxy Provider"
+    },
+    {
+      "name": "update_by",
+      "value": "Update by"
+    },
+    {
+      "name": "usd_cellular_data",
+      "value": "Usd Cellular Data/"
+    },
+    {
+      "name": "total_cellular_data",
+      "value": "Total Cellular Data"
+    },
+    {
+      "name": "upload",
+      "value": "Upload"
+    },
+    {
+      "name": "updating",
+      "value": "Updating···"
+    },
+    {
+      "name": "rule_provider",
+      "value": "Rule Provider"
+    },
+    {
+      "name": "list_item_number",
+      "value": "List Item Number"
+    },
+    {
+      "name": "to",
+      "value": "Jump"
+    },
+    {
+      "name": "notice_request_to_settings",
+      "value": "Authorization jump pop-up window"
+    },
+    {
+      "name": "notice_request_to_settings_text",
+      "value": "You have cancelled the notification permission grant. Would you like to go to the settings page to grant notification permission for using reminder and other related functions."
+    },
+    {
+      "name": "runing_download_background",
+      "value": "Running simulation download"
+    },
+    {
+      "name": "key",
+      "value": "Key"
+    },
+    {
+      "name": "the_value",
+      "value": "Value"
+    },
+    {
+      "name": "cellular_data_tips",
+      "value": "(Click to enter the total traffic)"
+    },
+    {
+      "name": "input_cellular_data",
+      "value": "Enter total traffic"
+    },
+    {
+      "name": "import_config_file_tips",
+      "value": "Tips： After selecting the file, the name will be automatically filled in and a save button will be displayed."
+    },
+    {
+      "name": "start_prompt",
+      "value": "Please check configuration and proxy."
+    },
+    {
+      "name": "permission_reason_MICROPHONE",
+      "value": "Long term task audio recording"
+    },
+    {
+      "name": "bypass_private_route_address",
+      "value": "Bypass private routing address"
+    },
+    {
+      "name": "example",
+      "value": "Example"
+    },
+    {
+      "name": "s",
+      "value": "s"
+    },
+    {
+      "name": "flclash_subtitle",
+      "value": "Excellent open-source projects for reference and inspiration"
+    },
+    {
+      "name": "mihomo_subtitle",
+      "value": "An excellent open source kernel"
+    },
+    {
+      "name": "agree",
+      "value": "Agree"
+    },
+    {
+      "name": "refuse",
+      "value": "Disagree and withdraw"
+    },
+    {
+      "name": "download_success",
+      "value": "Success Download"
+    },
+    {
+      "name": "load_success",
+      "value": "Success Load"
+    },
+    {
+      "name": "favorite_proxy_no",
+      "value": "The current configuration can only collect up to 6 nodes"
+    },
+    {
+      "name": "favorite_config_no",
+      "value": "You can only save up to 6 configurations at most"
+    },
+    {
+      "name": "uncollected_all_tip",
+      "value": "All favorites have been cancelled\uD83D\uDC94"
+    },
+    {
+      "name": "backup_restore_subtitle",
+      "value": "Import and export backup"
+    },
+    {
+      "name": "settings_reset_prompt",
+      "value": "Reset application ?"
+    },
+    {
+      "name": "settings_reset_tips",
+      "value": "Application data has been cleared"
+    },
+    {
+      "name": "welcome",
+      "value": "Welcome to"
+    },
+    {
+      "name": "welcome_tips",
+      "value": "Click \"Entry Guidance\" to open the novice operation prompt."
+    },
+    {
+      "name": "reject_exit",
+      "value": "Reject and Exit"
+    },
+    {
+      "name": "agree_continue",
+      "value": "Agree and Continue"
+    },
+    {
+      "name": "crash_subtitle",
+      "value": "Please give the log to the developer for troubleshooting~"
+    },
+    {
+      "name": "crash_title",
+      "value": "Uh oh, it just seemed like a crash"
+    },
+    {
+      "name": "show_full_log",
+      "value": "Show full log information"
+    },
+    {
+      "name": "statement",
+      "value": "ClashBox is a free software with basic functions and we do not provide any additional services for it. Some networking services use third-party free API interfaces, so there is an access limit. If access exceptions occur, it is normal. For more third-party services, please go to the  "
+    },
+    {
+      "name": "statement_1",
+      "value": "to check."
+    },
+    {
+      "name": "third_party_services",
+      "value": "Third party services"
+    },
+    {
+      "name": "function_q",
+      "value": "Why does the node flash after completing the speed measurement"
+    },
+    {
+      "name": "function_a",
+      "value": "This is a normal phenomenon, and the purpose of doing so is to refresh the data in the list and minimize the possibility of memory leaks after speed measurement"
+    },
+    {
+      "name": "link_q",
+      "value": "Why is it easy to disconnect applications when they are running in the background"
+    },
+    {
+      "name": "link_a",
+      "value": "The background management of the current system is very strict. It is recommended to turn on the notification and simulation background functions of the software during use to maintain the stable connection of the application running in the background"
+    },
+    {
+      "name": "node_q",
+      "value": "Why do some people have fewer proxy nodes after importing configurations"
+    },
+    {
+      "name": "node_a",
+      "value": "Due to the fact that some service providers currently have very little UA support for ClashBox, it is recommended to add a&flag=meta after the subscription"
+    },
+    {
+      "name": "node_q2",
+      "value": "Part of the user agent nodes are reporting TIMEOUT for speed measurement"
+    },
+    {
+      "name": "node_a2",
+      "value": "Due to issues with some service providers' built-in DNS address resolution, you can enable the replication overwrite DNS function and restart ClashBox to ensure normal operation"
+    },
+    {
+      "name": "proxy_q",
+      "value": "Why is there no separate application proxy function"
+    },
+    {
+      "name": "proxy_a",
+      "value": "Due to the lack of official API for the corresponding function, it is currently not possible to implement such a feature. We will wait for the official API update before supporting it"
+    },
+    {
+      "name": "config_q",
+      "value": "Why some configurations cannot be imported or the agent is empty after import"
+    },
+    {
+      "name": "config_a",
+      "value": "It is recommended to use the subscription conversion tool to convert and then try to import. Below is the address of the subscription conversion. You can click to jump directly"
+    },
+    {
+      "name": "attach",
+      "value": "Attach:"
+    },
+    {
+      "name": "link",
+      "value": "Link"
+    },
+    {
+      "name": "game_q",
+      "value": "Why is there high lag or disconnection when playing games while Clash is running"
+    },
+    {
+      "name": "game_a",
+      "value": "Due to imperfect Clash rules and background issues, it is recommended to turn off Clash’s VPN function before playing games"
+    },
+    {
+      "name": "project",
+      "value": "Project"
+    },
+    {
+      "name": "know",
+      "value": "I know"
+    },
+    {
+      "name": "tips",
+      "value": "Tips"
+    },
+    {
+      "name": "start_pop",
+      "value": "You can only start after importing the configuration and loading it successfully"
+    },
+    {
+      "name": "config_pop",
+      "value": "You can press and hold the configuration for more operations~"
+    },
+    {
+      "name": "proxy_pop",
+      "value": "You can long press the proxy node to save and perform more operations~"
+    },
+    {
+      "name": "proxy_delay_pop",
+      "value": "This button can test the latency of all agents with just one click~"
+    },
+    {
+      "name": "home_start_button",
+      "value": "Home Start Button"
+    },
+    {
+      "name": "config_list_items",
+      "value": "Configure list items"
+    },
+    {
+      "name": "proxy_node_list_item",
+      "value": "Proxy node list item"
+    },
+    {
+      "name": "delay_test_button",
+      "value": "Delay Test Button"
+    },
+    {
+      "name": "download_url",
+      "value": "Download Link"
+    },
+    {
+      "name": "query_success",
+      "value": "Query was successful"
+    },
+    {
+      "name": "new_version",
+      "value": "New version found"
+    },
+    {
+      "name": "new_version_content",
+      "value": "New version found, do you want to update"
+    },
+    {
+      "name": "to_update",
+      "value": "Go to update"
+    },
+    {
+      "name": "no_link",
+      "value": "No download link"
+    },
+    {
+      "name": "string_display_preferences",
+      "value": "String Display Preferences"
+    },
+    {
+      "name": "information",
+      "value": "Information"
+    },
+    {
+      "name": "appearance",
+      "value": "Appearance"
+    },
+    {
+      "name": "string_display_preferences_subtitle",
+      "value": "Set the weight of string display"
+    },
+    {
+      "name": "edit_layout",
+      "value": "Edit Layout"
+    },
+    {
+      "name": "email_feedback",
+      "value": "Email feedback"
+    },
+    {
+      "name": "export_share",
+      "value": "Export share"
+    },
+    {
+      "name": "compatibility_mode",
+      "value": "Compatibility Mode"
+    },
+    {
+      "name": "compatibility_mode_subtitle",
+      "value": "Force sniffer on"
+    },
+    {
+      "name": "strategy",
+      "value": "Strategy"
+    },
+    {
+      "name": "not_modify",
+      "value": "Do not modify"
+    },
+    {
+      "name": "disabled",
+      "value": "Disabled "
+    },
+    {
+      "name": "overwrite_restart_tips",
+      "value": "Please restart the application after changing the override settings"
+    },
+    {
+      "name": "updating_config",
+      "value": "Configuration update in progress..."
+    },
+    {
+      "name": "updated_success_config",
+      "value": "Configuration updated successfully"
+    },
+    {
+      "name": "failed_load_config",
+      "value": "Failed to load configuration"
+    },
+    {
+      "name": "resource_updating",
+      "value": "Resource updating"
+    },
+    {
+      "name": "settings_count_vpn",
+      "value": "VPN process has been terminated by the system"
+    },
+    {
+      "name": "times",
+      "value": "times"
+    },
+    {
+      "name": "restart_tips",
+      "value": "The app will exit soon. Please reopen it."
+    },
+    {
+      "name": "view_detail",
+      "value": "View details"
+    },
+    {
+      "name": "offline",
+      "value": "VPN process recycling statistics"
+    },
+    {
+      "name": "id",
+      "value": "Serial number"
+    },
+    {
+      "name": "time",
+      "value": "Time"
+    },
+    {
+      "name": "px_sec_screen_tips",
+      "value": "Please expand the screen to access more features"
+    },
+    {
+      "name": "px_sec_screen_start",
+      "value": "Switch"
+    },
+    {
+      "name": "px_sec_screen_use_time",
+      "value": "Already run"
+    },
+    {
+      "name": "uncollected",
+      "value": "Uncollected"
+    },
+    {
+      "name": "not_open",
+      "value": "The project warehouse has not been opened yet"
+    },
+    {
+      "name": "ip_address_query_fail_tips",
+      "value": "Failed to query the IP address. Please check whether the address can be accessed normally."
+    },
+    {
+      "name": "enter_search",
+      "value": "Enter key search"
+    },
+    {
+      "name": "saved_download",
+      "value": "Saved to download directory"
+    },
+    {
+      "name": "export_failed",
+      "value": "Export failed"
+    },
+    {
+      "name": "welcome_go",
+      "value": "Entry Guidance"
+    },
+    {
+      "name": "welcome_quickly_go",
+      "value": "I’m a veteran"
+    },
+    {
+      "name": "complete",
+      "value": "Complete"
+    },
+    {
+      "name": "return",
+      "value": "Return"
+    },
+    {
+      "name": "resources_tips",
+      "value": "Because the IP access to GitHub in some regions is limited, please enable the proxy service before updating resources with the default address."
+    },
+    {
+      "name": "qq_copy",
+      "value": "QQ group number copied"
+    },
+    {
+      "name": "copy_qq_group",
+      "value": "Copy Group Number"
+    },
+    {
+      "name": "user_agreement",
+      "value": "User Agreement"
+    },
+    {
+      "name": "privacy_policy",
+      "value": "Statement on ClashBox and Privacy"
+    },
+    {
+      "name": "qa_tips",
+      "value": "Special note: in case of frequent VPN disconnection, it is recommended to use the foreground mode+simulate the background to achieve a more stable operation of the agent. In addition, the picture in picture window can be reduced to the border."
+    },
+    {
+      "name": "overwrite_dns_subtitle",
+      "value": "When enabled, the DNS option in the configuration will be overwritten"
+    },
+    {
+      "name": "xb_studio",
+      "value": "XiaoBai Studio"
+    },
+    {
+      "name": "access_control",
+      "value": "Access Control"
+    },
+    {
+      "name": "access_control_subtitle",
+      "value": "Configure application access proxy"
+    },
+    {
+      "name": "app_access_control",
+      "value": "Application Access Control"
+    },
+    {
+      "name": "white_list",
+      "value": "White list mode"
+    },
+    {
+      "name": "blacklist",
+      "value": "Blacklist mode"
+    },
+    {
+      "name": "white_list_tips",
+      "value": "The selected application will have VPN disabled"
+    },
+    {
+      "name": "blacklist_tips",
+      "value": "Only allow selected applications to use VPN"
+    },
+    {
+      "name": "selected",
+      "value": "Selected"
+    },
+    {
+      "name": "add_app",
+      "value": "Add App"
+    },
+    {
+      "name": "edit_app",
+      "value": "Edit App"
+    },
+    {
+      "name": "the_app_name",
+      "value": "App name"
+    },
+    {
+      "name": "package_name",
+      "value": "Package name"
+    },
+    {
+      "name": "mode",
+      "value": "Mode"
+    },
+    {
+      "name": "access_control_tips",
+      "value": "While VPN is running, changes rebuild it automatically; only non-container apps are supported"
+    },
+    {
+      "name": "exit",
+      "value": "Exit"
+    },
+    {
+      "name": "app_already_exist",
+      "value": "The application already exists"
+    },
+    {
+      "name": "status_icon_notice",
+      "value": "Resident Status Bar"
+    },
+    {
+      "name": "status_icon_tips",
+      "value": "Please turn off the app's ringtone and vibration in the settings before turning it back on."
+    },
+    {
+      "name": "status_bar_to",
+      "value": "You have enabled the resident status bar and need to turn off the app's ringtone and vibration in the settings. Do you want to go to the settings now?"
+    },
+    {
+      "name": "exit_window",
+      "value": "Close Window"
+    },
+    {
+      "name": "minimize_tray",
+      "value": "Minimize to tray"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "Card lifecycle description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "Card lifecycle name"
+    },
+    {
+      "name": "SwitchProxyWidget1x2_desc",
+      "value": "Card Size: 1×2"
+    },
+    {
+      "name": "SwitchProxyWidget1x2_display_name",
+      "value": "Switch Card"
+    },
+    {
+      "name": "SwitchProxyWidget2x2_display_name",
+      "value": "Switch Card"
+    },
+    {
+      "name": "SwitchProxyWidget2x2_desc",
+      "value": "Card Size: 2×2"
+    },
+    {
+      "name": "CurrentNodeWidget2x2_desc",
+      "value": "Card Size: 2×2"
+    },
+    {
+      "name": "IPAddressWidget2x2_desc",
+      "value": "Card Size: 2×2"
+    },
+    {
+      "name": "CurrentNodeWidget2x2_display_name",
+      "value": "Current Node Card"
+    },
+    {
+      "name": "IPAddressWidget2x2_display_name",
+      "value": "IP Address Card"
+    },
+    {
+      "name": "switch_proxy_title",
+      "value": "VPN Switch"
+    },
+    {
+      "name": "click",
+      "value": "Click"
+    },
+    {
+      "name": "enable_notice_failed",
+      "value": "Notification permission authorization failed, notification and its associated functions have been disabled"
+    },
+    {
+      "name": "notice_not_close_tips",
+      "value": "The notification cannot be closed"
+    },
+    {
+      "name": "incorrect_format",
+      "value": "Incorrect format"
+    },
+    {
+      "name": "coexist_notice",
+      "value": "Notification Coexistence"
+    },
+    {
+      "name": "coexist_notice_tips",
+      "value": "Allow coexistence of regular and backend notifications"
+    },
+    {
+      "name": "proxy_open_button",
+      "value": "Proxy page Start button"
+    },
+    {
+      "name": "card_tips",
+      "value": "First background requires\\nstarting twice"
+    },
+    {
+      "name": "update_log",
+      "value": "Update Log"
+    },
+    {
+      "name": "operation",
+      "value": "Operation"
+    },
+    {
+      "name": "keep_task",
+      "value": "Maintain tasks"
+    },
+    {
+      "name": "export_success",
+      "value": "Export successful"
+    },
+    {
+      "name": "import_success",
+      "value": "Import successful"
+    },
+    {
+      "name": "import_access",
+      "value": "Import access configuration"
+    },
+    {
+      "name": "export_access",
+      "value": "Export access configuration"
+    },
+    {
+      "name": "import_failed",
+      "value": "Import failed"
+    },
+    {
+      "name": "file_config_restore_tips",
+      "value": "Please note: ① Local backups are saved in Download > ClashBox; \n ② Local profiles in a backup must be selected one by one during restore; \n ③ After restore, select the profile you want to use on the Profiles page."
+    },
+    {
+      "name": "file_config_restore_toast_1",
+      "value": "Please select"
+    },
+    {
+      "name": "login_failed",
+      "value": "Login failed"
+    },
+    {
+      "name": "login_success",
+      "value": "Login successful"
+    },
+    {
+      "name": "not_login",
+      "value": "Not logged in"
+    },
+    {
+      "name": "logined_backup_subtitle",
+      "value": "Backup both locally and with WebDav"
+    },
+    {
+      "name": "logined_restore_subtitle",
+      "value": "Prioritize recovery from WebView, long press to restore locally"
+    },
+    {
+      "name": "cloud_files_title",
+      "value": "Select the backup file you want to restore"
+    },
+    {
+      "name": "configuration_shared",
+      "value": "Configuration Sharing"
+    },
+    {
+      "name": "export_config_file",
+      "value": "Export configuration file"
+    },
+    {
+      "name": "tun_ip",
+      "value": "Virtual IP address"
+    },
+    {
+      "name": "restore_tips",
+      "value": "\n ④ The app restarts automatically after a successful restore"
+    },
+    {
+      "name": "restore_tips_2",
+      "value": "\n ⑤ Profile ordering and favorites are not restored"
+    },
+    {
+      "name": "export_config_file_success",
+      "value": "Configuration file successfully exported to"
+    },
+    {
+      "name": "appName_isEmpty",
+      "value": "Application name cannot be empty"
+    },
+    {
+      "name": "appPackageName_isEmpty",
+      "value": "Application package name cannot be empty"
+    },
+    {
+      "name": "check_configured_URL",
+      "value": "Please check the configured URL"
+    },
+    {
+      "name": "float",
+      "value": "Float"
+    },
+    {
+      "name": "custom",
+      "value": "Custom"
+    },
+    {
+      "name": "tab_style",
+      "value": "Tab bar style"
+    },
+    {
+      "name": "qrcode_share",
+      "value": "QR Code Sharing"
+    },
+    {
+      "name": "qrcode_share_subtitle",
+      "value": "Supports system scan for quick sharing~"
+    },
+    {
+      "name": "qrcode_saved_to_gallery",
+      "value": "Saved to Gallery! 🖼"
+    },
+    {
+      "name": "qrcode_save_failed",
+      "value": "Failed to save QR code!"
+    },
+    {
+      "name": "qrcode_universal_link_subtitle",
+      "value": "Only supports scanning within this app and other App recognition~"
+    },
+    {
+      "name": "holding_hand_gesture",
+      "value": "Adaptive Hand Holding (Motion Sensing)"
+    },
+    {
+      "name": "holding_hand_gesture_subtitle",
+      "value": "Enabling will disable floating button position"
+    },
+    {
+      "name": "delete_old_data",
+      "value": "Clear residual old data"
+    },
+    {
+      "name": "online_search",
+      "value": "Online search"
+    },
+    {
+      "name": "delete_app_confirm",
+      "value": "Are you sure you want to remove this app from the list?"
+    },
+    {
+      "name": "add_success",
+      "value": "Added successfully"
+    },
+    {
+      "name": "delete_success",
+      "value": "Deleted successfully"
+    },
+    {
+      "name": "delete_failed",
+      "value": "Delete failed"
+    },
+    {
+      "name": "old_data_cleared_success",
+      "value": "Legacy data cleared successfully"
+    },
+    {
+      "name": "input_complete_info",
+      "value": "Please enter complete information"
+    },
+    {
+      "name": "cannot_add_self",
+      "value": "Cannot add self"
+    },
+    {
+      "name": "modify_success",
+      "value": "Modified successfully"
+    },
+    {
+      "name": "save_failed",
+      "value": "Save failed"
+    },
+    {
+      "name": "copy_to_whitelist",
+      "value": "Copied %s to whitelist"
+    },
+    {
+      "name": "copy_to_blacklist",
+      "value": "Copied %s to blacklist"
+    },
+    {
+      "name": "move_to_whitelist",
+      "value": "Moved %s to whitelist"
+    },
+    {
+      "name": "move_to_blacklist",
+      "value": "Moved %s to blacklist"
+    },
+    {
+      "name": "import_v2_success",
+      "value": "V2.0 imported %d items successfully"
+    },
+    {
+      "name": "import_legacy_success",
+      "value": "Legacy configuration imported successfully"
+    },
+    {
+      "name": "file_format_invalid",
+      "value": "Invalid file format"
+    },
+    {
+      "name": "no_results_found",
+      "value": "No results for %s"
+    },
+    {
+      "name": "no_apps_found",
+      "value": "No apps found"
+    },
+    {
+      "name": "submit_app_help_text",
+      "value": "You can submit app info to help us improve the database"
+    },
+    {
+      "name": "submit_app",
+      "value": "Submit App"
+    },
+    {
+      "name": "submit_app_info",
+      "value": "Submit App Info"
+    },
+    {
+      "name": "submitting",
+      "value": "Submitting..."
+    },
+    {
+      "name": "submit",
+      "value": "Submit"
+    },
+    {
+      "name": "app_id_tab",
+      "value": "AppID"
+    },
+    {
+      "name": "link_tab",
+      "value": "Link"
+    },
+    {
+      "name": "hint_input_app_id",
+      "value": "Enter AppID from Huawei AppGallery"
+    },
+    {
+      "name": "hint_input_package_name",
+      "value": "Enter app package name"
+    },
+    {
+      "name": "hint_input_app_link",
+      "value": "Enter Huawei AppGallery link"
+    },
+    {
+      "name": "hint_fill_app_info",
+      "value": "Please fill in app information"
+    },
+    {
+      "name": "placeholder_app_id",
+      "value": "e.g., C123456789"
+    },
+    {
+      "name": "placeholder_package_name",
+      "value": "e.g., com.example.app"
+    },
+    {
+      "name": "placeholder_app_link",
+      "value": "e.g., https://appgallery.huawei.com/app/C123456789"
+    },
+    {
+      "name": "submit_success_thanks",
+      "value": "Submitted successfully, thanks for your contribution!"
+    },
+    {
+      "name": "submit_failed_retry",
+      "value": "Submit failed, please try again later"
+    },
+    {
+      "name": "submit_failed_network",
+      "value": "Submit failed, please check your network"
+    },
+    {
+      "name": "package_name_exists",
+      "value": "Package name already exists"
+    },
+    {
+      "name": "online_search_tips_1",
+      "value": "1. Online search can only retrieve official market applications. Applications that have not been officially listed are not supported for retrieval; \n"
+    },
+    {
+      "name": "confirm",
+      "value": "Confirm"
+    },
+    {
+      "name": "delete_apps_confirm",
+      "value": "Confirm to delete the selected %s applications"
+    },
+    {
+      "name": "access_control_limit_msg",
+      "value": "Quota exceeded, added %d, skipped %s"
+    },
+    {
+      "name": "access_control_limit_msg_white",
+      "value": "The whitelist is full, and it supports up to 62 applications"
+    },
+    {
+      "name": "access_control_limit_msg_black",
+      "value": "The blacklist is full, and it supports up to 64 applications"
+    },
+    {
+      "name": "runtime_diagnostics",
+      "value": "Runtime & Diagnostics"
+    },
+    {
+      "name": "runtime_diagnostics_subtitle",
+      "value": "VPN, background task and core status"
+    },
+    {
+      "name": "runtime_status_title",
+      "value": "Live runtime status"
+    },
+    {
+      "name": "runtime_vpn_tunnel",
+      "value": "VPN tunnel"
+    },
+    {
+      "name": "runtime_background_task",
+      "value": "System continuous task"
+    },
+    {
+      "name": "runtime_core_rpc",
+      "value": "Core communication"
+    },
+    {
+      "name": "runtime_running",
+      "value": "Running"
+    },
+    {
+      "name": "runtime_stopped",
+      "value": "Stopped"
+    },
+    {
+      "name": "runtime_normal",
+      "value": "Normal"
+    },
+    {
+      "name": "runtime_abnormal",
+      "value": "Abnormal, recovering"
+    },
+    {
+      "name": "runtime_follow_vpn",
+      "value": "Starts with VPN"
+    },
+    {
+      "name": "runtime_not_ready",
+      "value": "Not ready"
+    },
+    {
+      "name": "runtime_architecture",
+      "value": "Core runtime location"
+    },
+    {
+      "name": "runtime_architecture_foreground",
+      "value": "App process (stable mode)"
+    },
+    {
+      "name": "runtime_disconnect_record",
+      "value": "VPN communication interruptions"
+    },
+    {
+      "name": "runtime_background_explanation",
+      "value": "The system continuous task follows the VPN lifecycle automatically. Legacy simulated location, download and blank PiP keep-alive modes are no longer required."
+    },
+    {
+      "name": "data_management",
+      "value": "Data management"
+    },
+    {
+      "name": "data_management_subtitle",
+      "value": "Reset UI, remove profiles or erase app data"
+    },
+    {
+      "name": "data_reset_ui",
+      "value": "Reset UI settings"
+    },
+    {
+      "name": "data_reset_ui_subtitle",
+      "value": "Reset appearance and notifications; keep profiles and accounts"
+    },
+    {
+      "name": "data_reset_ui_confirm",
+      "value": "The VPN will stop and UI preferences will reset. Profiles and platform accounts stay intact."
+    },
+    {
+      "name": "data_clear_profiles",
+      "value": "Remove profiles and accounts"
+    },
+    {
+      "name": "data_clear_profiles_subtitle",
+      "value": "Remove all profiles, node cache and platform credentials"
+    },
+    {
+      "name": "data_clear_profiles_confirm",
+      "value": "This permanently removes all profiles, node cache and platform credentials."
+    },
+    {
+      "name": "data_full_reset",
+      "value": "Full app reset"
+    },
+    {
+      "name": "data_full_reset_subtitle",
+      "value": "Erase profiles, accounts, overrides and all preferences"
+    },
+    {
+      "name": "data_full_reset_confirm",
+      "value": "Restore the app to first-install state and erase all local data."
+    },
+    {
+      "name": "data_confirm_reset",
+      "value": "Reset"
+    },
+    {
+      "name": "data_confirm_delete",
+      "value": "Delete"
+    },
+    {
+      "name": "data_management_tip",
+      "value": "Delete actions stop the VPN first. Platform credentials are stored separately with encryption and are erased by the corresponding action."
+    },
+    {
+      "name": "data_reset_complete",
+      "value": "UI settings reset"
+    },
+    {
+      "name": "data_profiles_cleared",
+      "value": "Profiles and accounts removed"
+    },
+    {
+      "name": "data_full_reset_complete",
+      "value": "App data fully reset"
+    },
+    {
+      "name": "data_operation_failed",
+      "value": "Data operation failed. Try again."
+    },
+    {
+      "name": "vpn_floating_window",
+      "value": "VPN floating window"
+    },
+    {
+      "name": "vpn_floating_window_subtitle",
+      "value": "Displays status only; it does not keep the VPN alive"
+    },
+    {
+      "name": "notice_main_switch_subtitle",
+      "value": "Controls normal app notifications"
+    },
+    {
+      "name": "speed_notification",
+      "value": "Show speed in VPN notification"
+    },
+    {
+      "name": "speed_notification_subtitle",
+      "value": "Merge current node and upload/download speed into the VPN tunnel notification"
+    },
+    {
+      "name": "vpn_system_notification_explanation",
+      "value": "Only one system continuous-task notification is shown while VPN is running. Enable the option above to show the node and live speed in that same notification."
+    },
+    {
+      "name": "backup_credentials_excluded",
+      "value": "Security note: backups include profiles and subscriptions, but exclude BitzNet and YHC passwords. Sign in again after restoring."
+    },
+    {
+      "name": "RuleTemplates",
+      "value": "Custom rule templates"
+    }
+  ]
+}

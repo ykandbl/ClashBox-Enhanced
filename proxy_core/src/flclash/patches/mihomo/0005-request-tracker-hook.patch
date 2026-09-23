@@ -1,0 +1,27 @@
+--- a/tunnel/statistic/tracker.go
++++ b/tunnel/statistic/tracker.go
+@@ -14,6 +14,9 @@ import (
+ 	"github.com/gofrs/uuid/v5"
+ )
+ 
++// DefaultRequestNotify exposes newly tracked connections to platform bridges.
++var DefaultRequestNotify = func(Tracker) {}
++
+ type Tracker interface {
+ 	ID() string
+ 	Close() error
+@@ -150,6 +153,7 @@ func NewTCPTracker(conn C.Conn, manager Manager, metadata Metadata, rule C.Rule,
+ 	}
+ 
+ 	manager.Join(t)
++	DefaultRequestNotify(t)
+ 	return t
+ }
+ 
+@@ -242,5 +246,6 @@ func NewUDPTracker(conn C.PacketConn, manager Manager, metadata Metadata, rule C
+ 	}
+ 
+ 	manager.Join(ut)
++	DefaultRequestNotify(ut)
+ 	return ut
+ }

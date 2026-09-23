@@ -1,0 +1,81 @@
+//go:build (ohos || android) && cgo
+
+package tun
+
+import "C"
+import (
+	"core/state"
+	"net"
+	"net/netip"
+
+	"github.com/metacubex/mihomo/constant"
+	LC "github.com/metacubex/mihomo/listener/config"
+	"github.com/metacubex/mihomo/listener/sing_tun"
+	"github.com/metacubex/mihomo/log"
+	"github.com/metacubex/mihomo/tunnel"
+)
+
+type Props struct {
+	Fd       int    `json:"fd"`
+	Gateway  string `json:"gateway"`
+	Gateway6 string `json:"gateway6"`
+	Portal   string `json:"portal"`
+	Portal6  string `json:"portal6"`
+	Dns      string `json:"dns"`
+	Dns6     string `json:"dns6"`
+}
+
+func Start(fd int, device string, stack constant.TUNStack, dnsHijack []string) (*sing_tun.Listener, error) {
+	log.Infoln("[ClashVPN-DIAG] tun options mtu=%d ipv6=%t fd=%d stack=%s", state.DefaultTunMtu, state.CurrentState.Ipv6, fd, stack)
+	var prefix4 []netip.Prefix
+	inet4Prefix4, err := netip.ParsePrefix(state.CurrentState.TunIp)
+	if err == nil {
+		prefix4 = append(prefix4, inet4Prefix4)
+	} else {
+		tempPrefix4, err := netip.ParsePrefix(state.DefaultIpv4Address)
+		if err != nil {
+			log.Errorln("startTUN tempPrefix4 error:", err)
+			return nil, err
+		}
+		prefix4 = append(prefix4, tempPrefix4)
+	}
+	var prefix6 []netip.Prefix
+
+	if state.CurrentState.Ipv6 {
+		tempPrefix6, err := netip.ParsePrefix(state.DefaultIpv6Address)
+		if err != nil {
+			log.Errorln("startTUN  tempPrefix6 error:", err)
+			return nil, err
+		}
+		prefix6 = append(prefix6, tempPrefix6)
+	}
+
+	if len(dnsHijack) == 0 {
+		dnsHijack = append(dnsHijack, net.JoinHostPort(state.GetDnsServerAddress(), "53"))
+	}
+
+	options := LC.Tun{
+		Enable:              true,
+		Device:              device,
+		Stack:               stack,
+		DNSHijack:           dnsHijack,
+		AutoRoute:           false,
+		AutoDetectInterface: false,
+		Inet4Address:        prefix4,
+		Inet6Address:        prefix6,
+		// Keep the userspace stack and the Harmony VPN interface on the same MTU.
+		// The previous 9000-byte value caused vpn-tun TX drops and long-lived
+		// HTTPS/streaming requests (notably ChatGPT) to stall indefinitely.
+		MTU:            uint32(state.DefaultTunMtu),
+		FileDescriptor: fd,
+	}
+
+	listener, err := sing_tun.New(options, tunnel.Tunnel)
+
+	if err != nil {
+		log.Errorln("startTUN error:", err)
+		return nil, err
+	}
+
+	return listener, nil
+}

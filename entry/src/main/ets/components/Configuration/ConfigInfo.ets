@@ -1,0 +1,564 @@
+import { BreakpointState } from "../../common/breakpoint/breakpointsystem"
+import {
+  FONT_SIZE_16,
+  BORDER_RADIUS_20,
+  LIST_SPACE,
+  LIST_ITEM_PADDING,
+  TEXT_AREA_MAX_LENGTH,
+  LIST_ITEM_HEIGHT_45,
+  TEXT_INPUT_HEIGHT,
+  FONT_SIZE_14,
+  CONFIG_AUTO_UPDATE_TIME_GAT_STRING_ARR,
+  LIST_ITEM_HEIGHT,
+  convertTimeGapToMilliseconds,
+} from "../../common/entity/Constants"
+import { hilog } from "@kit.PerformanceAnalysisKit"
+import { PromptAction } from "@kit.ArkUI"
+import { ConfigData } from "../../common/entity/PageArgumentEntity"
+import { customVibrator } from "../../common/utils/VibratorUtil"
+import { customSound } from "../../common/utils/SoundPoolUtil"
+import { UIConfig } from "../../entryability/AppState"
+import { customAnimationUtil } from "../../common/utils/Animation"
+import { NavigationListPadding } from "../../common/breakpoint/BreakPoint"
+
+const componentName: string = 'ConfigInfo'
+
+@Component
+export struct ConfigInfo {
+
+  /* 主题色 */
+  @Consume('icon_emphasize')
+  icon_emphasize: ResourceColor
+
+  // 配置详情
+  @Link @Watch("CalcMS") configData: ConfigData
+  /** 账号服务商字段不是 $$ 深层绑定，显式通知父组件重算保存按钮状态。 */
+  onAccountDataChange: () => void = () => {}
+
+  /* List */
+  // 配置是否自动更新
+  @State
+  private isConfigAutoUpdate: boolean = false
+  // 配置自动更新的间隔菜单显示文本默认值，用于获取string_array.json资源异常的时候显示
+  private configAutoUpdateTextPickerStringArr: Array<string> = CONFIG_AUTO_UPDATE_TIME_GAT_STRING_ARR
+
+  // 配置自动更新 已选择的间隔 index
+  /*@State
+  private configAutoUpdateTimeGapTextPickerSelectedIndex: number = 1*/
+  // 配置是否自动更新间隔菜单 是否显示
+  // @State
+  // private isShowConfigAutoUpdateMenu: boolean = false
+  // ListItem里自动更新间隔`TextPicker`组件所在的`ListItem`的高度
+  @State
+  private heightOfTextPickerInTheListItem: number = LIST_ITEM_HEIGHT_45
+  // ListItem里自动更新间隔`TextPicker`组件的`fontSize`
+  @State
+  private fontSizeOfTextPickerInTheListItem: number = FONT_SIZE_16
+  // ListItem里自动更新间隔`TextPicker`组件的`fontWeight`
+  @State
+  private fontWeightOfTextPickerInTheListItem: FontWeight = FontWeight.Medium
+  // ListItem里自动更新间隔`TextPicker`组件的分割线样式
+  @State
+  private dividerOfTextPickerInTheListItem: DividerOptions | null = null
+  // ListItem里自动更新间隔`TextPicker`组件的每个选择项高度
+  @State
+  private itemHeightOfTextPickerInTheListItem: number = FONT_SIZE_16 * 1.5
+  // ListItem里自动更新间隔`TextPicker`组件的渐隐效果
+  @State
+  private gradientHeightOfTextPickerInTheListItem: number = FONT_SIZE_16
+  // 高度断点
+  @StorageLink ('currentHeightBreakpoint') heightBp: HeightBreakpoint = 0
+  // 宽度断点
+  @StorageLink ('currentWidthBreakpoint') widthBp: WidthBreakpoint = 1
+  @StorageLink('uiConfig') uiConfig: UIConfig = new UIConfig()
+  // 主页面栈
+  private pageInfos: NavPathStack = AppStorage.get<NavPathStack>('NavPathStack') as NavPathStack
+  // 是否显示bindSheet
+  @StorageLink('ShowConfigBindSheet') isShowConfigAddBindSheet: boolean = false
+  // 自动更新警告
+  @State isWaring: boolean = false;
+
+  build() {
+    Scroll() {
+      Column({ space: 10 }) {
+      // 配置名input
+      Text($r('app.string.config_name')).fontColor($r('sys.color.font_secondary')).fontSize(FONT_SIZE_16)
+      TextInput({ text: $$this.configData.configName, placeholder: $r('app.string.enter_configuration_name') })
+        .width('100%')
+        .height(TEXT_INPUT_HEIGHT)
+        .borderRadius(BORDER_RADIUS_20)
+        .id('text_input_config_name')
+        .caretColor(this.icon_emphasize)
+        .maxLength(TEXT_AREA_MAX_LENGTH)
+        .enterKeyType(EnterKeyType.Next)
+        // .defaultFocus(true)
+        .clickEffect(customAnimationUtil.isClickEffect(this.uiConfig))
+        .onSubmit( (enterKey: EnterKeyType, event: SubmitEvent) => {
+          // 焦点切换给`URL`框
+          focusControl.requestFocus('text_area_config_url')
+          if (this.uiConfig.isVibrate) {
+            customVibrator.vibratorTriggerOfHapticClockTimer()
+          }
+        })
+
+
+      // 配置 URL
+      Text('URL').fontColor($r('sys.color.font_secondary')).fontSize(FONT_SIZE_16)
+      TextArea({ text: $$this.configData.configUrl, placeholder: $r('app.string.resource_path_placeholder') }).width('100%').height(TEXT_INPUT_HEIGHT * 2).borderRadius(BORDER_RADIUS_20)
+        .id('text_area_config_url')
+        .caretColor(this.icon_emphasize)
+        .maxLength(TEXT_AREA_MAX_LENGTH)
+        .wordBreak(WordBreak.BREAK_ALL)
+        .enterKeyType(this.configData.isConfigAutoUpdate ? EnterKeyType.Next : EnterKeyType.Done)
+        .type(TextAreaType.URL)
+        .clickEffect(customAnimationUtil.isClickEffect(this.uiConfig))
+        .onSubmit( (enterKey: EnterKeyType) => {
+          // 条件判断是否需要将焦点切换给`自动更新时间间隔`框
+          this.configData.isConfigAutoUpdate ? focusControl.requestFocus('text_input_auto_update_time') : null
+          if (this.uiConfig.isVibrate) {
+            customVibrator.vibratorTriggerOfHapticClockTimer()
+          }
+        })
+
+      // 账号区使用普通自适应容器，避免动态 ListItem 在真机上高度缓存后
+      // 出现文字重叠、输入框裁切。整个编辑页由外层 Scroll 统一负责滚动。
+      Column() {
+        Column({ space: 5 }) {
+          Text('账号服务商')
+            .fontColor($r('sys.color.font_primary'))
+            .fontSize(FONT_SIZE_16)
+            .fontWeight(FontWeight.Medium)
+          Text('可选登录；保存时验证账号，应用运行期间每分钟刷新账号资料')
+            .fontColor($r('sys.color.font_secondary'))
+            .fontSize(12)
+            .maxLines(2)
+        }
+        .width('100%')
+        .padding({ left: 16, right: 16, top: 14 })
+        .alignItems(HorizontalAlign.Start)
+
+        Row({ space: 8 }) {
+          this.ProviderButton('none', '未选择')
+          this.ProviderButton('bitznet', 'BitzNet')
+          this.ProviderButton('yhc', '萤火虫')
+        }
+        .width('100%')
+        .padding({ left: 16, right: 16, top: 12, bottom: 14 })
+
+        if ((this.configData.accountProvider ?? 'none') !== 'none') {
+          Divider()
+            .strokeWidth(0.5)
+            .color($r('sys.color.comp_divider'))
+            .margin({ left: 16, right: 16 })
+          Column({ space: 12 }) {
+            Text(`${this.getProviderName()}账号登录`)
+              .fontColor($r('sys.color.font_primary'))
+              .fontSize(14)
+              .fontWeight(FontWeight.Medium)
+            TextInput({ text: this.configData.accountUsername ?? '',
+              placeholder: `${this.getProviderName()}账号或邮箱` })
+              .width('100%')
+              .height(48)
+              .padding({ left: 14, right: 14 })
+              .borderRadius(14)
+              .backgroundColor($r('app.color.settings_container_background'))
+              .caretColor(this.icon_emphasize)
+              .type(InputType.Email)
+              .enableAutoFill(false)
+              .onChange((value: string) => {
+                this.configData.accountUsername = value
+                this.onAccountDataChange()
+              })
+            TextInput({ text: this.configData.accountPassword ?? '',
+              placeholder: `${this.getProviderName()}登录密码` })
+              .width('100%')
+              .height(48)
+              .padding({ left: 14, right: 14 })
+              .borderRadius(14)
+              .backgroundColor($r('app.color.settings_container_background'))
+              .caretColor(this.icon_emphasize)
+              .type(InputType.Password)
+              .showPasswordIcon(true)
+              .enableAutoFill(false)
+              .onChange((value: string) => {
+                this.configData.accountPassword = value
+                this.onAccountDataChange()
+              })
+            Row({ space: 6 }) {
+              SymbolGlyph($r('sys.symbol.lock_fill'))
+                .fontSize(13)
+                .fontColor([$r('sys.color.font_secondary')])
+              Text('凭据仅保存在本机加密数据库；保存时会先验证账号')
+                .fontColor($r('sys.color.font_secondary'))
+                .fontSize(12)
+                .maxLines(2)
+            }
+            .width('100%')
+            .alignItems(VerticalAlign.Center)
+          }
+          .width('100%')
+          .padding({ left: 16, right: 16, top: 14, bottom: 16 })
+          .alignItems(HorizontalAlign.Start)
+        }
+      }
+      .width('100%')
+      .height('auto')
+      .backgroundColor($r('app.color.container_background'))
+      .borderRadius(BORDER_RADIUS_20)
+
+      // 配置自动更新 & 禁用更新 START
+      List({space: LIST_SPACE}) {
+        ListItemGroup({style: ListItemGroupStyle.CARD}) {
+          // 禁用更新开关 START
+          ListItem({ style:ListItemStyle.CARD }) {
+            Row() {
+              Text($r('app.string.disable_subscription_update')).fontColor($r('sys.color.font_primary')).fontSize(FONT_SIZE_16)
+              Blank()
+              Toggle({ type: ToggleType.Switch, isOn: this.configData.disableUpdate })
+                .hitTestBehavior(HitTestMode.None)
+                .selectedColor(this.icon_emphasize)
+                .onChange((isOn: boolean) => {
+                  hilog.info(0xCA1A, componentName, `#ListItem#Toggle#自动更新状态: ${isOn}`)
+                  if (this.uiConfig.isVibrate) {
+                    customVibrator.vibratorTriggerOfHapticClockTimer()
+                  }
+                })
+            }.width('100%').alignItems(VerticalAlign.Center)
+          }
+          .height(LIST_ITEM_HEIGHT_45)
+          .padding(LIST_ITEM_PADDING)
+          .borderRadius(BORDER_RADIUS_20)
+          .clickEffect(customAnimationUtil.isClickEffect(this.uiConfig))
+          .onClick( ()=> {
+            // 禁用更新 显式动画
+            this.getUIContext()?.animateTo({
+              duration: this.uiConfig.animationSpeed
+            }, () => {
+              this.configData.disableUpdate = !this.configData.disableUpdate
+            })
+          })
+          // 禁用更新开关 END
+          // 自动更新开关 START
+          ListItem({ style:ListItemStyle.CARD }) {
+            Row() {
+              Text($r('app.string.auto_update_subscription')).fontColor($r('sys.color.font_primary')).fontSize(FONT_SIZE_16)
+              Blank()
+              Toggle({ type: ToggleType.Switch, isOn: this.configData.isConfigAutoUpdate })
+                .selectedColor(this.icon_emphasize)
+                .onChange((isOn: boolean) => {
+                  hilog.info(0xCA1A, componentName, `#ListItem#Toggle#自动更新状态: ${isOn}`)
+                  // 焦点置于`自动更新间隔`文本框
+                  focusControl.requestFocus('text_input_auto_update_time')
+                  if (this.uiConfig.isVibrate) {
+                    customVibrator.vibratorTriggerOfHapticClockTimer()
+                  }
+                  // 自动更新间隔 显式动画
+                  this.getUIContext()?.animateTo({
+                    duration: this.uiConfig.animationSpeed ,
+                    curve: Curve.Ease
+                  }, () => {
+                    this.configData.isConfigAutoUpdate = isOn
+                  })
+                  // （1. 新配置 || 2. 老配置之前没开自动更新，编辑的时候才打开自动更新）处理
+               /*   if (isOn){
+                    // `TextPicker` 默认选择`小时`
+                    this.uiConfig.autoUpdateTimeUtils ?? 1
+                  }*/
+                })
+            }.width('100%').alignItems(VerticalAlign.Center)
+          }
+          .height(LIST_ITEM_HEIGHT_45)
+          .padding(LIST_ITEM_PADDING)
+          .borderRadius(BORDER_RADIUS_20)
+          .clickEffect(customAnimationUtil.isClickEffect(this.uiConfig))
+          .onClick( ()=> {
+            // 自动更新间隔 显式动画
+            this.getUIContext()?.animateTo({
+              duration: this.uiConfig.animationSpeed
+            }, () => {
+              this.configData.isConfigAutoUpdate = !this.configData.isConfigAutoUpdate
+            })
+          })
+          // 自动更新开关 END
+
+          // 自动更新间隔 START
+          if (this.configData.isConfigAutoUpdate) {
+            ListItem({ style:ListItemStyle.CARD }){
+              Row(){
+                Text($r('app.string.subscription_update_interval')).fontColor($r('sys.color.font_primary')).fontSize(FONT_SIZE_16)
+                Blank()
+                Row(){
+                  // 警告内容
+                  if (this.isWaring) Text('最小值为1').fontColor(Color.Orange)
+
+                  TextInput({ text: this.configData.configAutoUpdateTimeGapValue?.toString(), placeholder: $r('app.string.text_input_placeholder') })
+                    .width(50)
+                    .height(30)
+                    .padding(0)
+                    .fontColor($r('sys.color.font_secondary'))
+                    .fontSize(FONT_SIZE_16)
+                    .lineHeight(FONT_SIZE_16)
+                    .placeholderFont({size: FONT_SIZE_14})
+                    .textAlign(TextAlign.Center)
+                    .backgroundColor(Color.Transparent)
+                    .borderRadius(0)
+                    .border({
+                      color: { top: Color.Transparent, bottom: this.icon_emphasize },
+                      width: { top: 1, bottom: 1 },
+                      style: { top: null, right: null, bottom: BorderStyle.Solid, left: null}
+                    })
+                    .id('text_input_auto_update_time')
+                    .caretColor(this.icon_emphasize)
+                    .maxLength(5)
+                    .enterKeyType(EnterKeyType.Done)
+                    .type(InputType.Number)
+                    .onChange((text: string) => {
+                      // 最小值为 1
+                      if (text == "0") {
+                        this.getUIContext().animateTo({
+                          duration: 400,
+                          curve: Curve.Ease
+                        },() => {
+                          text = "1"
+                          this.isWaring = true
+                        })
+                      } else {
+                        setTimeout(()=> {
+                          this.getUIContext().animateTo({
+                            duration: 400,
+                            curve: Curve.Ease
+                          },() => {
+                            this.isWaring = false
+                          })
+                        }, 1400)
+                      }
+
+                      this.configData.configAutoUpdateTimeGapValue = Number(text)
+                      this.CalcMS()
+                    })
+                    .onSubmit( (enterKey: EnterKeyType, event: SubmitEvent) => {
+                      if (this.uiConfig.isVibrate) {
+                        customVibrator.vibratorTriggerOfHapticClockTimer()
+                      }
+                    })
+                    // 干喔~不知道为什么放在ListItem里面不生效
+                    // .showUnderline(true)
+                  TextPicker({
+                    range: $r('app.strarray.config_auto_update_text_picker'),
+                    selected: $$this.configData.configAutoUpdateTimeGapTextPickerIndex
+                  })
+                    .canLoop(false)
+                    .width(60)
+                    .height(this.heightOfTextPickerInTheListItem)
+                    // .backgroundColor('#ffffc0c0')
+                    .defaultPickerItemHeight(this.itemHeightOfTextPickerInTheListItem)
+                    .gradientHeight(this.gradientHeightOfTextPickerInTheListItem)
+                    .selectedTextStyle({
+                      color: this.icon_emphasize,
+                      font: {
+                        size: this.fontSizeOfTextPickerInTheListItem,
+                        weight: this.fontWeightOfTextPickerInTheListItem
+                      }
+                    })
+                    .divider(this.dividerOfTextPickerInTheListItem)
+                    .onChange( () => {
+                      if (this.uiConfig.isVibrate) {
+                        customVibrator.vibratorTriggerOfHapticClockTimer()
+                      }
+                      if(this.uiConfig.isSound) {
+                        customSound.playAudioForSoundPool()
+                      }
+                      console.info('autoUpdateTimeUtils1',this.configData.configAutoUpdateTimeGapTextPickerIndex)
+
+                      this.CalcMS()
+                    })
+                    // 手指按下之后静态
+                    // .onHover( (isHover: boolean, event: HoverEvent) => {
+                    //
+                    // })
+                    // 手指触摸动态改变`TextPicker`和所在`ListItem`的样式
+                    .onTouch((event: TouchEvent) => {
+                      let ctx = this.getUIContext()
+                      if (event.type === TouchType.Down) {
+                        ctx.animateTo({
+                          duration: this.uiConfig.animationSpeed ,
+                          curve: Curve.Ease
+                        }, () => {
+                          this.heightOfTextPickerInTheListItem = 100
+                          this.fontSizeOfTextPickerInTheListItem = FONT_SIZE_16 * 1.5
+                          this.fontWeightOfTextPickerInTheListItem = FontWeight.Bold
+                          this.dividerOfTextPickerInTheListItem = {
+                            strokeWidth: 1,
+                            startMargin: 5,
+                            endMargin: 5,
+                            color: this.icon_emphasize
+                          }
+                          this.itemHeightOfTextPickerInTheListItem = FONT_SIZE_16 * 2
+                          this.gradientHeightOfTextPickerInTheListItem = FONT_SIZE_16 * 2
+                        })
+                      } else if (event.type === TouchType.Up){
+                        ctx.animateTo({
+                          duration: this.uiConfig.animationSpeed ,
+                          curve: Curve.Ease
+                        }, () => {
+                          this.heightOfTextPickerInTheListItem = LIST_ITEM_HEIGHT
+                          this.fontSizeOfTextPickerInTheListItem = FONT_SIZE_16
+                          this.fontWeightOfTextPickerInTheListItem = FontWeight.Medium
+                          this.dividerOfTextPickerInTheListItem = null
+                          this.itemHeightOfTextPickerInTheListItem = FONT_SIZE_16 * 1.5
+                          this.gradientHeightOfTextPickerInTheListItem = FONT_SIZE_16
+                        })
+                      }
+                    })
+                    // .animation({ duration: this.uiConfig.animationSpeed , curve: Curve.Ease })
+                }
+                .width('auto')
+              }.width('100%').alignItems(VerticalAlign.Center)
+            }
+            .height(this.heightOfTextPickerInTheListItem)
+            .padding(LIST_ITEM_PADDING)
+            .borderRadius(BORDER_RADIUS_20)
+            .clickEffect(customAnimationUtil.isClickEffect(this.uiConfig))
+            .animation({ duration: this.uiConfig.animationSpeed , curve: Curve.Ease })
+          }
+          // 自动更新间隔 END
+
+          // 编辑配置内容
+          if (this.configData.configId !== 'new' && !this.configData.isNewConfig) {
+            ListItem() {
+              Row() {
+                SymbolGlyph($r('sys.symbol.doc_plaintext_and_pencil'))
+                  .fontSize(24)
+                  .margin({left: 12})
+                  .fontColor([this.icon_emphasize])
+                  .transition(customAnimationUtil.isScaleTranIcon(10, this.uiConfig))
+                Text($r('app.string.edit_config'))
+                  .fontWeight(FontWeight.Medium)
+                  .fontSize(16)
+                  .margin({ left: 12 })
+                Blank()
+              }
+              .height(53)
+              .width('100%')
+              .borderRadius(20)
+              .backgroundColor($r('app.color.container_background'))
+              .clickEffect(customAnimationUtil.isClickEffect(this.uiConfig))
+              .onClick(() => {
+                // 关闭编辑配置页
+                this.isShowConfigAddBindSheet = false
+                // 跳转编辑文本页
+                this.pageInfos.pushPathByName('EditConfigContent', this.configData.configId, true)
+              })
+            }
+          }
+
+        }
+        .margin({right: 0, left: 0 })
+        .divider({
+          strokeWidth: 0.4,
+          color: $r('sys.color.comp_divider'),
+          startMargin: LIST_ITEM_PADDING.left,
+          endMargin: LIST_ITEM_PADDING.right
+        })
+
+      }
+      .width('100%')
+      .height('auto')
+      .borderRadius(BORDER_RADIUS_20)
+      .backgroundColor($r('app.color.container_background'))
+      // 配置自动更新 & 禁用更新 END
+
+      }
+      .width('100%')
+      .height('auto')
+      .padding({
+        left: NavigationListPadding(this.widthBp, this.heightBp),
+        right: NavigationListPadding(this.widthBp, this.heightBp),
+        bottom: 24
+      })
+      .alignItems(HorizontalAlign.Start)
+    }
+    .width('100%')
+    .height('100%')
+    .scrollBar(BarState.Auto)
+    .edgeEffect(EdgeEffect.Spring)
+    .backgroundColor($r('app.color.background'))
+  }
+
+  @Builder
+  ProviderButton(provider: string, label: string) {
+    Button(label, { type: ButtonType.Capsule })
+      .layoutWeight(1)
+      .height(36)
+      .fontSize(13)
+      .fontWeight(FontWeight.Medium)
+      .fontColor((this.configData.accountProvider ?? 'none') === provider ?
+        Color.White : $r('sys.color.font_secondary'))
+      .backgroundColor((this.configData.accountProvider ?? 'none') === provider ?
+        this.icon_emphasize : $r('app.color.settings_container_background'))
+      .onClick(() => {
+        if ((this.configData.accountProvider ?? 'none') !== provider) {
+          this.configData.accountProvider = provider
+          this.configData.accountUsername = ''
+          this.configData.accountPassword = ''
+          this.onAccountDataChange()
+        }
+        if (this.uiConfig.isVibrate) {
+          customVibrator.vibratorTriggerOfHapticClockTimer()
+        }
+      })
+  }
+
+  private getProviderName(): string {
+    return this.configData.accountProvider === 'yhc' ? '萤火虫' : 'BitzNet'
+  }
+
+  aboutToAppear(): void {
+    hilog.info(0xCA1A, componentName, `#aboutToAppear executed`)
+    // this.getConfigAutoUpdateMenuStringArr()
+    if(this.uiConfig.isSound) {
+      customSound.initSoundPool(3, 'beat_short.wav')
+    }
+  }
+
+  aboutToDisappear(): void {
+    hilog.info(0xCA1A, componentName, `#aboutToDisappear executed`)
+    customSound.destroySoundPool()
+  }
+
+  /**
+   * TODO `bindMenu`改成了`TextPicker`，支持直接使用Resource的方式来适应系统语言的改变
+   * 从系统资源里 获取菜单集合值
+   *    因为[自动更新间隔]不止是展示的，还有对应的value需要用，所以不是直接用的`$r()`格式使用的，
+   *    就导致如果系统语言环境改变之后，需要手动适配更新[自动更新间隔]对应的string数组
+   */
+ /* getConfigAutoUpdateMenuStringArr() {
+    try {
+      let resourceManager = this.getUIContext().getHostContext()?.resourceManager
+      let configAutoUpdateTimeGapStringArr = resourceManager?.getStringArrayValueSync($r('app.strarray.config_auto_update_text_picker').id) as Array<string>
+      hilog.info(0xCA1A, componentName, `#aboutToAppear#getStringArrayValueSync($r('app.strarray.config_auto_update_menu')#configAutoUpdateMenuStringArr: index[${configAutoUpdateTimeGapStringArr.length}], value [${configAutoUpdateTimeGapStringArr}])}`)
+      if (configAutoUpdateTimeGapStringArr.length <= 0) {
+        this.promptAction.showToast({message: `菜单数据获取失败！`})
+        hilog.error(0xCA1A, componentName, `#aboutToAppear#getStringArrayValueSync($r('app.strarray.config_auto_update_menu')#ERROR: 配置自动更新时间间隔菜单数据获取数据为空！`)
+      } else {
+        // 给菜单赋值
+        configAutoUpdateTimeGapStringArr.forEach( (item: string, index) => {
+          this.configAutoUpdateMenuStringArr[index] = item
+        })
+      }
+    } catch (e) {
+      let error = e as BusinessError;
+      hilog.error(0xCA1A, componentName, `#aboutToAppear#getStringArrayValueSync($r('app.strarray.config_auto_update_menu')#ERROR: code is [${error.code}],message is [${error.message}]`)
+    }
+  }*/
+
+  /** @description 计算毫秒值
+   *  时间间隔 和 单位 字段发生改变就重新计算毫秒值
+   * */
+  CalcMS() {
+    this.configData.configAutoUpdateTimeGapMs = convertTimeGapToMilliseconds(
+      this.configData.configAutoUpdateTimeGapValue ?? 10,
+      this.configData.configAutoUpdateTimeGapTextPickerIndex
+    )
+  }
+}

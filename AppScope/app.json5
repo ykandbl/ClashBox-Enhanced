@@ -1,0 +1,10 @@
+{
+  "app": {
+    "bundleName": "org.xbgroup.clashboxLTS",
+    "vendor": "BaiLe",
+    "versionCode": 2000000,
+    "versionName": "2.0.0",
+    "icon": "$media:layered_image",
+    "label": "$string:app_name"
+  }
+}
